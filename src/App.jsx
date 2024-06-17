@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./Components/Nav";
 import Home from "./Pages/Home";
-import Almacen from "./Pages/Almacen";
+import Catalogo from "./Pages/Catalogo";
 import Materiales from "./Pages/Materiales";
 import FormTable from "./Components/FormTable";
 import { useState } from "react";
@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/Almacen" element={<Almacen />} />
+          <Route path="/Catalogo" element={<Catalogo />} />
           <Route path="/Materiales" element={<Materiales />} />
           <Route
             path="/AddMaterial"

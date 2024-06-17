@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BiCategory, BiHome, BiSolidTag } from "react-icons/bi";
 import { CgToolbox } from "react-icons/cg";
 
+// eslint-disable-next-line react/prop-types
 const Nav = ({ toggle, color, move, bgcolor }) => {
   return (
     <div>
@@ -23,8 +24,8 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
           <Link to={"/Home"}>
             <NavButtons icon={<BiHome />} title={"Inicio"} />
           </Link>
-          <Link to={"/Almacen"}>
-            <NavButtons icon={<BiCategory />} title={"Almacen"} />
+          <Link to={"/Catalogo"}>
+            <NavButtons icon={<BiCategory />} title={"Catalogo"} />
           </Link>
           <Link to={"/Materiales"}>
             <NavButtons icon={<CgToolbox />} title={"Materiales"} />

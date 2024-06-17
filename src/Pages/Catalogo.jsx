@@ -1,7 +1,7 @@
 import Busqueda from "../Components/Busqueda";
 import Productos from "../Components/Productos";
 
-const Almacen = () => {
+const Catalogo = () => {
   return (
     <div className="col-span-5 pt-4 px-8">
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
@@ -31,7 +31,7 @@ const Almacen = () => {
           </button>
         </div>
       </div>
-      <div className="pt-8 flex flex-wrap gap-6 grid grid-cols-6">
+      <div className="pt-8 flex-wrap gap-6 grid grid-cols-6">
         <Productos />
         <Productos />
         <Productos />
@@ -49,4 +49,4 @@ const Almacen = () => {
   );
 };
 
-export default Almacen;
+export default Catalogo;

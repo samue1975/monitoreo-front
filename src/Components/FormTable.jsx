@@ -18,7 +18,7 @@ const FormTable = ({ grid, error, text, border }) => {
           MENSAJE DE ERROR
         </div>
         {/* FLECHA PARA IR HACIA ATRAS */}
-        <Link className="text-xl text-[#292929] size-4" to={"/Materiales"}>
+        <Link className="text-xl text-[#292929] size-4" to={"/Inventario"}>
           <BiArrowBack />
         </Link>
         {/* TODO EL FORULARIO */}

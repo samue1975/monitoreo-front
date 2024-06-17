@@ -31,7 +31,7 @@ const Catalogo = () => {
           </button>
         </div>
       </div>
-      <div className="pt-8 flex-wrap gap-6 grid grid-cols-6">
+      <div className="pt-8 flex-wrap gap-6 grid grid-cols-5">
         <Productos />
         <Productos />
         <Productos />

@@ -17,7 +17,7 @@ const Inventario = () => {
             <IoIosArrowDown />
           </div>
           <div className="flex flex-wrap items-end bg-[#292929] text-white p-2 rounded-xl gap-2">
-            <p>Filter1:</p>
+            <p>Filter:</p>
             <input
               className=" outline-none border-none bg-transparent w-14"
               type="text"

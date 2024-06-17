@@ -1,0 +1,9 @@
+.element:hover #pelota {
+  width: 2rem /* 16px */;
+  height: 2rem /* 16px */;
+}
+
+#pelota {
+  width: 1rem /* 16px */;
+  height: 1rem /* 16px */;
+}

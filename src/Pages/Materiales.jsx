@@ -17,7 +17,7 @@ const Materiales = () => {
             <IoIosArrowDown />
           </div>
           <div className="flex flex-wrap items-end bg-[#292929] text-white p-2 rounded-xl gap-2">
-            <p>Filter:</p>
+            <p>Filter1:</p>
             <input
               className=" outline-none border-none bg-transparent w-14"
               type="text"

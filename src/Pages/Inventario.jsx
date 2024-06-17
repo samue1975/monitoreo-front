@@ -4,7 +4,7 @@ import BodyTable from "../Components/BodyTable";
 import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
 
-const Materiales = () => {
+const Inventario = () => {
   return (
     <div className="col-span-5 pt-4">
       {/* Apartado de busqueda y botones */}
@@ -64,4 +64,4 @@ const Materiales = () => {
   );
 };
 
-export default Materiales;
+export default Inventario;

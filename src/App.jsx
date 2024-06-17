@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./Components/Nav";
 import Home from "./Pages/Home";
 import Catalogo from "./Pages/Catalogo";
-import Materiales from "./Pages/Materiales";
+import Inventario from "./Pages/Inventario";
 import FormTable from "./Components/FormTable";
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ function App() {
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Catalogo" element={<Catalogo />} />
-          <Route path="/Materiales" element={<Materiales />} />
+          <Route path="/Inventario" element={<Inventario />} />
           <Route
             path="/AddMaterial"
             element={

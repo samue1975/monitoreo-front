@@ -27,8 +27,8 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
           <Link to={"/Catalogo"}>
             <NavButtons icon={<BiCategory />} title={"Catalogo"} />
           </Link>
-          <Link to={"/Materiales"}>
-            <NavButtons icon={<CgToolbox />} title={"Materiales"} />
+          <Link to={"/Inventario"}>
+            <NavButtons icon={<CgToolbox />} title={"Inventario"} />
           </Link>
         </div>
       </div>

@@ -1,0 +1,1 @@
+npm install -D tailwindcss postcss autoprefixer -E react-router react-icons echarts

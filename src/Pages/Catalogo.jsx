@@ -1,5 +1,7 @@
+import { IoIosAdd } from "react-icons/io";
 import Busqueda from "../Components/Busqueda";
 import Productos from "../Components/Productos";
+import { Link } from "react-router-dom";
 
 const Catalogo = () => {
   return (
@@ -29,13 +31,16 @@ const Catalogo = () => {
           <button className="hover:bg-[#292929] hover:text-white bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl">
             Todo
           </button>
+          <button className="bg-[#292929] text-white hover:bg-[#f6f6f6] hover:text-[#292929] shadow px-2 py-1 border rounded-xl">
+            <Link className="flex flex-wrap items-end" to={"/AddMaterial"}>
+              Agregar <IoIosAdd className="text-2xl" />
+            </Link>
+          </button>
         </div>
       </div>
       <div className="pt-8 flex-wrap gap-6 grid grid-cols-5">
         <Productos
-          foto={
-            "https://pngimg.com/uploads/server/server_PNG23.png"
-          }
+          foto={"https://pngimg.com/uploads/server/server_PNG23.png"}
           titulo={"Servidor Rack"}
           descripcion={"Equipo"}
         />

@@ -28,7 +28,7 @@ const Inventario = () => {
 
           <Link
             className="flex flex-wrap items-end bg-[#292929] text-white p-2 rounded-xl cursor-pointer"
-            to={"/AddMaterial"}
+            to={"/AddInventario"}
           >
             Agregar <IoIosAdd className="text-2xl" />
           </Link>

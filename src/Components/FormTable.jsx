@@ -247,7 +247,9 @@ const FormTable = ({ grid, error, text, border }) => {
             />
           </div>
           {/* SELECCIONAR IMAGEN */}
-          <div className="pt-1"></div>
+          <div className="pt-1">
+            <SelectImg />
+          </div>
         </div>
         {/* ACEPTAR Y CANCELAR */}
         <div className="flex flex-wrap justify-around">

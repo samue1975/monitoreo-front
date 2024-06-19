@@ -5,6 +5,7 @@ import Catalogo from "./Pages/Catalogo";
 import Inventario from "./Pages/Inventario";
 import FormTable from "./Components/FormTable";
 import { useState } from "react";
+import InventarioTabla from "./Components/InventarioTabla";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -39,6 +40,7 @@ function App() {
               />
             }
           />
+          <Route path="/AddInventario" element={<InventarioTabla />} />
         </Routes>
       </div>
     </>

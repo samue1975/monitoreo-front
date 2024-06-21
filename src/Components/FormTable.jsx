@@ -1,7 +1,7 @@
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import SelectImg from "./SelectImg";
-import ErrorMsg from "./ErrorMsg";
+/* import SelectImg from "./SelectImg";
+ */import ErrorMsg from "./ErrorMsg";
 
 const FormTable = ({ grid, error, text, border }) => {
   return (

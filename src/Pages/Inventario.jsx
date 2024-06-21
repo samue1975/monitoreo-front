@@ -1,5 +1,4 @@
-import { IoIosAdd, IoIosArrowDown } from "react-icons/io";
-import HeadTable from "../Components/HeadTable";
+import { IoIosAdd } from "react-icons/io";
 import BodyTable from "../Components/BodyTable";
 import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
@@ -12,23 +11,19 @@ const Inventario = () => {
         <Busqueda />
         {/* Botones */}
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex flex-wrap items-end bg-[#292929] text-white p-2 rounded-xl cursor-pointer">
-            <p>Lo mas vendido</p>
-            <IoIosArrowDown />
-          </div>
-          <div className="flex flex-wrap items-end bg-[#292929] text-white p-2 rounded-xl gap-2">
-            <p>Filter:</p>
-            <input
-              className=" outline-none border-none bg-transparent w-14"
-              type="text"
-              placeholder="NO ID"
-            />
-            <IoIosArrowDown className=" cursor-pointer" />
-          </div>
+          <select className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white">
+            <option value="">Identificación</option>
+            <option value="E">Equipo</option>
+            <option value="C">Componente</option>
+            <option value="P">Parte</option>
+            <option value="M">Materia Prima</option>
+            <option value="S">Consumible</option>
+            <option value="H">Herramienta</option>
+          </select>
 
           <Link
-            className="flex flex-wrap items-end bg-[#292929] text-white p-2 rounded-xl cursor-pointer"
-            to={"/AddMaterial"}
+            className="flex flex-wrap items-end bg-[#292929] text-white hover:bg-white hover:text-black border-[1px] border-[#292929] p-2 rounded-xl cursor-pointer"
+            to={"/AddInventario"}
           >
             Agregar <IoIosAdd className="text-2xl" />
           </Link>
@@ -40,21 +35,37 @@ const Inventario = () => {
           <table className="min-w-full bg-white">
             {/* HEAD TABLE */}
             <thead className=" bg-[#292929] text-white min-w-full">
-              <HeadTable />
+              <tr>
+                <th className="text-center py-3 uppercase font-semibold text-sm">
+                  NOMBRE
+                </th>
+                <th className="text-center py-3 uppercase font-semibold text-sm">
+                  DESCRIPCIÓN
+                </th>
+                <th className="text-center py-3 uppercase font-semibold text-sm">
+                  CÓDIGO DEL SISTEMA
+                </th>
+                <th className="text-center py-3 uppercase font-semibold text-sm">
+                  LOTE
+                </th>
+                <th className="text-center py-3 uppercase font-semibold text-sm">
+                  CANTIDAD
+                </th>
+                <th className="text-center py-3 uppercase font-semibold text-sm">
+                  EDITAR
+                </th>
+              </tr>
             </thead>
             {/* BODY TABLE */}
             <tbody className="text-gray-700 min-w-full">
               <BodyTable
-                cod_oaci={"OACI"}
-                cod_e={"Equipo"}
-                cod_fg={"Departamento"}
-                cod_hi={"05"}
-                cod_jk={"50"}
-                cod_su={"004"}
-                cod_lmnop={"AE482"}
-                descripcion={"Tornillo"}
-                cod_barra={"A882AD2"}
-                cod_sistema={"9923832"}
+                cod_nombre={"Barra de Acero"}
+                cod_descripcion={
+                  "Materia prima para la fabricación de un motor"
+                }
+                cod_sistema={"OACI-M-PF-17-07-025-245487487-AG254"}
+                cod_lote={"52245"}
+                cod_cantidad={"144"}
               />
             </tbody>
           </table>

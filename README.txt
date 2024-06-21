@@ -1,1 +1,1 @@
-npm install -D tailwindcss postcss autoprefixer -E react-router react-icons echarts echarts-for-react
+npm install -D tailwindcss postcss autoprefixer -E react-router react-icons echarts-for-react

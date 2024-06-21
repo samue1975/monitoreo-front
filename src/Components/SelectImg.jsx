@@ -35,6 +35,7 @@ const SelectImg = () => {
           <span className="sr-only">Elegir foto de perfil</span>
           <input
             type="file"
+            required="required"
             className="file:hover:cursor-pointer block w-full text-sm text-slate-500
           file:mr-4 file:py-2 file:px-4
           file:rounded-full file:border-0

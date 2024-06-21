@@ -11,7 +11,16 @@ const Inventario = () => {
         <Busqueda />
         {/* Botones */}
         <div className="flex flex-wrap items-center gap-4">
-          <select className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white">
+          <input
+            className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
+            type="date"
+          />
+          <input
+            className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
+            type="date"
+          />
+
+          <select className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white cursor-pointer">
             <option value="">Identificación</option>
             <option value="E">Equipo</option>
             <option value="C">Componente</option>
@@ -40,10 +49,10 @@ const Inventario = () => {
                   NOMBRE
                 </th>
                 <th className="text-center py-3 uppercase font-semibold text-sm">
-                  DESCRIPCIÓN
+                  CÓDIGO DEL SISTEMA
                 </th>
                 <th className="text-center py-3 uppercase font-semibold text-sm">
-                  CÓDIGO DEL SISTEMA
+                  FECHA
                 </th>
                 <th className="text-center py-3 uppercase font-semibold text-sm">
                   LOTE
@@ -60,10 +69,7 @@ const Inventario = () => {
             <tbody className="text-gray-700 min-w-full">
               <BodyTable
                 cod_nombre={"Barra de Acero"}
-                cod_descripcion={
-                  "Materia prima para la fabricación de un motor"
-                }
-                cod_sistema={"OACI-M-PF-17-07-025-245487487-AG254"}
+                cod_sistema={"OACI-M-AI-09-35-010-554543-PI110"}
                 cod_lote={"52245"}
                 cod_cantidad={"144"}
               />

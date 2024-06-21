@@ -1,22 +1,16 @@
-import { TbListDetails } from "react-icons/tb";
+import { TbListDetails, TbTrash } from "react-icons/tb";
 
-const BodyTable = ({
-  cod_nombre,
-  cod_descripcion,
-  cod_sistema,
-  cod_lote,
-  cod_cantidad,
-}) => {
+const BodyTable = ({ cod_nombre, cod_sistema, cod_lote, cod_cantidad }) => {
   return (
     <tr>
       <td className="text-center py-3 uppercase font-semibold text-sm">
         {cod_nombre}
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm">
-        {cod_descripcion}
+        {cod_sistema}
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm">
-        {cod_sistema}
+        <input type="date" />
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm">
         {cod_lote}
@@ -24,9 +18,12 @@ const BodyTable = ({
       <td className="text-center py-3 uppercase font-semibold text-sm">
         {cod_cantidad}
       </td>
-      <td className="text-center py-3 uppercase font-semibold text-sm">
+      <td className="text-center py-3 uppercase font-semibold text-sm flex gap-6 justify-center">
         <button>
           <TbListDetails />
+        </button>
+        <button>
+          <TbTrash />
         </button>
       </td>
     </tr>

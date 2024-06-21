@@ -220,6 +220,7 @@ const FormTable = ({ grid, error, text, border }) => {
               className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 pr-1 text-[#292929] w-52`}
               placeholder="Codigo LMNOP"
               type="text"
+              required="required"
             />
           </div>
           <ErrorMsg display={`${text}`} />
@@ -227,6 +228,7 @@ const FormTable = ({ grid, error, text, border }) => {
             <textarea
               className={`w-full min-h-[100px] max-h-[300px] h-28 ${border} border outline-none rounded-lg  py-4 px-4`}
               placeholder="Descripción del producto"
+              required="required"
             ></textarea>
           </div>
           <ErrorMsg display={`${text}`} />
@@ -236,6 +238,7 @@ const FormTable = ({ grid, error, text, border }) => {
               className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 pr-1 text-[#292929] w-52`}
               placeholder="Codigo de Barras"
               type="text"
+              required="required"
             />
           </div>
           <ErrorMsg display={`${text}`} />

@@ -73,6 +73,13 @@ const ProductCatalog = () => {
               type="number"
             />
           </div>
+          <div className="flex flex-wrap gap-4 justify-end pt-1">
+            <p className="font-semibold">Fecha:</p>
+            <input
+              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              type="date"
+            />
+          </div>
           {/* ACEPTAR Y CANCELAR */}
           <div className="flex flex-wrap justify-around py-6">
             <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">

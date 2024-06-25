@@ -29,7 +29,29 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/Catalogo" element={<Catalogo success={success} setSuccess={setSuccess} />} />
+
+          <Route
+            path="/Catalogo"
+            element={
+              <Catalogo
+                Nombre={"Barra de Acero"}
+                Cantidad={"425"}
+                CodOaci={"OACI"}
+                CodE={"Material"}
+                CodFg={"Armamento Inteligente"}
+                CodHi={"Electrónica Programada"}
+                CodJk={"Cultura Organizacional"}
+                CodSu={"Empresa de Hierros Vzla"}
+                CodLmnop={"PI110"}
+                Descrip={"Materia Prima para bla bla"}
+                CodBarra={"554543"}
+                CodSistema={"OACIMAI0935010554543PI110"}
+                Codigo={"OACIMAI0935010554543PI110-BLA-BLA-BLA"}
+                success={success} setSuccess={setSuccess}
+              />
+            }
+          />
+
           <Route path="/Inventario" element={<Inventario />} />
           <Route
             path="/AddMaterial"

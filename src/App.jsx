@@ -10,6 +10,7 @@ import InventarioTabla from "./Components/InventarioTabla";
 function App() {
   const [open, setOpen] = useState(false);
   const [color, setColor] = useState(false);
+  const [success, setSuccess] = useState(false)
   const toggleMenu = () => {
     setOpen(!open);
   };
@@ -28,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/Catalogo" element={<Catalogo />} />
+          <Route path="/Catalogo" element={<Catalogo success={success} setSuccess={setSuccess} />} />
           <Route path="/Inventario" element={<Inventario />} />
           <Route
             path="/AddMaterial"
@@ -37,6 +38,7 @@ function App() {
                 error={errorMenu}
                 border={color ? "border border-[#ff0000ad]" : ""}
                 text={color ? "block" : "hidden"}
+                setSuccess={setSuccess}
               />
             }
           />

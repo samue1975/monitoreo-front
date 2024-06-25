@@ -1,8 +1,9 @@
 import { TbListDetails } from "react-icons/tb";
 
+// eslint-disable-next-line react/prop-types
 const Productos = ({ foto, titulo, descripcion }) => {
   return (
-    <div className="border rounded-2xl flex flex-col w-52 h-60 shadow cursor-pointer bg-[#f6f6f6] hover:bg-[#393939] hover:text-white flex justify-around">
+    <div className="border rounded-2xl flex-col w-52 h-60 shadow cursor-pointer bg-[#f6f6f6] hover:bg-[#393939] hover:text-white flex justify-around">
       <div className="h-40 flex justify-center">
         <img className="h-full" src={foto} />
       </div>

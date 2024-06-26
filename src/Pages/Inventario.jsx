@@ -2,8 +2,12 @@ import { IoIosAdd } from "react-icons/io";
 import BodyTable from "../Components/BodyTable";
 import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
+import { useState } from "react";
 
 const Inventario = () => {
+  const [fechaInicio, setFechaInicio] = useState("");
+  const [fechaFin, setFechaFin] = useState("");
+
   return (
     <div className="col-span-5 pt-4">
       {/* Apartado de busqueda y botones */}
@@ -11,14 +15,34 @@ const Inventario = () => {
         <Busqueda />
         {/* Botones */}
         <div className="flex flex-wrap items-center gap-4">
-          <input
-            className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
-            type="date"
-          />
-          <input
-            className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
-            type="date"
-          />
+          {/* LA FECHA */}
+          <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="text-gray-700 font-medium">Desde:</label>
+              <input
+                className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
+                type="date"
+                value={fechaInicio}
+                onChange={(e) => {
+                  setFechaInicio(e.target.value);
+                  setFechaFin(e.target.value); // Inicializar fechaFin con fechaInicio
+                }}
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="text-gray-700 font-medium">Hasta:</label>
+              <input
+                className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
+                type="date"
+                value={fechaFin}
+                min={fechaInicio} // Limitar fecha mínima con fechaInicio
+                onChange={(e) => {
+                  setFechaFin(e.target.value);
+                }}
+              />
+            </div>
+          </div>
 
           <select className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white cursor-pointer">
             <option value="">Identificación</option>

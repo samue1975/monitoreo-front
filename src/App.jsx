@@ -6,6 +6,7 @@ import Inventario from "./Pages/Inventario";
 import FormTable from "./Components/FormTable";
 import { useState } from "react";
 import InventarioTabla from "./Components/InventarioTabla";
+import Details from "./Components/Details";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -29,29 +30,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
-
           <Route
             path="/Catalogo"
-            element={
-              <Catalogo
-                Nombre={"Barra de Acero"}
-                Cantidad={"425"}
-                CodOaci={"OACI"}
-                CodE={"Material"}
-                CodFg={"Armamento Inteligente"}
-                CodHi={"Electrónica Programada"}
-                CodJk={"Cultura Organizacional"}
-                CodSu={"Empresa de Hierros Vzla"}
-                CodLmnop={"PI110"}
-                Descrip={"Materia Prima para bla bla"}
-                CodBarra={"554543"}
-                CodSistema={"OACIMAI0935010554543PI110"}
-                Codigo={"OACIMAI0935010554543PI110-BLA-BLA-BLA"}
-                success={success} setSuccess={setSuccess}
-              />
-            }
+            element={<Catalogo success={success} setSuccess={setSuccess} />}
           />
-
+          <Route
+            path="/Catalogo/:id"
+            element={<Details />}
+          />
           <Route path="/Inventario" element={<Inventario />} />
           <Route
             path="/AddMaterial"

@@ -1,7 +1,8 @@
 import { TbListDetails } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Productos = ({ foto, titulo, descripcion, open }) => {
+const Productos = ({ foto, titulo, descripcion, idCodProd }) => {
   return (
     <div className="border rounded-2xl flex flex-col w-52 h-60 shadow cursor-pointer bg-[#f6f6f6] hover:bg-[#393939] hover:text-white justify-around">
       <div className="h-40 flex justify-center">
@@ -12,8 +13,10 @@ const Productos = ({ foto, titulo, descripcion, open }) => {
           <h1 className="text-base">{titulo}</h1>
           <p className="text-sm">{descripcion}</p>
         </div>
-        <button onClick={open} className="hover:text-[#d2d2d2]">
-          <TbListDetails />
+        <button className="hover:text-[#d2d2d2]">
+          <Link to={`/Catalogo/${idCodProd}`}>
+            <TbListDetails />
+          </Link>
         </button>
       </div>
     </div>

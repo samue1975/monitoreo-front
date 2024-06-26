@@ -22,8 +22,14 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
   );
 
   const onSubmit = handleSubmit((data) => {
-    setData(data);
-    console.log(data);
+    if (data.CodSistema == '') {
+      let object = { ...data }
+      object.CodSistema = codSistema
+      console.log(object);
+      setData(object);
+    } else {
+      setData(data)
+    }
   });
 
   useEffect(() => {
@@ -106,7 +112,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
               <option value="Componente">Componente</option>
               <option value="Parte">Parte</option>
               <option value="Materia Prima">Materia Prima</option>
-              <option value="Consumible">Consumible</option>
+              <option value="SConsumible">Consumible</option>
               <option value="Herramienta">Herramienta</option>
             </select>
           </div>
@@ -326,7 +332,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
               className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
               type="text"
               value={codSistema}
-              {...register("CodSistema", { required: "false" })}
+              {...register("CodSistema")}
             />
           </div>
           {/* SELECCIONAR IMAGEN */}

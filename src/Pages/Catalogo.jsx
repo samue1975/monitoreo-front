@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import Success from "../Components/alerts/Success";
 import { useEffect } from "react";
 import useMethodGet from "../api/useMethodGet";
+import image from "../Logic/Const"
 
 
 const Catalogo = ({ success, setSuccess
 }) => {
   const { data } = useMethodGet('http://192.168.0.143:80/api/Catalogo/Listas/')
+
+
 
   useEffect(() => {
     if (success) {
@@ -21,7 +24,7 @@ const Catalogo = ({ success, setSuccess
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success])
   console.log(data)
-
+  console.log(image)
 
   return (
     <div className="col-span-5 pt-4 px-8">

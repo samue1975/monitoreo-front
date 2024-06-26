@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 const Details = () => {
 
     const { id } = useParams()
-    const { data } = useMethodGet(`http://192.168.0.143:80/api/Catalogo/Lista/${id}`)
+    const { data } = useMethodGet(`http://192.168.0.143:80/api/Catalogo/Detalles/${id}`)
     console.log(data)
     return (
         <>

@@ -2,36 +2,38 @@ import { BiArrowBack } from "react-icons/bi";
 import { Link, Navigate } from "react-router-dom";
 /* import SelectImg from "./SelectImg";*/
 import ErrorMsg from "./ErrorMsg";
-import { useForm } from 'react-hook-form'
+import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import useMethodPost from "../api/useMethodPost";
-
 
 // eslint-disable-next-line react/prop-types
 const FormTable = ({ /* error, */ text, border, setSuccess }) => {
   //useState
-  const [cod, setCod] = useState(new Array(5).fill(null))
-  const [codSistema, setCodSistema] = useState('')
-  const [data, setData] = useState()
+  const [cod, setCod] = useState(new Array(5).fill(null));
+  const [codSistema, setCodSistema] = useState("");
+  const [data, setData] = useState();
   //useForm
-  const { register, handleSubmit, /* formState: { errors } */ } = useForm()
+  const { register, handleSubmit /* formState: { errors } */ } = useForm();
 
   //methods CRUD
-  const { /* errorsPost,  */ success } = useMethodPost(data, 'http://192.168.0.143:80/api/codigos/RegistrodeCodigos')
+  const { /* errorsPost,  */ success } = useMethodPost(
+    data,
+    "http://192.168.0.143:80/api/codigos/RegistrodeCodigos"
+  );
 
   const onSubmit = handleSubmit((data) => {
-    setData(data)
-    console.log(data)
-  })
+    setData(data);
+    console.log(data);
+  });
 
   useEffect(() => {
-    success && setSuccess(true)
+    success && setSuccess(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [success])
+  }, [success]);
 
   useEffect(() => {
-    setCodSistema(cod.join(''))
-  }, [cod])
+    setCodSistema(cod.join(""));
+  }, [cod]);
 
   /* useEffect(() => {
     errorsPost || Object.entries(errors).length !== 0 && error()
@@ -39,25 +41,22 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
   }, [errors]) */
 
   useEffect(() => {
-    let codConst = [...cod]
-    codConst[0] = 'VZLA'
-    setCod(codConst)
+    let codConst = [...cod];
+    codConst[0] = "VZLA";
+    setCod(codConst);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+  }, []);
 
   //Funcion concatenar el codigo del sistema
   function codConcat(palabra, num) {
-    let codSystem = [...cod]
-    codSystem[num] = palabra
-    setCod(codSystem)
-    console.log(cod)
+    let codSystem = [...cod];
+    codSystem[num] = palabra;
+    setCod(codSystem);
+    console.log(cod);
   }
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center h-screen">
-      {
-        success ? (<Navigate to={'/Catalogo'} />) : ''
-      }
+      {success ? <Navigate to={"/Catalogo"} /> : ""}
       <form
         className="py-4 px-20 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm border-[1px]"
         onSubmit={onSubmit}
@@ -81,7 +80,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
               className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
               type="text"
               value="VZLA"
-              {...register('CodOaci', { required: true })}
+              {...register("CodOaci", { required: true })}
             />
           </div>
           <div className="flex flex-wrap gap-4 justify-end">
@@ -89,7 +88,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <input
               className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
               type="text"
-              {...register('Nombre', { required: true })}
+              {...register("Nombre", { required: true })}
             />
           </div>
           <div className="flex flex-wrap gap-4 justify-end pt-1">
@@ -97,8 +96,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <select
               className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               id="select"
-              onChangeCapture={(e) => { codConcat(e.target.value, 1) }}
-              {...register('CodE', { required: true })}
+              onChangeCapture={(e) => {
+                codConcat(e.target.value, 1);
+              }}
+              {...register("CodE", { required: true })}
             >
               <option value=""></option>
               <option value="Equipo">Equipo</option>
@@ -114,8 +115,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <p className="font-semibold">Area o Departamento:</p>
             <select
               className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
-              onChangeCapture={(e) => { codConcat(e.target.value, 2) }}
-              {...register('CodFg', { required: true })}
+              onChangeCapture={(e) => {
+                codConcat(e.target.value, 2);
+              }}
+              {...register("CodFg", { required: true })}
             >
               <option value=""></option>
               <option value="IT">Inteligencia</option>
@@ -141,8 +144,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <p className="font-semibold">Sector de Investigación:</p>
             <select
               className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
-              onChangeCapture={(e) => { codConcat(e.target.value, 3) }}
-              {...register('CodHi', { required: true })}
+              onChangeCapture={(e) => {
+                codConcat(e.target.value, 3);
+              }}
+              {...register("CodHi", { required: true })}
             >
               <option value=""></option>
               <option value="01">Telecomunicaciones</option>
@@ -175,8 +180,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <select
               id="valor_LineaInv"
               className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
-              onChangeCapture={(e) => { codConcat(e.target.value, 4) }}
-              {...register('CodJk', { required: true })}
+              onChangeCapture={(e) => {
+                codConcat(e.target.value, 4);
+              }}
+              {...register("CodJk", { required: true })}
             >
               <option value=""></option>
               <option value="01">Telemetría</option>
@@ -247,8 +254,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <p className="font-semibold">Proveedores:</p>
             <select
               className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
-              onChangeCapture={(e) => { codConcat(e.target.value, 5) }}
-              {...register('CodSu', { required: true })}
+              onChangeCapture={(e) => {
+                codConcat(e.target.value, 5);
+              }}
+              {...register("CodSu", { required: true })}
             >
               <option value=""></option>
               <option value="001">001</option>
@@ -286,8 +295,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
               className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 pr-1 text-[#292929] w-52`}
               placeholder="Codigo LMNOP"
               type="text"
-              onBlurCapture={(e) => { codConcat(e.target.value, 6) }}
-              {...register('CodLmnop', { required: true })}
+              onBlurCapture={(e) => {
+                codConcat(e.target.value, 6);
+              }}
+              {...register("CodLmnop", { required: true })}
             />
           </div>
           <ErrorMsg display={`${text}`} />
@@ -295,7 +306,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             <textarea
               className={`w-full min-h-[100px] max-h-[300px] h-28 ${border} border outline-none rounded-lg  py-4 px-4`}
               placeholder="Descripción del producto"
-              {...register('Descrip', { required: true })}
+              {...register("Descrip", { required: true })}
             ></textarea>
           </div>
           <ErrorMsg display={`${text}`} />
@@ -305,7 +316,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
               className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 pr-1 text-[#292929] w-52`}
               placeholder="Codigo de Barras"
               type="text"
-              {...register('CodBarra', { required: true })}
+              {...register("CodBarra", { required: true })}
             />
           </div>
           <ErrorMsg display={`${text}`} />
@@ -315,13 +326,13 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
               className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
               type="text"
               value={codSistema}
-              {...register('CodSistema', { required: 'false' })}
+              {...register("CodSistema", { required: "false" })}
             />
           </div>
           {/* SELECCIONAR IMAGEN */}
           {/*           Modulo para cargar imagen
- */}            {/* <SelectImg /> */}
-
+           */}{" "}
+          {/* <SelectImg /> */}
         </div>
         {/* ACEPTAR Y CANCELAR */}
         <div className="flex flex-wrap justify-around py-6">

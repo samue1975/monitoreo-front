@@ -1,6 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 
-const Busqueda = () => {
+// eslint-disable-next-line react/prop-types
+const Busqueda = ({ searcher }) => {
   return (
     <div className="flex items-center gap-2 border-[1px] border-[#292929] justify-start rounded-xl flex-wrap px-4">
       <button>
@@ -10,6 +11,7 @@ const Busqueda = () => {
         className="py-2 outline-none border-none "
         placeholder="Buscar..."
         type="search"
+        onChange={e => searcher(e.target.value)}
       />
     </div>
   );

@@ -5,15 +5,15 @@ import Productos from "../Components/Productos";
 import { Link } from "react-router-dom";
 import Success from "../Components/alerts/Success";
 import { useEffect } from "react";
-import useMethodGet from "../api/useMethodGet";
 import image from "../Logic/Const"
+import useMethodFilter from "../api/useMethodFilter";
+import useDelete from "../api/useMethodDelete";
 
 
 const Catalogo = ({ success, setSuccess
 }) => {
-  const { data } = useMethodGet('http://192.168.0.195:80/api/Catalogo/Listas/')
-
-
+  const { results, searcher } = useMethodFilter('http://192.168.0.195:80/api/Catalogo/Listas/')
+  const { /* isLoading, error, */ data, deleteData } = useDelete('')
 
   useEffect(() => {
     if (success) {
@@ -23,14 +23,15 @@ const Catalogo = ({ success, setSuccess
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success])
-  console.log(data)
+  console.log(results)
   console.log(image)
+  console.log(data)
 
   return (
     <div className="col-span-5 pt-4 px-8">
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap justify-between pt-8">
-        <Busqueda />
+        <Busqueda searcher={searcher} />
         <div className="flex flex-wrap gap-4">
           <button className="hover:bg-[#292929] hover:text-white bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl">
             Equipo
@@ -62,7 +63,7 @@ const Catalogo = ({ success, setSuccess
       </div>
       <div className="pt-8 flex-wrap gap-6 grid grid-cols-5">
         {
-          data?.map((item) => {
+          results?.map((item) => {
             return (
               <Productos
                 foto={
@@ -72,6 +73,7 @@ const Catalogo = ({ success, setSuccess
                 titulo={item.nombre}
                 descripcion={item.descrip}
                 idCodProd={item.idCodProd}
+                deleteData={deleteData}
               />
             )
           })

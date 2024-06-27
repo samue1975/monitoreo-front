@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 const Details = () => {
 
     const { id } = useParams()
-    const { data } = useMethodGet(`http://192.168.0.143:80/api/Catalogo/Detalles/${id}`)
+    const { data } = useMethodGet(`http://192.168.0.195:80/api/Catalogo/Detalles/${id}`)
     console.log(data)
     return (
         <>
@@ -22,64 +22,65 @@ const Details = () => {
                     </span>
                     <div className="h-40 flex justify-center">
                         <img
-                            className="h-full"
-                            src={
-                                "https://laminas.com.mx/wp-content/uploads/2019/11/varilla-corrugada-300x223.png"
-                            }
+                            className="h-full saturate-0"
+                            src={`../../public/${data[0].codE.replace(/ /g, "")}.png`}
                         />
                     </div>
+                    {
+                        console.log(data[0].codE)
+                    }
                     <div className="flex justify-between items-end p-4">
                         <div className="flex flex-col flex-wrap w-full px-10">
                             <h1 className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Nombre:</p>
+                                <span className="font-semibold">Nombre:</span>
                                 {data[0].nombre}
                             </h1>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Cantidad:</p>
+                                <span className="font-semibold">Cantidad:</span>
                                 {data[0].cantidad}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Código OACI:</p>
+                                <span className="font-semibold">Código OACI:</span>
                                 {data[0].codOaci}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Identificación:</p>
+                                <span className="font-semibold">Identificación:</span>
                                 {data[0].codE}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Departamento:</p>
+                                <span className="font-semibold">Departamento:</span>
                                 {data[0].codFg}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Sector De Investigación:</p>
+                                <span className="font-semibold">Sector De Investigación:</span>
                                 {data[0].codHi}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Línea de Investigación:</p>
+                                <span className="font-semibold">Línea de Investigación:</span>
                                 {data[0].codJk}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Proveedores:</p>
+                                <span className="font-semibold">Proveedores:</span>
                                 {data[0].codSu}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">ID Cronológica:</p>
+                                <span className="font-semibold">ID Cronológica:</span>
                                 {data[0].codLmnop}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Descripción:</p>
+                                <span className="font-semibold">Descripción:</span>
                                 {data[0].descrip}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Código de Barra:</p>
+                                <span className="font-semibold">Código de Barra:</span>
                                 {data[0].codBarra}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Código del Sistema:</p>
+                                <span className="font-semibold">Código del Sistema:</span>
                                 {data[0].codSistema}
                             </p>
                             <p className="text-base flex flex-wrap gap-4">
-                                <p className="font-semibold">Código:</p>
+                                <span className="font-semibold">Código:</span>
                                 {data[0].codigo}
                             </p>
                         </div>

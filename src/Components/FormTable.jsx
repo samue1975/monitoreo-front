@@ -18,7 +18,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
   //methods CRUD
   const { /* errorsPost,  */ success } = useMethodPost(
     data,
-    "http://192.168.0.143:80/api/codigos/RegistrodeCodigos"
+    "http://192.168.0.195:80/api/codigos/RegistrodeCodigos"
   );
 
   const onSubmit = handleSubmit((data) => {

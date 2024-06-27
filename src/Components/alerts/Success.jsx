@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
-const Success = ({ message }) => {
+const Success = ({ message, success }) => {
   return (
-    <div className="flex bg-white shadow-lg rounded-lg fixed bottom-10 right-10">
+    <div className={`flex bg-white shadow-lg rounded-lg fixed bottom-10 right-10 duration-500 ${success ? '' : 'translate-x-60 translate-y-60 -scale-150'}`}>
       <div className="icon bg-green-600 flex justify-center items-center py-4 px-6 rounded-tr-3xl rounded-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"

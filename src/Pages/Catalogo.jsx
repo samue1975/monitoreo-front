@@ -11,7 +11,7 @@ import image from "../Logic/Const"
 
 const Catalogo = ({ success, setSuccess
 }) => {
-  const { data } = useMethodGet('http://192.168.0.143:80/api/Catalogo/Listas/')
+  const { data } = useMethodGet('http://192.168.0.195:80/api/Catalogo/Listas/')
 
 
 
@@ -66,7 +66,7 @@ const Catalogo = ({ success, setSuccess
             return (
               <Productos
                 foto={
-                  "https://www.unionferretera.com/37127-large_default/llave-ajustable-irimo.jpg"
+                  `./${item.codEDetallado.replace(/ /g, "")}.png`
                 }
                 key={item.idCodProd}
                 titulo={item.nombre}
@@ -77,11 +77,11 @@ const Catalogo = ({ success, setSuccess
           })
         }
       </div>
-      {
-        success ? (
-          <Success message={'Se ha creado el material correctamente'} />
-        ) : null
-      }
+
+
+      <Success success={success} message={'Se ha creado el material correctamente'} />
+
+
     </div>
   );
 };

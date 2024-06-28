@@ -11,7 +11,7 @@ import Details from "./Components/Details";
 function App() {
   const [open, setOpen] = useState(false);
   const [color, setColor] = useState(false);
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false);
   const toggleMenu = () => {
     setOpen(!open);
   };
@@ -34,10 +34,7 @@ function App() {
             path="/Catalogo"
             element={<Catalogo success={success} setSuccess={setSuccess} />}
           />
-          <Route
-            path="/Catalogo/:id"
-            element={<Details />}
-          />
+          <Route path="/Catalogo/:id" element={<Details />} />
           <Route path="/Inventario" element={<Inventario />} />
           <Route
             path="/AddMaterial"

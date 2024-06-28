@@ -2,42 +2,23 @@ import ReactECharts from "echarts-for-react";
 
 const LineCharts = () => {
   const option = {
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        type: "shadow",
-      },
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     },
-    grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
-      containLabel: true,
+    yAxis: {
+      type: "value",
     },
-    xAxis: [
-      {
-        type: "category",
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        axisTick: {
-          alignWithLabel: true,
-        },
-      },
-    ],
-    yAxis: [
-      {
-        type: "value",
-      },
-    ],
     series: [
       {
-        name: "Direct",
-        type: "bar",
-        barWidth: "60%",
-        data: [10, 52, 200, 334, 390, 330, 220],
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: "line",
+        areaStyle: {},
+        smooth: true,
       },
     ],
   };
-
   return (
     <div className="w-[600px] h-[400px]">
       <ReactECharts option={option} />

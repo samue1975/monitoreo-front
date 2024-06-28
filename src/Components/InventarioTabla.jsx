@@ -13,7 +13,7 @@ const ProductCatalog = () => {
     <div className="col-span-5 flex flex-wrap col-span-5 justify-center items-center h-screen">
       {/* TODO EL FORMULARIO */}
       <form
-        className="py-4 px-20 flex flex-col h-64 gap-6 rounded-xl text-[#292929] shadow-sm border-[1px]"
+        className="py-4 px-20 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm border-[1px]"
         action=""
       >
         {/* FLECHA PARA IR HACIA ATRAS */}

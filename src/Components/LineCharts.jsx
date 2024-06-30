@@ -1,26 +1,38 @@
 import ReactECharts from "echarts-for-react";
 
-const LineCharts = () => {
+const LineCharts = ({ e, c, p, m, s, h, titulo }) => {
   const option = {
+    title: {
+      text: titulo,
+    },
     xAxis: {
       type: "category",
-      boundaryGap: false,
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: ["E", "C", "P", "M", "S", "H"],
     },
     yAxis: {
       type: "value",
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: "line",
-        areaStyle: {},
-        smooth: true,
+        data: [e, c, p, m, s, h],
+        type: "bar",
+        itemStyle: {
+          color: "#292929",
+          shadowBlur: 5,
+        },
+        label: {
+          show: true,
+          position: "top",
+          formatter: "{@[0]}", // Muestra el valor correspondiente
+          color: "#666666", // Color del texto
+          fontSize: "10", // Tamaño del texto
+        },
       },
     ],
   };
+
   return (
-    <div className="w-[600px] h-[400px]">
+    <div className="border shadow pt-2 pl-2">
       <ReactECharts option={option} />
     </div>
   );

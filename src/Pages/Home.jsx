@@ -1,6 +1,7 @@
 import LineCharts from "../Components/LineCharts";
 import { format } from "date-fns";
 import Login from "../Components/Login";
+import { useState } from "react";
 
 const meses = {
   0: "Enero",
@@ -18,6 +19,11 @@ const meses = {
 };
 
 const Home = () => {
+  const [abrir, setAbrir] = useState(false);
+  const toggleAbrir = () => {
+    setAbrir(!abrir);
+  };
+
   const fechaActual = new Date();
   const mes = fechaActual.getMonth(); // Enero es 0
   const año = fechaActual.getFullYear();
@@ -37,19 +43,48 @@ const Home = () => {
         </div>
         <div className="flex flex-wrap gap-4">
           <div>
-            <button className="p-2 border bg-[#f6f6f6] hover:text-white hover:bg-[#292929] rounded-2xl font-semibold">
-              Login
+            <button
+              onClick={toggleAbrir}
+              className="p-2 border text-white shadow bg-[#292929] rounded-2xl font-semibold"
+            >
+              Cuenta de Usuario
             </button>
-            <Login />
-          </div>
-          <div>
-            <button className="p-2 border bg-[#f6f6f6] hover:text-white hover:bg-[#292929] rounded-2xl font-semibold">
-              Register
-            </button>
+            <Login
+              param={abrir ? "opacity-1 z-30" : "opacity-0 scale-0 -z-30"}
+              action={toggleAbrir}
+            />
           </div>
         </div>
       </header>
-      <LineCharts />
+      <div className="grid grid-cols-3 gap-4 py-10">
+        <LineCharts
+          e={"1124"}
+          c={"1686"}
+          p={"2249"}
+          m={"2811"}
+          s={"2267"}
+          h={"754"}
+          titulo={"Agregados en el Mes"}
+        />
+        <LineCharts
+          e={"181"}
+          c={"321"}
+          p={"762"}
+          m={"52"}
+          s={"566"}
+          h={"188"}
+          titulo={"Agregados en la Semana"}
+        />
+        <LineCharts
+          e={"37"}
+          c={"56"}
+          p={"64"}
+          m={"33"}
+          s={"75"}
+          h={"25"}
+          titulo={"Agregados en el Día"}
+        />
+      </div>
     </div>
   );
 };

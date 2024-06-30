@@ -5,11 +5,11 @@ import Busqueda from "../Components/Busqueda";
 import { useState } from "react";
 
 const Inventario = () => {
-  const [fechaInicio, setFechaInicio] = useState("");
-  const [fechaFin, setFechaFin] = useState("");
+  const [fechaInicio, setFechaInicio] = useState();
+  const [fechaFin, setFechaFin] = useState();
 
   return (
-    <div className="col-span-5 pt-4">
+    <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
       {/* Apartado de busqueda y botones */}
       <div className="px-8 pt-8 flex flex-wrap justify-between">
         <Busqueda />
@@ -65,40 +65,42 @@ const Inventario = () => {
       {/* component */}
       <div className="p-8 w-full">
         <div className="shadow overflow-hidden rounded border-b border-gray-200">
-          <table className="min-w-full bg-white">
-            {/* HEAD TABLE */}
-            <thead className=" bg-[#292929] text-white min-w-full">
-              <tr>
-                <th className="text-center py-3 uppercase font-semibold text-sm">
-                  NOMBRE
-                </th>
-                <th className="text-center py-3 uppercase font-semibold text-sm">
-                  CÓDIGO DEL SISTEMA
-                </th>
-                <th className="text-center py-3 uppercase font-semibold text-sm">
-                  FECHA
-                </th>
-                <th className="text-center py-3 uppercase font-semibold text-sm">
-                  LOTE
-                </th>
-                <th className="text-center py-3 uppercase font-semibold text-sm">
-                  CANTIDAD
-                </th>
-                <th className="text-center py-3 uppercase font-semibold text-sm">
-                  EDITAR
-                </th>
-              </tr>
-            </thead>
-            {/* BODY TABLE */}
-            <tbody className="text-gray-700 min-w-full">
-              <BodyTable
-                cod_nombre={"Barra de Acero"}
-                cod_sistema={"OACI-M-AI-09-35-010-554543-PI110"}
-                cod_lote={"52245"}
-                cod_cantidad={"144"}
-              />
-            </tbody>
-          </table>
+          <div className="max-[500px]:overflow-x-auto">
+            <table className="min-w-full bg-white">
+              {/* HEAD TABLE */}
+              <thead className="bg-[#292929] text-white">
+                <tr>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    NOMBRE
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    CÓDIGO DEL SISTEMA
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    FECHA
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    LOTE
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    CANTIDAD
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    EDITAR
+                  </th>
+                </tr>
+              </thead>
+              {/* BODY TABLE */}
+              <tbody className="text-gray-700">
+                <BodyTable
+                  cod_nombre={"Barra de Acero"}
+                  cod_sistema={"OACI-M-AI-09-35-010-554543-PI110"}
+                  cod_lote={"52245"}
+                  cod_cantidad={"144"}
+                />
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

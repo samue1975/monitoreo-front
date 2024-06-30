@@ -26,6 +26,7 @@ function App() {
           move={open ? "left-0" : "-left-1/4"}
           color={open ? "hidden" : "rotate-180 left-0 color"}
           bgcolor={open ? "block" : "hidden"}
+          faded={open ? "" : "hidden"}
         />
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />

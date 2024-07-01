@@ -4,7 +4,7 @@ import { BiCategory, BiHome, BiSolidTag } from "react-icons/bi";
 import { CgToolbox } from "react-icons/cg";
 
 // eslint-disable-next-line react/prop-types
-const Nav = ({ toggle, color, move, bgcolor }) => {
+const Nav = ({ toggle, color, move, bgcolor, faded }) => {
   return (
     <div>
       <BiSolidTag
@@ -21,13 +21,17 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
         </div>
         <div className="flex flex-col gap-1 pr-4">
           <Link to={"/Home"}>
-            <NavButtons icon={<BiHome />} title={"Inicio"} />
+            <NavButtons icon={<BiHome />} title={"Inicio"} fade={faded} />
           </Link>
           <Link to={"/Catalogo"}>
-            <NavButtons icon={<BiCategory />} title={"Catalogo"} />
+            <NavButtons icon={<BiCategory />} title={"Catalogo"} fade={faded} />
           </Link>
           <Link to={"/Inventario"}>
-            <NavButtons icon={<CgToolbox />} title={"Inventario"} />
+            <NavButtons
+              icon={<CgToolbox />}
+              title={"Inventario"}
+              fade={faded}
+            />
           </Link>
         </div>
       </div>

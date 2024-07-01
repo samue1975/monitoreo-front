@@ -1,45 +1,38 @@
 import ReactECharts from "echarts-for-react";
 
-const LineCharts = () => {
+const LineCharts = ({ e, c, p, m, s, h, titulo }) => {
   const option = {
-    tooltip: {
-      trigger: "axis",
-      axisPointer: {
-        type: "shadow",
-      },
+    title: {
+      text: titulo,
     },
-    grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
-      containLabel: true,
+    xAxis: {
+      type: "category",
+      data: ["E", "C", "P", "M", "S", "H"],
     },
-    xAxis: [
-      {
-        type: "category",
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        axisTick: {
-          alignWithLabel: true,
-        },
-      },
-    ],
-    yAxis: [
-      {
-        type: "value",
-      },
-    ],
+    yAxis: {
+      type: "value",
+    },
     series: [
       {
-        name: "Direct",
+        data: [e, c, p, m, s, h],
         type: "bar",
-        barWidth: "60%",
-        data: [10, 52, 200, 334, 390, 330, 220],
+        itemStyle: {
+          color: "#292929",
+          shadowBlur: 5,
+        },
+        label: {
+          show: true,
+          position: "top",
+          formatter: "{@[0]}", // Muestra el valor correspondiente
+          color: "#666666", // Color del texto
+          fontSize: "10", // Tamaño del texto
+        },
       },
     ],
   };
 
   return (
-    <div className="w-[600px] h-[400px]">
+    <div className="border shadow pt-2 pl-2">
       <ReactECharts option={option} />
     </div>
   );

@@ -14,6 +14,7 @@ function App() {
   const [color, setColor] = useState(false);
   const [success, setSuccess] = useState(false)
   const [update, setUpdate] = useState(false)
+
   const toggleMenu = () => {
     setOpen(!open);
   };
@@ -28,6 +29,7 @@ function App() {
           move={open ? "left-0" : "-left-1/4"}
           color={open ? "hidden" : "rotate-180 left-0 color"}
           bgcolor={open ? "block" : "hidden"}
+          faded={open ? "" : "hidden"}
         />
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
@@ -49,6 +51,7 @@ function App() {
               setUpdate={setUpdate}
             />}
           />
+          <Route path="/Catalogo/:id" element={<Details />} />
           <Route path="/Inventario" element={<Inventario />} />
           <Route
             path="/AddMaterial"

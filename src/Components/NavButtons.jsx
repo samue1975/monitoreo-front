@@ -1,10 +1,10 @@
 import "../assets/css/nav.css";
 
 // eslint-disable-next-line react/prop-types
-const NavButtons = ({ icon, title }) => {
+const NavButtons = ({ icon, title, fade }) => {
   return (
     <div>
-      <div className="flex justify-between items-center px-4 py-2 rounded-r-full bg-white text-[#292929]  element pr-6 hover:pr-4 duration-200">
+      <div className={`flex ${fade} justify-between items-center px-4 py-2 rounded-r-full bg-white text-[#292929]  element pr-6 hover:pr-4 duration-200`}>
         <div className=" flex items-center gap-2 text-xl">
           <span className="text-3xl">{icon}</span>
           <p>{title}</p>

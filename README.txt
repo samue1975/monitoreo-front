@@ -1,1 +1,1 @@
-npm install -D tailwindcss postcss autoprefixer -E react-router react-icons echarts-for-react react-hook-form react-hot-toast
+npm install -D tailwindcss postcss autoprefixer -E react-router react-icons echarts-for-react react-hook-form react-hot-toast date-fns

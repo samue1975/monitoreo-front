@@ -14,6 +14,7 @@ function App() {
   const [color, setColor] = useState(false);
   const [success, setSuccess] = useState(false)
   const [update, setUpdate] = useState(false)
+  const [put, setPut] = useState(false)
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -40,7 +41,9 @@ function App() {
           />
           <Route
             path="/Catalogo/:id"
-            element={<Details />}
+            element={<Details
+
+            />}
           />
           <Route
             path="/Catalogo/:id/Modificar"
@@ -49,6 +52,8 @@ function App() {
               border={color ? "border border-[#ff0000ad]" : ""}
               text={color ? "block" : "hidden"}
               setUpdate={setUpdate}
+              setPut={setPut}
+              put={put}
             />}
           />
           <Route path="/Catalogo/:id" element={<Details />} />

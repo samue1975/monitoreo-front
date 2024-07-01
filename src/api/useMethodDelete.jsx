@@ -17,7 +17,6 @@ const useDelete = (url) => {
             if (!response.ok) {
                 throw new Error('Failed to delete data');
             }
-
             const result = await response.json();
             setData(result);
         } catch (err) {

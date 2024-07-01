@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Success from "../Components/alerts/Success";
 import { useEffect, useState } from "react";
 import useMethodFilter from "../api/useMethodFilter";
+import Loader from '../Components/Loader'
 /* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
 
@@ -220,6 +221,11 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
 
       <Success success={success} message={'Se ha creado el material correctamente'} />
       <Success success={update} message={'Se ha modificado exitosamente'} />
+
+      <div className="flex min-h-screen justify-center items-center">
+        <Loader />
+
+      </div>
 
     </div>
   );

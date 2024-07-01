@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useMethodPut = async (id, data, url) => {
-    const [success, setSuccess] = useState();
+const useMethodPut = async (setSuccess, id, data, url) => {
     const [errorsPost, setError] = useState();
     // Definimos la URL a la que vamos a hacer la solicitud
     const urlApi = `${url}/${id}`;
@@ -10,6 +9,7 @@ const useMethodPut = async (id, data, url) => {
     // Hacemos la solicitud POST utilizando fetch
 
     useEffect(() => {
+        setSuccess(false)
         if (data) {
             fetch(urlApi, {
                 method: "PUT", // Método de la solicitud
@@ -26,7 +26,7 @@ const useMethodPut = async (id, data, url) => {
                 })
                 .then((Success) => {
                     console.log("Success:", Success); // Aquí podemos trabajar con la respuesta del servidor
-                    setSuccess(Success);
+                    setSuccess(true);
                 })
                 .catch((error) => {
                     console.error("Error:", error); // Manejamos cualquier error que ocurra
@@ -35,7 +35,7 @@ const useMethodPut = async (id, data, url) => {
 
         }
     }, [data, urlApi])
-    return { success, errorsPost };
+    return { errorsPost };
 }
 
 export default useMethodPut

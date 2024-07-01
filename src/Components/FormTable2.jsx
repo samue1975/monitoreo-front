@@ -12,9 +12,12 @@ import { useEffect, useState } from "react";
 
 
 // eslint-disable-next-line react/prop-types
-const FormTable2 = ({ /* error, */ text, border, setUpdate }) => {
+const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
     //state
     const [data2, setData] = useState()
+    const [success, setSuccess] = useState(null);
+
+
 
     //Parametro de la ruta
     const { id } = useParams()
@@ -24,13 +27,14 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate }) => {
 
     //methods CRUD
     const { data } = useMethodGet(`http://192.168.0.195:80/api/Catalogo/Detalles/${id}`)
-    console.log(data)
 
     //useMethodPut
-    const { success } = useMethodPut(id, data2, 'http://192.168.0.195/api/Codigos/Actualizar')
+    const { errorsPost } = useMethodPut(setSuccess, id, data2, 'http://192.168.0.195/api/Codigos/Actualizar')
 
     //useNavigate
     const navigate = useNavigate()
+
+    errorsPost && console.log(errorsPost)
 
 
     if (data) {
@@ -51,12 +55,17 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate }) => {
 
     const onSubmit = handleSubmit(async (object) => {
         await setData(object)
-        console.log(object)
-        navigate(`/Catalogo/${id}`)
+        setPut(!put)
     });
 
+
+
     useEffect(() => {
-        success && setUpdate(true);
+        if (success) {
+            setUpdate(true);
+            navigate(`/Catalogo`)
+            setSuccess(null)
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [success]);
 

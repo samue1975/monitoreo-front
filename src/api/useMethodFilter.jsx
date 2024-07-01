@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useMethodFilter = (url) => {
+const useMethodFilter = (url, cambio) => {
     //setear los hooks useState
     const [item, setItem] = useState();
     const [search, setSearch] = useState("");
@@ -11,7 +11,7 @@ const useMethodFilter = (url) => {
             .then((response) => response.json())
             //console.log(data)
             .then((json) => setItem(json));
-    }, [url]);
+    }, [url, cambio]);
 
     //función de búsqueda
     const searcher = (value) => {

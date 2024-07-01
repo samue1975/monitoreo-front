@@ -6,8 +6,10 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import useMethodPost from "../api/useMethodPost";
 
+
 // eslint-disable-next-line react/prop-types
 const FormTable = ({ /* error, */ text, border, setSuccess }) => {
+  //Parametro de la ruta
   //useState
   const [cod, setCod] = useState(new Array(5).fill(null));
   const [codSistema, setCodSistema] = useState("");
@@ -16,10 +18,14 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
   const { register, handleSubmit /* formState: { errors } */ } = useForm();
 
   //methods CRUD
+  //method Post
   const { /* errorsPost,  */ success } = useMethodPost(
     data,
     "http://192.168.0.195:80/api/codigos/RegistrodeCodigos"
   );
+  //method Put
+
+
 
   const onSubmit = handleSubmit((data) => {
     if (data.CodSistema == '') {
@@ -30,6 +36,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
     } else {
       setData(data)
     }
+
   });
 
   useEffect(() => {

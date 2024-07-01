@@ -2,12 +2,16 @@
 import useMethodGet from "../api/useMethodGet";
 import { BiArrowBack } from "react-icons/bi";
 import { useParams } from "react-router";
+import { LuPencilLine } from "react-icons/lu";
+import { Link } from "react-router-dom";
+
+
 
 const Details = () => {
 
     const { id } = useParams()
     const { data } = useMethodGet(`http://192.168.0.195:80/api/Catalogo/Detalles/${id}`)
-    console.log(data)
+
     return (
         <>
             {
@@ -15,20 +19,25 @@ const Details = () => {
                     className={`border rounded-2xl flex flex-col w-2/4  top-0 bottom-0 left-0 right-0 m-auto shadow bg-white justify-around fixed`}
                 >
                     {/* FLECHA PARA IR HACIA ATRAS */}
-                    <span className="px-10">
-                        <BiArrowBack
-                            className="cursor-pointer text-xl text-[#292929] size-4"
-                        />
-                    </span>
+                    <div className="flex justify-between items-center">
+                        <Link className="px-10 p-2" to={'/Catalogo'}>
+                            <BiArrowBack
+                                className="cursor-pointer text-xl text-[#292929] size-4"
+                            />
+                        </Link>
+                        <Link className="px-10 p-2 flex items-center text-[#292929] justify-center gap-1 border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:border-transparent" to={`/Catalogo/${id}/Modificar`}>
+                            <span>Modificar</span>
+                            <LuPencilLine
+                                className="cursor-pointer text-xl  size-4"
+                            />
+                        </Link>
+                    </div>
                     <div className="h-40 flex justify-center">
                         <img
                             className="h-full saturate-0"
                             src={`../../public/${data[0].codE.replace(/ /g, "")}.png`}
                         />
                     </div>
-                    {
-                        console.log(data[0].codE)
-                    }
                     <div className="flex justify-between items-end p-4">
                         <div className="flex flex-col flex-wrap w-full px-10">
                             <h1 className="text-base flex flex-wrap gap-4">
@@ -85,6 +94,7 @@ const Details = () => {
                             </p>
                         </div>
                     </div>
+
                 </div>
             }
         </>

@@ -4,17 +4,25 @@ import Busqueda from "../Components/Busqueda";
 import Productos from "../Components/Productos";
 import { Link } from "react-router-dom";
 import Success from "../Components/alerts/Success";
-import { useEffect } from "react";
-import image from "../Logic/Const"
+import { useEffect, useState } from "react";
 import useMethodFilter from "../api/useMethodFilter";
-import useDelete from "../api/useMethodDelete";
+/* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
 
-const Catalogo = ({ success, setSuccess
+const Catalogo = ({ success, setSuccess, update, setUpdate
 }) => {
-  const { results, searcher } = useMethodFilter('http://192.168.0.195:80/api/Catalogo/Listas/')
-  const { /* isLoading, error, */ data, deleteData } = useDelete('')
+  const [cambio, setCambio] = useState(false)
 
+  const { results, searcher } = useMethodFilter('http://192.168.0.195:80/api/Catalogo/Listas/', cambio)
+  function deleteData(id) {
+    fetch(`http://192.168.0.195:80/api/Codigos/Eliminar/${id}`, {
+      method: 'DELETE',
+    }).then(respuesta => respuesta.json())
+      .then(datos => {
+        console.log(datos)
+        setCambio(!cambio)
+      })
+  }
   useEffect(() => {
     if (success) {
       setTimeout(() => {
@@ -23,9 +31,18 @@ const Catalogo = ({ success, setSuccess
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success])
-  console.log(results)
-  console.log(image)
-  console.log(data)
+
+
+  useEffect(() => {
+    if (update) {
+      setTimeout(() => {
+        setUpdate(false)
+      }, ['5000'])
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [update])
+
+
 
   return (
     <div className="col-span-5 pt-4 px-8">
@@ -82,6 +99,7 @@ const Catalogo = ({ success, setSuccess
 
 
       <Success success={success} message={'Se ha creado el material correctamente'} />
+      <Success success={update} message={'Se ha modificado exitosamente'} />
 
 
     </div>

@@ -7,11 +7,13 @@ import FormTable from "./Components/FormTable";
 import { useState } from "react";
 import InventarioTabla from "./Components/InventarioTabla";
 import Details from "./Components/Details";
+import FormTable2 from "./Components/FormTable2";
 
 function App() {
   const [open, setOpen] = useState(false);
   const [color, setColor] = useState(false);
   const [success, setSuccess] = useState(false)
+  const [update, setUpdate] = useState(false)
   const toggleMenu = () => {
     setOpen(!open);
   };
@@ -32,11 +34,20 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route
             path="/Catalogo"
-            element={<Catalogo success={success} setSuccess={setSuccess} />}
+            element={<Catalogo success={success} setSuccess={setSuccess} update={update} setUpdate={setUpdate} />}
           />
           <Route
             path="/Catalogo/:id"
             element={<Details />}
+          />
+          <Route
+            path="/Catalogo/:id/Modificar"
+            element={<FormTable2
+              error={errorMenu}
+              border={color ? "border border-[#ff0000ad]" : ""}
+              text={color ? "block" : "hidden"}
+              setUpdate={setUpdate}
+            />}
           />
           <Route path="/Inventario" element={<Inventario />} />
           <Route

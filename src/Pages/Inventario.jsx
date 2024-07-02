@@ -65,7 +65,7 @@ const Inventario = () => {
       {/* component */}
       <div className="p-8 w-full">
         <div className="shadow overflow-hidden rounded border-b border-gray-200">
-          <div className="max-[500px]:overflow-x-auto">
+          <div className="max-[500px]:overflow-x-auto min-w-[1000px]">
             <table className="min-w-full bg-white">
               {/* HEAD TABLE */}
               <thead className="bg-[#292929] text-white">

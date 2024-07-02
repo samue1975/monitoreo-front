@@ -20,7 +20,7 @@ const Inventario = () => {
             <div className="flex flex-wrap items-center gap-2">
               <label className="text-gray-700 font-medium">Desde:</label>
               <input
-                className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
+                className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
                 type="date"
                 value={fechaInicio}
                 onChange={(e) => {
@@ -33,7 +33,7 @@ const Inventario = () => {
             <div className="flex flex-wrap items-center gap-2">
               <label className="text-gray-700 font-medium">Hasta:</label>
               <input
-                className="outline-none border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
+                className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
                 type="date"
                 value={fechaFin}
                 min={fechaInicio} // Limitar fecha mínima con fechaInicio

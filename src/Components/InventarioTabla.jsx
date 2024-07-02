@@ -1,6 +1,6 @@
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ProductCatalog = () => {
   const [selectedProduct, setSelectedProduct] = useState(""); // ESTADO PARA ALMACENAR EL PRODUCTO SELECCIONADO
@@ -9,8 +9,9 @@ const ProductCatalog = () => {
     setSelectedProduct(event.target.value); // CAMBIA EL ESTADO CUANDO HAY UN CAMBIO
   };
 
+
   return (
-    <div className="col-span-5 flex flex-wrap col-span-5 justify-center items-center h-screen">
+    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen">
       {/* TODO EL FORMULARIO */}
       <form
         className="py-4 px-20 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm border-[1px]"

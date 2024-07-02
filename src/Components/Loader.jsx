@@ -1,15 +1,12 @@
-import '../assets/css/loader.css'
+import "../assets/css/loader.css";
 const Loader = () => {
-    return (
+  return (
+    <>
+      <span className="loader"></span>
+      <span className="loader2 absolute"></span>
+      {/* <span className="loader2"></span> */}
+    </>
+  );
+};
 
-        <>
-
-
-            <span className="loader"></span>
-            {/* <span className="loader2"></span> */}
-        </>
-
-    )
-}
-
-export default Loader
+export default Loader;

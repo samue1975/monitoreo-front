@@ -36,7 +36,7 @@ const Home = () => {
     <div className="col-span-5 px-14 py-8">
       <header className="flex flex-wrap justify-between items-start">
         <div className="flex flex-col flex-wrap">
-          <h1 className="font-medium text-2xl">
+          <h1 className="font-medium text-2xl text-red-500">
             Bienvenido, Equipo de Sistemas!
           </h1>
           <span className="text-gray-600">{fechaCompleta}</span>

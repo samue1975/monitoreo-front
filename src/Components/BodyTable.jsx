@@ -1,6 +1,7 @@
 import { TbListDetails, TbTrash } from "react-icons/tb";
 
-const BodyTable = ({ cod_nombre, cod_sistema, cod_lote, cod_cantidad }) => {
+// eslint-disable-next-line react/prop-types
+const BodyTable = ({ cod_nombre, cod_sistema, cod_cantidad, descript, ingreso, caducidad, proveedor, ubicacion }) => {
   return (
     <tr>
       <td className="text-center py-3 uppercase font-semibold text-sm">
@@ -10,13 +11,22 @@ const BodyTable = ({ cod_nombre, cod_sistema, cod_lote, cod_cantidad }) => {
         {cod_sistema}
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm">
-        <input type="date" />
+        {proveedor}
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm">
-        {cod_lote}
+        {ingreso}
+      </td>
+      <td className="text-center py-3 uppercase font-semibold text-sm">
+        {caducidad}
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm">
         {cod_cantidad}
+      </td>
+      <td className="text-center py-3 uppercase font-semibold text-sm">
+        {descript}
+      </td>
+      <td className="text-center py-3 uppercase font-semibold text-sm">
+        {ubicacion}
       </td>
       <td className="text-center py-3 uppercase font-semibold text-sm flex gap-6 justify-center">
         <button>

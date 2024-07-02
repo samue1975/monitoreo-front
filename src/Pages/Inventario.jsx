@@ -3,10 +3,21 @@ import BodyTable from "../Components/BodyTable";
 import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
 import { useState } from "react";
+import { almacenGet } from "../Logic/ConsUrls";
+import useMethodGet from "../api/useMethodGet";
 
 const Inventario = () => {
   const [fechaInicio, setFechaInicio] = useState();
   const [fechaFin, setFechaFin] = useState();
+
+  //useMethodGet
+
+  const { data } = useMethodGet(almacenGet)
+
+  console.log(data)
+
+
+
 
   return (
     <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
@@ -65,7 +76,7 @@ const Inventario = () => {
       {/* component */}
       <div className="p-8 w-full">
         <div className="shadow overflow-hidden rounded border-b border-gray-200">
-          <div className="max-[500px]:overflow-x-auto min-w-[1000px]">
+          <div className="max-[1000px]:overflow-x-auto min-w-[1000px]">
             <table className="min-w-full bg-white">
               {/* HEAD TABLE */}
               <thead className="bg-[#292929] text-white">
@@ -74,16 +85,25 @@ const Inventario = () => {
                     NOMBRE
                   </th>
                   <th className="text-center py-3 uppercase font-semibold text-sm">
-                    CÓDIGO DEL SISTEMA
+                    COD. PRODUCTO
                   </th>
                   <th className="text-center py-3 uppercase font-semibold text-sm">
-                    FECHA
+                    PROVEEDOR
                   </th>
                   <th className="text-center py-3 uppercase font-semibold text-sm">
-                    LOTE
+                    INGRESO
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    CADUCIDAD
                   </th>
                   <th className="text-center py-3 uppercase font-semibold text-sm">
                     CANTIDAD
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    DESCRIPCIÓN
+                  </th>
+                  <th className="text-center py-3 uppercase font-semibold text-sm">
+                    UBICACIÓN
                   </th>
                   <th className="text-center py-3 uppercase font-semibold text-sm">
                     EDITAR
@@ -92,12 +112,24 @@ const Inventario = () => {
               </thead>
               {/* BODY TABLE */}
               <tbody className="text-gray-700">
-                <BodyTable
-                  cod_nombre={"Barra de Acero"}
-                  cod_sistema={"OACI-M-AI-09-35-010-554543-PI110"}
-                  cod_lote={"52245"}
-                  cod_cantidad={"144"}
-                />
+                {
+                  data?.map((lote) => {
+                    return (
+                      <BodyTable
+                        cod_nombre={lote.nombre}
+                        key={lote.idAlmacen}
+                        cod_sistema={lote.codigo}
+                        proveedor={lote.proveedor}
+                        ingreso={lote.fechaIngreso}
+                        caducidad={lote.fechaCaducidad}
+                        descript={lote.descripcion}
+                        ubicacion={lote.ubicacion}
+                        cod_cantidad={lote.cantidad}
+                      />
+
+                    )
+                  })
+                }
               </tbody>
             </table>
           </div>

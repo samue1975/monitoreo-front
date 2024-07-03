@@ -1,5 +1,5 @@
 import { BiArrowBack } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useMethodGet from "../api/useMethodGet";
 import { useForm } from "react-hook-form";
@@ -18,6 +18,8 @@ const ProductCatalog = () => {
   const { success, errorsPost } = useMethodPost(dataSend, listNamesPost)
   //useForm
   const { register, handleSubmit /* formState: { errors } */, setValue } = useForm();
+  //Navigate
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (selectedProduct) {
@@ -52,7 +54,7 @@ const ProductCatalog = () => {
 
 
   useEffect(() => {
-    success && console.log(success)
+    success && navigate('/Inventario')
     errorsPost && console.log(errorsPost)
   }, [success, errorsPost])
 

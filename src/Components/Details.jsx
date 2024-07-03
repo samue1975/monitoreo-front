@@ -4,13 +4,16 @@ import { BiArrowBack } from "react-icons/bi";
 import { useParams } from "react-router";
 import { LuPencilLine } from "react-icons/lu";
 import { Link } from "react-router-dom";
-
+/* import ContinuousModel from "echarts/types/src/component/visualMap/ContinuousModel.js";
+ */
 
 
 const Details = () => {
 
     const { id } = useParams()
     const { data } = useMethodGet(`http://192.168.0.195:80/api/Catalogo/Detalles/${id}`)
+
+    console.log(data)
 
     return (
         <>

@@ -5,6 +5,8 @@ import Busqueda from "../Components/Busqueda";
 import { useState } from "react";
 import { almacenGet } from "../Logic/ConsUrls";
 import useMethodGet from "../api/useMethodGet";
+import Loader from '../Components/Loader'
+
 
 const Inventario = () => {
   const [fechaInicio, setFechaInicio] = useState();
@@ -74,9 +76,9 @@ const Inventario = () => {
         </div>
       </div>
       {/* component */}
-      <div className="p-8 w-full">
-        <div className="shadow overflow-hidden rounded border-b border-gray-200">
-          <div className="max-[1000px]:overflow-x-auto min-w-[1000px]">
+      <div className=" py-8 w-full flex justify-center items-center">
+        <div className="shadow overflow-hidden rounded border-b border-gray-200 flex justify-center items-center">
+          <div className="max-w-[90%] min-w-[90%] overflow-x-scroll scrollbar-thin">
             <table className="min-w-full bg-white">
               {/* HEAD TABLE */}
               <thead className="bg-[#292929] text-white">
@@ -111,9 +113,9 @@ const Inventario = () => {
                 </tr>
               </thead>
               {/* BODY TABLE */}
-              <tbody className="text-gray-700">
+              <tbody className="text-gray-700 overflow-x-scroll">
                 {
-                  data?.map((lote) => {
+                  data?.reverse().map((lote) => {
                     return (
                       <BodyTable
                         cod_nombre={lote.nombre}
@@ -131,10 +133,15 @@ const Inventario = () => {
                   })
                 }
               </tbody>
+
             </table>
+            {
+              !data && <Loader />
+            }
           </div>
         </div>
       </div>
+
     </div>
   );
 };

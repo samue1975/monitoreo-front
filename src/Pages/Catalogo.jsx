@@ -13,8 +13,9 @@ import Loader from '../Components/Loader'
 const Catalogo = ({ success, setSuccess, update, setUpdate
 }) => {
   const [cambio, setCambio] = useState(false)
+  const [array, setArray] = useState(false)
 
-  const { results, searcher } = useMethodFilter('http://192.168.0.195:80/api/Catalogo/Listas/', cambio)
+  const { searcher, resultsId, identificacion, departamentofunc, sectorInvesfunc, lineaInvesfunc, proveedoresfunc } = useMethodFilter('http://192.168.0.195:80/api/Catalogo/Listas/', cambio)
   function deleteData(id) {
     fetch(`http://192.168.0.195:80/api/Codigos/Eliminar/${id}`, {
       method: 'DELETE',
@@ -44,6 +45,12 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update])
 
+  useEffect(() => {
+    if (Array.isArray(resultsId)) {
+      resultsId.length === 0 && setArray(true)
+      resultsId.length && setArray(false)
+    }
+  }, [resultsId])
 
 
 
@@ -53,16 +60,16 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
       <div className="flex flex-wrap justify-between pt-8">
         <Busqueda searcher={searcher} />
         <div className="flex flex-wrap gap-4">
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40">
+          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => identificacion(e.target.value)}>
             <option value="">Identificación</option>
-            <option value="Equipo">Equipo</option>
-            <option value="Componente">Componente</option>
-            <option value="Parte">Parte</option>
-            <option value="Materia Prima">Materia Prima</option>
-            <option value="SConsumible">Consumible</option>
-            <option value="Herramienta">Herramienta</option>
+            <option value="E">Equipo</option>
+            <option value="C">Componente</option>
+            <option value="P">Parte</option>
+            <option value="M">Materia Prima</option>
+            <option value="S">Consumible</option>
+            <option value="H">Herramienta</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40">
+          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => departamentofunc(e.target.value)}>
             <option value="">Departamento</option>
             <option value="IT">Inteligencia</option>
             <option value="DA">Dominio Aeroespacial</option>
@@ -81,7 +88,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="DP">Diseño y Optimización</option>
             <option value="RE">Robótica Espacial</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40">
+          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => sectorInvesfunc(e.target.value)}>
             <option value="">Sector de Investigación</option>
             <option value="01">Telecomunicaciones</option>
             <option value="02">Electrónica</option>
@@ -106,7 +113,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="21">Tecnología Led</option>
             <option value="22">Informática Tecnológica</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40">
+          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => lineaInvesfunc(e.target.value)}>
             <option value="">Línea de Investigación</option>
             <option value="01">Telemetría</option>
             <option value="02">Fibra Óptica</option>
@@ -168,7 +175,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="49">Mantenimiento</option>
             <option value="50">Sistemas de alumbrado</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40">
+          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => proveedoresfunc(e.target.value)}>
             <option value="">Proveedores</option>
             <option value="001">001</option>
             <option value="002">002</option>
@@ -205,27 +212,36 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
         </div>
       </div>
       <div className="pt-8 flex-wrap gap-6 grid grid-cols-5">
-        {results?.map((item) => {
-          return (
-            <Productos
-              foto={`./${item.codEDetallado.replace(/ /g, "")}.png`}
-              key={item.idCodProd}
-              titulo={item.nombre}
-              descripcion={item.descrip}
-              idCodProd={item.idCodProd}
-              deleteData={deleteData}
-            />
-          );
-        })}
+
+        {
+          resultsId?.map((item) => {
+            return (
+              <Productos
+                foto={`./${item.codEDetallado.replace(/ /g, "")}.png`}
+                key={item.idCodProd}
+                titulo={item.nombre}
+                descripcion={item.descrip}
+                idCodProd={item.idCodProd}
+                deleteData={deleteData}
+              />
+            )
+          })
+        }
+        {
+          array && <h1>no hay</h1>
+        }
       </div>
 
       <Success success={success} message={'Se ha creado el material correctamente'} />
       <Success success={update} message={'Se ha modificado exitosamente'} />
 
-      <div className="flex min-h-screen justify-center items-center">
-        <Loader />
 
-      </div>
+      {
+        !resultsId && <Loader />
+      }
+
+
+
 
     </div>
   );

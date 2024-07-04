@@ -4,28 +4,33 @@ import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
 import { useState } from "react";
 import { almacenGet } from "../Logic/ConsUrls";
-import useMethodGet from "../api/useMethodGet";
 import Loader from '../Components/Loader'
+import useMethodFilter from "../api/useMethodFilter";
+import { almacenDelete } from '../Logic/ConsUrls'
 
 
 const Inventario = () => {
   const [fechaInicio, setFechaInicio] = useState();
   const [fechaFin, setFechaFin] = useState();
+  const [cambio, setCambio] = useState()
 
   //useMethodGet
-
-  const { data } = useMethodGet(almacenGet)
-
-  console.log(data)
-
-
-
-
+  const { searcher, resultsId } = useMethodFilter(almacenGet, cambio)
+  function deleteData(id) {
+    fetch(`${almacenDelete}${id}`, {
+      method: 'DELETE',
+    }).then(respuesta => respuesta.json())
+      .then(datos => {
+        console.log(datos)
+        setCambio(!cambio)
+      })
+  }
+  console.log(resultsId)
   return (
     <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
       {/* Apartado de busqueda y botones */}
       <div className="px-8 pt-8 flex flex-wrap justify-between">
-        <Busqueda />
+        <Busqueda searcher={searcher} />
         {/* Botones */}
         <div className="flex flex-wrap items-center gap-4">
           {/* LA FECHA */}
@@ -115,11 +120,12 @@ const Inventario = () => {
               {/* BODY TABLE */}
               <tbody className="text-gray-700 overflow-x-scroll">
                 {
-                  data?.reverse().map((lote) => {
+                  resultsId?.reverse().map((lote) => {
                     return (
                       <BodyTable
                         cod_nombre={lote.nombre}
                         key={lote.idAlmacen}
+                        id={lote.idAlmacen}
                         cod_sistema={lote.codigo}
                         proveedor={lote.proveedor}
                         ingreso={lote.fechaIngreso}
@@ -127,6 +133,7 @@ const Inventario = () => {
                         descript={lote.descripcion}
                         ubicacion={lote.ubicacion}
                         cod_cantidad={lote.cantidad}
+                        deleteData={deleteData}
                       />
 
                     )
@@ -136,7 +143,7 @@ const Inventario = () => {
 
             </table>
             {
-              !data && <Loader />
+              !resultsId && <Loader />
             }
           </div>
         </div>

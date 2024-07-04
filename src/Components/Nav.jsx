@@ -21,16 +21,16 @@ const Nav = ({ toggle, color, move, bgcolor, faded }) => {
         </div>
         <div className="flex flex-col gap-1 pr-4">
           <Link to={"/Home"}>
-            <NavButtons icon={<BiHome />} title={"Inicio"} fade={faded} />
+            <NavButtons icon={<BiHome />} title={"Inicio"} fade={faded} toggleOption={toggle} />
           </Link>
           <Link to={"/Catalogo"}>
-            <NavButtons icon={<BiCategory />} title={"Catalogo"} fade={faded} />
+            <NavButtons icon={<BiCategory />} title={"Catalogo"} fade={faded} toggleOption={toggle} />
           </Link>
           <Link to={"/Inventario"}>
             <NavButtons
               icon={<CgToolbox />}
               title={"Inventario"}
-              fade={faded}
+              fade={faded} toggleOption={toggle}
             />
           </Link>
         </div>

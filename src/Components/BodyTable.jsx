@@ -1,7 +1,7 @@
 import { TbListDetails, TbTrash } from "react-icons/tb";
 
 // eslint-disable-next-line react/prop-types
-const BodyTable = ({ cod_nombre, cod_sistema, cod_cantidad, descript, ingreso, caducidad, proveedor, ubicacion }) => {
+const BodyTable = ({ cod_nombre, cod_sistema, cod_cantidad, descript, ingreso, caducidad, proveedor, ubicacion, deleteData, id }) => {
   return (
     <tr>
       <td className="text-center py-3 uppercase font-semibold text-sm">
@@ -32,7 +32,12 @@ const BodyTable = ({ cod_nombre, cod_sistema, cod_cantidad, descript, ingreso, c
         <button>
           <TbListDetails />
         </button>
-        <button>
+        <button onClick={async () => {
+          const accepted = window.confirm('Estas seguro que quieres eliminar esta tarea')
+          if (accepted) {
+            await deleteData(id)
+          }
+        }} >
           <TbTrash />
         </button>
       </td>

@@ -6,6 +6,7 @@ export const listNames = 'http://192.168.0.195:80/api/Almacen/Nombres'
 export const listNamesId = 'http://192.168.0.195:80/api/Almacen/Agregar/'
 export const listNamesPost = 'http://192.168.0.195:80/api/Almacen/Envio/'
 export const almacenGet = 'http://192.168.0.195:80/api/Almacen/ListaAlmacen'
+export const almacenDelete = 'http://192.168.0.195:80/api/Almacen/Eliminar/'
 
 
 

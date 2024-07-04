@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 // eslint-disable-next-line react/prop-types
 const Busqueda = ({ searcher }) => {
   return (
-    <div className="flex items-center gap-2 border-[1px] border-[#292929] justify-start rounded-xl px-4">
+    <div className="flex items-center gap-2 border-[1px] border-[#292929] justify-start rounded-xl px-4 max-sm:px-2">
       <button>
         <BiSearch className="text-2xl text-[#292929]" />
       </button>

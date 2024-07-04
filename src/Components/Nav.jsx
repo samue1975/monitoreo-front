@@ -9,11 +9,11 @@ const Nav = ({ toggle, color, move, bgcolor, faded }) => {
     <div>
       <BiSolidTag
         onClickCapture={toggle}
-        className={`z-30 top-0 absolute text-4xl ${color} text-[#292929] duration-100 cursor-pointer`}
+        className={`z-30 top-0 fixed text-4xl ${color} text-[#292929] duration-100 cursor-pointer`}
       />
       <div
         onMouseLeave={toggle}
-        className={`bg-[#292929] h-screen flex flex-col gap-8 absolute top-0 w-1/5 ${move} duration-300 z-20`}
+        className={`bg-[#292929] h-screen flex flex-col gap-8 fixed top-0 w-1/5 max-sm:w-full max-lg:w-1/3 ${move} duration-300 z-20`}
       >
         {/* ========LOGO DE LA EMPRESA======== */}
         <div className="flex justify-center items-center py-6 selection:bg-transparent">

@@ -56,7 +56,7 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <div className="grid grid-cols-3 gap-4 py-10">
+      <div className="grid grid-cols-3 max-[940px]:grid-cols-2 max-[590px]:grid-cols-1 gap-4 py-10">
         <LineCharts
           e={"1124"}
           c={"1686"}

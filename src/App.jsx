@@ -24,11 +24,11 @@ function App() {
   };
   return (
     <>
-      <div className="grid grid-cols-5 font-poppins">
+      <div className="grid grid-cols-5 font-poppins max-w-">
         <Nav
           toggle={toggleMenu}
-          move={open ? "left-0" : "-left-1/4"}
-          color={open ? "hidden" : "rotate-180 left-0 color"}
+          move={open ? "left-0" : " max-sm:-left-full max-lg:-left-1/3 -left-1/4"}
+          color={open ? "z-30 text-white max-sm:block hidden" : "rotate-180 left-0"}
           bgcolor={open ? "block" : "hidden"}
           faded={open ? "" : "hidden"}
         />

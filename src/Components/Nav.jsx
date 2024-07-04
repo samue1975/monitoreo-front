@@ -33,6 +33,7 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
             <NavButtons
               icon={<CgToolbox />}
               title={"Inventario"}
+
               option={toggle}
             />
           </Link>

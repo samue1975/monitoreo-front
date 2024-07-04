@@ -7,6 +7,7 @@ import Success from "../Components/alerts/Success";
 import { useEffect, useState } from "react";
 import useMethodFilter from "../api/useMethodFilter";
 import Loader from '../Components/Loader'
+import NoDisponible from "../Components/NoDisponible";
 /* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
 
@@ -55,9 +56,9 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
 
 
   return (
-    <div className="col-span-5 pt-4 px-8">
+    <div className="col-span-5 pt-4 px-8 pb-8">
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
-      <div className="flex flex-wrap justify-between pt-8">
+      <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda searcher={searcher} />
         <div className="flex flex-wrap gap-4">
           <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => identificacion(e.target.value)}>
@@ -211,7 +212,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
           </button>
         </div>
       </div>
-      <div className="pt-8 flex-wrap gap-6 grid grid-cols-5">
+      <div className="pt-8 flex flex-wrap gap-6">
 
         {
           resultsId?.map((item) => {
@@ -223,12 +224,13 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
                 descripcion={item.descrip}
                 idCodProd={item.idCodProd}
                 deleteData={deleteData}
+                
               />
             )
           })
         }
         {
-          array && <h1>no hay</h1>
+          array && <div className="w-full"><NoDisponible /></div>
         }
       </div>
 

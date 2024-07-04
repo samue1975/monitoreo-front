@@ -29,7 +29,7 @@ const Inventario = () => {
   return (
     <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
       {/* Apartado de busqueda y botones */}
-      <div className="px-8 pt-8 flex flex-wrap justify-between">
+      <div className="px-8 pt-8 flex max-sm:gap-4 flex-wrap justify-between">
         <Busqueda searcher={searcher} />
         {/* Botones */}
         <div className="flex flex-wrap items-center gap-4">

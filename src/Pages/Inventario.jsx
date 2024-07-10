@@ -7,6 +7,7 @@ import { almacenGet } from "../Logic/ConsUrls";
 import Loader from '../Components/Loader'
 import useMethodFilter from "../api/useMethodFilter";
 import { almacenDelete } from '../Logic/ConsUrls'
+import Pagination from "../Components/Pagination";
 
 
 const Inventario = () => {
@@ -82,8 +83,8 @@ const Inventario = () => {
       </div>
       {/* component */}
       <div className=" py-8 w-full flex justify-center items-center">
-        <div className="shadow overflow-hidden rounded border-b border-gray-200 flex justify-center items-center">
-          <div className="max-w-[90%] min-w-[90%] overflow-x-scroll scrollbar-thin">
+        <div className="shadow overflow-hidden rounded border-b border-gray-200 flex flex-col gap-4 justify-center items-center">
+          <div className="max-sm:max-w-[90%] max-w-[95%] max-sm:min-w-[90%] max-sm:overflow-x-scroll scrollbar-thin gap-2">
             <table className="min-w-full bg-white">
               {/* HEAD TABLE */}
               <thead className="bg-[#292929] text-white">
@@ -146,6 +147,7 @@ const Inventario = () => {
               !resultsId && <Loader />
             }
           </div>
+          <Pagination />
         </div>
       </div>
 

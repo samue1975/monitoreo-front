@@ -60,10 +60,10 @@ const ProductCatalog = () => {
 
 
   return (
-    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen">
+    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
       {/* TODO EL FORMULARIO */}
       <form
-        className="py-4 px-20 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm border-[1px]"
+        className="py-4 px-20 max-sm:px-8 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm max-sm:min-w-full border-[1px]"
         action=""
         onSubmit={onSubmit}
 
@@ -73,11 +73,11 @@ const ProductCatalog = () => {
           <BiArrowBack />
         </Link>
 
-        <div className="flex flex-col">
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Catálogo:</p>
             <select
-              className="bg-[#F6F6F6] outline-none pl-4 pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
+              className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               id="catalogSelect"
               onChangeCapture={handleProductChange}
               required="required"
@@ -96,19 +96,19 @@ const ProductCatalog = () => {
 
             </select>
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Código del Producto:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               id="systemCodeInput"
               type="text"
               {...register("codigo", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Proveedores:</p>
             <select
-              className={`bg-[#F6F6F6] outline-none pl-4 pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+              className={`bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               {...register("CodSu", { required: true })}
             >
               <option value=""></option>
@@ -147,43 +147,43 @@ const ProductCatalog = () => {
               type="number"
             />
           </div> */}
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Cantidad:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="number"
               {...register("cantidad", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Descripción:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="text"
-              placeholder='Escriba la Ubicación'
+              placeholder='Escriba la Descripción'
               {...register("descripcion", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Fecha de Ingreso:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="date"
               {...register("fechaIngreso", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Fecha de Caducidad:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="date"
               {...register("fechaCaducidad", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Ubicación:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="text"
               placeholder='Escriba la Ubicación'
               {...register("ubicacion", { required: true })}

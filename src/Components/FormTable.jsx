@@ -68,10 +68,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
     console.log(cod);
   }
   return (
-    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen">
+    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
       {success ? <Navigate to={"/Catalogo"} /> : ""}
       <form
-        className="py-4 px-20 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm border-[1px]"
+        className="py-4 px-20 max-sm:px-4 max-sm:min-w-full flex flex-col gap-6 max-sm:py-8 rounded-xl text-[#292929] shadow-sm border-[1px]"
         onSubmit={onSubmit}
       >
         {/* MENSAJE DE ERROR */}
@@ -86,28 +86,28 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
           <BiArrowBack />
         </Link>
         {/* TODO EL FORULARIO */}
-        <div className="gap-1 flex flex-col">
-          <div className="flex flex-wrap gap-4 justify-end">
+        <div className="gap-1 flex flex-col max-sm:gap-2">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end">
             <p className="font-semibold">Código OACI:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
               type="text"
               value="VZLA"
               {...register("CodOaci", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end">
-            <p className="font-semibold">Nombre</p>
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end">
+            <p className="font-semibold">Nombre:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
               type="text"
               {...register("Nombre", { required: true })}
             />
           </div>
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Identificación:</p>
             <select
-              className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+              className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               id="select"
               onChangeCapture={(e) => {
                 codConcat(e.target.value, 1);
@@ -124,10 +124,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             </select>
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Area o Departamento:</p>
             <select
-              className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+              className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               onChangeCapture={(e) => {
                 codConcat(e.target.value, 2);
               }}
@@ -153,10 +153,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             </select>
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Sector de Investigación:</p>
             <select
-              className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+              className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               onChangeCapture={(e) => {
                 codConcat(e.target.value, 3);
               }}
@@ -188,11 +188,11 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             </select>
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Línea de Investigación:</p>
             <select
               id="valor_LineaInv"
-              className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+              className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               onChangeCapture={(e) => {
                 codConcat(e.target.value, 4);
               }}
@@ -263,10 +263,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             </select>
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Proveedores:</p>
             <select
-              className={`bg-[#F6F6F6] ${border} outline-none pl-4 pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+              className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
               onChangeCapture={(e) => {
                 codConcat(e.target.value, 5);
               }}
@@ -302,10 +302,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             </select>
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">ID Cronológica:</p>
             <input
-              className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 pr-1 text-[#292929] w-52`}
+              className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52`}
               placeholder="Codigo LMNOP"
               type="text"
               onBlurCapture={(e) => {
@@ -323,20 +323,20 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
             ></textarea>
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Código de Barra:</p>
             <input
-              className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 pr-1 text-[#292929] w-52`}
+              className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52`}
               placeholder="Codigo de Barras"
               type="text"
               {...register("CodBarra", { required: true })}
             />
           </div>
           <ErrorMsg display={`${text}`} />
-          <div className="flex flex-wrap gap-4 justify-end pt-1">
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Código del Sistema:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 pr-1 text-[#292929] w-52"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
               type="text"
               value={codSistema}
               {...register("CodSistema")}

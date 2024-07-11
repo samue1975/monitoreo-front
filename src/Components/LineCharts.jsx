@@ -18,7 +18,6 @@ const LineCharts = ({ e, c, p, m, s, h, titulo }) => {
         type: "bar",
         itemStyle: {
           color: "#292929",
-          shadowBlur: 5,
         },
         label: {
           show: true,

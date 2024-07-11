@@ -33,7 +33,7 @@ const Inventario = () => {
       <div className="px-8 pt-8 flex max-sm:gap-4 flex-wrap justify-between">
         <Busqueda searcher={searcher} />
         {/* Botones */}
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap max-sm:justify-center items-center gap-4">
           {/* LA FECHA */}
           <div className="flex flex-wrap gap-2">
             <div className="flex flex-wrap items-center gap-2">

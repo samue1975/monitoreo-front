@@ -60,7 +60,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda searcher={searcher} />
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => identificacion(e.target.value)}>
             <option value="">Identificación</option>
             <option value="E">Equipo</option>
@@ -239,7 +239,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
 
 
       {
-        !resultsId && <Loader />
+        !resultsId && <span className="relative -top-1/4"><Loader /></span>
       }
 
 

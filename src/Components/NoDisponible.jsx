@@ -7,7 +7,7 @@ const NoDisponible = () => {
       <p className="text-xl text-center">
         Prueba con otros filtros de búsqueda
       </p>
-      <span className="relative -top-52 left-0">
+      <span className="relative -top-40 left-0">
         <Loader />
       </span>
     </div>

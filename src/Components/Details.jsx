@@ -19,7 +19,7 @@ const Details = () => {
         <>
             {
                 data && <div
-                    className={`border rounded-2xl flex flex-col w-2/4 max-sm:w-full top-0 bottom-0 left-0 right-0 m-auto shadow bg-white justify-around fixed`}
+                    className={`border rounded-2xl flex flex-col w-2/4 max-sm:w-full top-0 bottom-0 left-0 right-0 m-auto shadow bg-white justify-around fixed max-sm:overflow-auto`}
                 >
                     {/* FLECHA PARA IR HACIA ATRAS */}
                     <div className="flex justify-between items-center max-sm:px-4">

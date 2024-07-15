@@ -9,14 +9,17 @@ const useMethodFilter = (url, cambio) => {
     const [lineaInves, setLineaInves] = useState("");
     const [sectorInves, setSectorInves] = useState("");
     const [proveedores, setProveedores] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
 
     //función para traer los datos de la API
     useEffect(() => {
+        setIsLoading(true)
         fetch(url)
             .then((response) => response.json())
             //console.log(data)
-            .then((json) => setItem(json));
+            .then((json) => setItem(json))
+            .finally(() => { setIsLoading(false) })
     }, [url, cambio]);
 
     //función de búsqueda
@@ -59,7 +62,7 @@ const useMethodFilter = (url, cambio) => {
         );
     }
 
-    return { searcher, resultsId, identificacion, departamentofunc, sectorInvesfunc, lineaInvesfunc, proveedoresfunc };
+    return { searcher, resultsId, identificacion, departamentofunc, sectorInvesfunc, lineaInvesfunc, proveedoresfunc, isLoading };
 
 }
 

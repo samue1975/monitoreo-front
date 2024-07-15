@@ -26,6 +26,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
         setCambio(!cambio)
       })
   }
+  console.log(resultsId)
   useEffect(() => {
     if (success) {
       setTimeout(() => {
@@ -215,6 +216,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
       <div className="pt-8 flex flex-wrap gap-6">
 
         {
+
           resultsId?.map((item) => {
             return (
               <Productos
@@ -222,9 +224,9 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
                 key={item.idCodProd}
                 titulo={item.nombre}
                 descripcion={item.descrip}
-                idCodProd={item.idCodProd}
+                idCodProd={item.id}
                 deleteData={deleteData}
-                
+
               />
             )
           })

@@ -1,22 +1,34 @@
 import { IoIosAdd } from "react-icons/io";
-import BodyTable from "../Components/BodyTable";
 import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { almacenGet } from "../Logic/ConsUrls";
 import Loader from '../Components/Loader'
 import useMethodFilter from "../api/useMethodFilter";
 import { almacenDelete } from '../Logic/ConsUrls'
-import Pagination from "../Components/Pagination";
+import { useReactTable, getCoreRowModel, flexRender, getPaginationRowModel } from "@tanstack/react-table";
+import { TbListDetails, TbTrash } from "react-icons/tb";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 
 
 const Inventario = () => {
+  //States
   const [fechaInicio, setFechaInicio] = useState();
   const [fechaFin, setFechaFin] = useState();
   const [cambio, setCambio] = useState()
+  const [pagination, setPagination] = useState({
+    pageIndex: 0, //initial page index
+    pageSize: 5, //default page size
+  });
+  const [endPage, setEndPage] = useState(0)
+
+
 
   //useMethodGet
-  const { searcher, resultsId } = useMethodFilter(almacenGet, cambio)
+  const { searcher, resultsId, isLoading } = useMethodFilter(almacenGet, cambio)
+
+  //Delete
   function deleteData(id) {
     fetch(`${almacenDelete}${id}`, {
       method: 'DELETE',
@@ -26,7 +38,81 @@ const Inventario = () => {
         setCambio(!cambio)
       })
   }
-  console.log(resultsId)
+
+  const columns = [
+    {
+      header: 'NOMBRE',
+      accessorkey: 'nombre',
+      cell: ({ row }) => {
+        return row.original.nombre
+      }
+    },
+    {
+      header: 'COD. PRODUCTO',
+      accessorkey: 'codigo',
+      cell: ({ row }) => {
+        return row.original.codigo
+      }
+    },
+    {
+      header: 'PROVEEDOR',
+      accessorkey: 'proveedor',
+      cell: ({ row }) => {
+        return row.original.proveedor
+      }
+    },
+    {
+      header: 'INGRESO',
+      accessorkey: 'fechaIngreso',
+      cell: ({ row }) => {
+        return row.original.fechaIngreso
+      }
+    },
+    {
+      header: 'CADUCIDAD',
+      accessorkey: 'fechaCaducidad',
+      cell: ({ row }) => {
+        return row.original.fechaCaducidad
+      }
+    },
+    {
+      header: 'CANTIDAD',
+      accessorkey: 'cantidad',
+      cell: ({ row }) => {
+        return row.original.cantidad
+      }
+    },
+    {
+      header: 'DESCRIPCIÓN',
+      accessorkey: 'descripcion',
+      cell: ({ row }) => {
+        return row.original.descripcion
+      }
+    },
+    {
+      header: 'UBICACIÓN',
+      accessorkey: 'ubicacion',
+      cell: ({ row }) => {
+        return row.original.ubicacion
+      }
+    },
+  ]
+
+  //React Table
+  const table = useReactTable({
+    data: resultsId, columns, getCoreRowModel: getCoreRowModel(), getPaginationRowModel: getPaginationRowModel(), onPaginationChange: setPagination, //update the pagination state when internal APIs mutate the pagination state
+    state: {
+      //...
+      pagination,
+    },
+  })
+
+  //useEffect
+  useEffect(() => {
+    isLoading ? null : setEndPage(table.getPageCount())
+    /* table.isNuN && setEndPage(table.getPageCount()) */
+  }, [table, isLoading])
+
   return (
     <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
       {/* Apartado de busqueda y botones */}
@@ -88,57 +174,61 @@ const Inventario = () => {
             <table className="min-w-full bg-white">
               {/* HEAD TABLE */}
               <thead className="bg-[#292929] text-white">
-                <tr>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    NOMBRE
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    COD. PRODUCTO
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    PROVEEDOR
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    INGRESO
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    CADUCIDAD
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    CANTIDAD
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    DESCRIPCIÓN
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    UBICACIÓN
-                  </th>
-                  <th className="text-center py-3 uppercase font-semibold text-sm">
-                    EDITAR
-                  </th>
-                </tr>
+                {
+                  table.getHeaderGroups().map((headerGroup) => {
+                    return (
+                      <tr key={headerGroup.id}>
+                        {
+                          headerGroup.headers.map((header, index) => {
+                            return (
+                              <th key={index} className="text-center uppercase py-3 font-semibold text-sm">
+                                {flexRender(header.column.columnDef.header, header.getContext())
+                                }
+                              </th>
+                            )
+                          })
+                        }
+                        <th className="text-center uppercase py-3 font-semibold text-sm">
+                          Editar
+                        </th>
+                      </tr>
+                    )
+                  })
+                }
               </thead>
               {/* BODY TABLE */}
               <tbody className="text-gray-700 overflow-x-scroll">
-                {
-                  resultsId?.reverse().map((lote) => {
-                    return (
-                      <BodyTable
-                        cod_nombre={lote.nombre}
-                        key={lote.idAlmacen}
-                        id={lote.idAlmacen}
-                        cod_sistema={lote.codigo}
-                        proveedor={lote.proveedor}
-                        ingreso={lote.fechaIngreso}
-                        caducidad={lote.fechaCaducidad}
-                        descript={lote.descripcion}
-                        ubicacion={lote.ubicacion}
-                        cod_cantidad={lote.cantidad}
-                        deleteData={deleteData}
-                      />
+                {isLoading ? console.log('carga') : table.getRowModel().rows.map((row) => {
+                  return (
+                    <tr key={row.id}>
+                      {row.getVisibleCells().map(cell => {
+                        return (
+                          <td key={cell.id} className="text-center py-3 uppercase font-semibold text-sm max-sm:overflow-x-auto max-sm:max-w-32">
+                            <p className="max-sm:min-w-max px-4">{flexRender(cell.column.columnDef.cell, cell.getContext())}</p>
+                          </td>
+                        )
+                      })}
+                      <td className="text-center py-3 uppercase font-semibold text-sm flex gap-6 justify-center">
+                        <button>
+                          <TbListDetails />
+                        </button>
+                        <button
+                          onClick={async () => {
+                            const accepted = window.confirm(
+                              "Estas seguro que quieres eliminar esta tarea"
+                            );
+                            if (accepted) {
+                              await deleteData(row.original.idAlmacen);
+                            }
+                          }}
+                        >
+                          <TbTrash />
+                        </button>
+                      </td>
+                    </tr>
 
-                    )
-                  })
+                  )
+                })
                 }
               </tbody>
 
@@ -147,7 +237,77 @@ const Inventario = () => {
               !resultsId && <Loader />
             }
           </div>
-          <Pagination />
+          <div>
+            <nav>
+              <ul className="flex">
+                <li>
+                  <button
+                    className="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
+                    onClick={() => { table.previousPage() }}
+                  >
+                    <span className="text-sm">
+                      <IoIosArrowBack />
+                    </span>
+                  </button>
+                </li>
+
+                {/* {
+                  pagination.pageIndex > 2 ? (
+                    <li>
+                      <button
+                        className="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
+                        onClick={table.setPageIndex(pagination.pageIndex - 2)}
+                      >
+                        {pagination.pageIndex - 2}
+                      </button>
+                    </li>
+                  ) : null
+                } */}
+
+                <li>
+                  <button
+                    className="mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-[#292929] p-0 text-sm text-white"
+                  >
+                    {pagination.pageIndex}
+                  </button>
+                </li>
+
+                {
+                  pagination.pageIndex >= (endPage - 1) ? null : (<span
+                    className="mx-1 flex h-9 w-9 items-center justify-center rounded-full bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
+                  >
+                    ...
+                  </span>)
+
+
+                }
+                {
+                  pagination.pageIndex >= (endPage - 1) ? null : (<li>
+                    <button
+                      className="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
+                      onClick={() => { table.setPageIndex(table.getPageCount() - 1) }}
+                    >
+                      {endPage - 1}
+                    </button>
+                  </li>)
+                }
+                {
+                  pagination.pageIndex >= (endPage - 1) ? null : (<li>
+                    <button
+                      className="mx-1 flex h-9 w-9 items-center justify-center rounded-full border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300"
+                      onClick={() => { table.nextPage() }}
+                    >
+                      <span className="text-sm">
+                        <IoIosArrowForward />
+                      </span>
+                    </button>
+                  </li>)
+
+
+                }
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
 
@@ -156,3 +316,5 @@ const Inventario = () => {
 };
 
 export default Inventario;
+
+

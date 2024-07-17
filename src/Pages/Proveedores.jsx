@@ -22,7 +22,7 @@ const Proveedores = () => {
       {/* COMPONENTE */}
       <div className="py-8 w-full flex justify-center items-center">
         <div className="shadow overflow-hidden rounded border-b border-gray-200 flex flex-col gap-4 justify-center items-center w-full px-8">
-          <div className="max-sm:max-w-[90%] max-w-[100%] max-sm:min-w-[90%] max-sm:overflow-x-scroll scrollbar-thin gap-2 w-full">
+          <div className="max-w-[100%] max-sm:min-w-[90%] max-sm:overflow-x-scroll scrollbar-thin w-full">
             <table className="min-w-full bg-white">
               {/* HEAD TABLE */}
               <thead className="bg-[#292929] text-white">

@@ -224,7 +224,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
                 key={item.idCodProd}
                 titulo={item.nombre}
                 descripcion={item.descrip}
-                idCodProd={item.id}
+                idCodProd={item.idCodProd}
                 deleteData={deleteData}
 
               />

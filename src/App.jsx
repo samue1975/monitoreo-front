@@ -8,6 +8,7 @@ import { useState } from "react";
 import InventarioTabla from "./Components/InventarioTabla";
 import Details from "./Components/Details";
 import FormTable2 from "./Components/FormTable2";
+import DataTable from "./Pages/DataTable";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -70,6 +71,7 @@ function App() {
             }
           />
           <Route path="/AddInventario" element={<InventarioTabla />} />
+          <Route path="/nuevo" element={<DataTable />} />
         </Routes>
       </div>
     </>

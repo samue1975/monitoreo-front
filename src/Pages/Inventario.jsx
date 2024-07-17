@@ -1,14 +1,15 @@
 import { IoIosAdd } from "react-icons/io";
 import { Link } from "react-router-dom";
-import Busqueda from "../Components/Busqueda";
+import { BiSearch } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { almacenGet } from "../Logic/ConsUrls";
 import Loader from '../Components/Loader'
 import useMethodFilter from "../api/useMethodFilter";
 import { almacenDelete } from '../Logic/ConsUrls'
-import { useReactTable, getCoreRowModel, flexRender, getPaginationRowModel } from "@tanstack/react-table";
+import { useReactTable, getCoreRowModel, flexRender, getPaginationRowModel, getFilteredRowModel } from "@tanstack/react-table";
 import { TbListDetails, TbTrash } from "react-icons/tb";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { rankItem } from '@tanstack/match-sorter-utils'
 
 
 
@@ -22,11 +23,13 @@ const Inventario = () => {
     pageSize: 5, //default page size
   });
   const [endPage, setEndPage] = useState(0)
+  const [globalFilter, setGlobalFilter] = useState("")
+
 
 
 
   //useMethodGet
-  const { searcher, resultsId, isLoading } = useMethodFilter(almacenGet, cambio)
+  const { resultsId, isLoading } = useMethodFilter(almacenGet, cambio)
 
   //Delete
   function deleteData(id) {
@@ -39,20 +42,22 @@ const Inventario = () => {
       })
   }
 
+
   const columns = [
     {
       header: 'NOMBRE',
       accessorkey: 'nombre',
       cell: ({ row }) => {
         return row.original.nombre
-      }
+      },
     },
     {
       header: 'COD. PRODUCTO',
       accessorkey: 'codigo',
       cell: ({ row }) => {
         return row.original.codigo
-      }
+      },
+      enableSorting: true
     },
     {
       header: 'PROVEEDOR',
@@ -98,13 +103,26 @@ const Inventario = () => {
     },
   ]
 
+  const filterData = (row, columnId, value, addMeta) => {
+    const itemRank = rankItem(row.getValue(columnId), value)
+    addMeta({ itemRank })
+    return itemRank.passed
+  }
+
   //React Table
   const table = useReactTable({
-    data: resultsId, columns, getCoreRowModel: getCoreRowModel(), getPaginationRowModel: getPaginationRowModel(), onPaginationChange: setPagination, //update the pagination state when internal APIs mutate the pagination state
+    data: resultsId,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination, //update the pagination state when internal APIs mutate the pagination state
     state: {
-      //...
       pagination,
+      globalFilter,
     },
+
+    getFilteredRowModel: getFilteredRowModel(),
+    globalFilterFn: filterData
   })
 
   //useEffect
@@ -113,11 +131,23 @@ const Inventario = () => {
     /* table.isNuN && setEndPage(table.getPageCount()) */
   }, [table, isLoading])
 
+  console.log(globalFilter)
+
   return (
     <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
       {/* Apartado de busqueda y botones */}
       <div className="px-8 pt-8 flex max-sm:gap-4 flex-wrap justify-between">
-        <Busqueda searcher={searcher} />
+        <div className="flex items-center gap-2 border-[1px] border-[#292929] justify-start rounded-xl px-4 max-sm:px-2 max-sm:w-full">
+          <button>
+            <BiSearch className="text-2xl text-[#292929]" />
+          </button>
+          <input
+            className="py-2 outline-none border-none max-sm:w-full"
+            placeholder="Buscar..."
+            type="text"
+            onChange={e => setGlobalFilter(e.target.value)}
+          />
+        </div>
         {/* Botones */}
         <div className="flex flex-wrap max-sm:justify-center items-center gap-4">
           {/* LA FECHA */}
@@ -181,8 +211,14 @@ const Inventario = () => {
                         {
                           headerGroup.headers.map((header, index) => {
                             return (
-                              <th key={index} className="text-center uppercase py-3 font-semibold text-sm">
-                                {flexRender(header.column.columnDef.header, header.getContext())
+                              <th key={index} className="text-center uppercase py-3 font-semibold text-sm"
+                                onClick={header.column.getToggleSortingHandler()}
+                              >
+                                {flexRender(header.column.columnDef.header, header.getContext())}
+                                {
+                                  {
+                                    asc: "⬆️", desc: "⬇️"
+                                  }[header.column.getIsSorted() ?? null]
                                 }
                               </th>
                             )

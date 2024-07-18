@@ -203,8 +203,10 @@ const Inventario = () => {
                     <tr key={row.id}>
                       {row.getVisibleCells().map(cell => {
                         return (
-                          <td key={cell.id} className="text-center py-3 uppercase font-semibold text-sm max-sm:overflow-x-auto max-sm:max-w-32">
-                            <p className="max-sm:min-w-max px-4">{flexRender(cell.column.columnDef.cell, cell.getContext())}</p>
+                          <td key={cell.id} className="text-center uppercase px-4 font-semibold text-sm max-sm:px-4">
+                            <div className="max-sm:overflow-x-auto max-sm:max-w-32 py-3">
+                            <p className="max-sm:min-w-max">{flexRender(cell.column.columnDef.cell, cell.getContext())}</p>
+                            </div>
                           </td>
                         )
                       })}

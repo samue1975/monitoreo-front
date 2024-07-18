@@ -8,14 +8,14 @@ import useMethodPost from "../api/useMethodPost";
 
 
 // eslint-disable-next-line react/prop-types
-const FormTable = ({ /* error, */ text, border, setSuccess }) => {
+const FormTable = ({ /* error */ text, border, setSuccess }) => {
   //Parametro de la ruta
   //useState
   const [cod, setCod] = useState(new Array(5).fill(null));
   const [codSistema, setCodSistema] = useState("");
   const [data, setData] = useState();
   //useForm
-  const { register, handleSubmit /* formState: { errors } */ } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   //methods CRUD
   //method Post
@@ -31,12 +31,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
     if (data.CodSistema == '') {
       let object = { ...data }
       object.CodSistema = codSistema
-      console.log(object);
       setData(object);
     } else {
       setData(data)
     }
-
   });
 
   useEffect(() => {
@@ -47,6 +45,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
   useEffect(() => {
     setCodSistema(cod.join(""));
   }, [cod]);
+
+  function Verify() {
+    Object.entries(errors).length !== 0 && alert("Complete los campos correctamente")
+  }
 
   /* useEffect(() => {
     errorsPost || Object.entries(errors).length !== 0 && error()
@@ -72,6 +74,7 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
       {success ? <Navigate to={"/Catalogo"} /> : ""}
       <form
         className="py-4 px-20 max-sm:px-4 max-sm:min-w-full flex flex-col gap-6 max-sm:py-8 rounded-xl text-[#292929] shadow-sm border-[1px]"
+        onSubmitCapture={Verify}
         onSubmit={onSubmit}
       >
         {/* MENSAJE DE ERROR */}
@@ -349,10 +352,10 @@ const FormTable = ({ /* error, */ text, border, setSuccess }) => {
         </div>
         {/* ACEPTAR Y CANCELAR */}
         <div className="flex flex-wrap justify-around py-6">
-          <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">
+          <Link className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer" to={"/Catalogo"}>
             Cancelar
-          </button>
-          <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">
+          </Link>
+          <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer" onClick={Verify}>
             Aceptar
           </button>
         </div>

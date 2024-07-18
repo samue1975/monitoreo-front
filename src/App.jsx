@@ -5,11 +5,10 @@ import Catalogo from "./Pages/Catalogo";
 import Inventario from "./Pages/Inventario";
 import FormTable from "./Components/FormTable";
 import { useState } from "react";
-import InventarioTabla from "./Components/InventarioTabla";
+import AddInventario from "./Components/tablesPost/AddInventario";
 import Details from "./Components/Details";
 import FormTable2 from "./Components/FormTable2";
-import DataTable from "./Pages/DataTable"
-import AddProveedores from "./Components/AddProveedores"
+import AddProveedores from "./Components/tablesPost/AddProveedores"
 import Proveedores from "./Pages/Proveedores"
 
 function App() {
@@ -80,10 +79,9 @@ function App() {
               />
             }
           />
-          <Route path="/AddInventario" element={<InventarioTabla />} />
+          <Route path="/AddInventario" element={<AddInventario />} />
           <Route path="/AddProveedores" element={<AddProveedores />} />
           <Route path="/Proveedores" element={<Proveedores />} />
-          <Route path="/nuevo" element={<DataTable />} />
         </Routes>
       </div>
     </>

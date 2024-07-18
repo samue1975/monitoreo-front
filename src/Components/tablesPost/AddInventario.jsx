@@ -1,12 +1,12 @@
 import { BiArrowBack } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import useMethodGet from "../api/useMethodGet";
+import useMethodGet from "../../api/useMethodGet";
 import { useForm } from "react-hook-form";
-import { listNames, listNamesPost } from "../Logic/ConsUrls";
-import useMethodPost from "../api/useMethodPost";
+import { listNames, listNamesPost } from "../../Logic/ConsUrls";
+import useMethodPost from "../../api/useMethodPost";
 
-const ProductCatalog = () => {
+const AddInventario = () => {
   //useState
   const [selectedProduct, setSelectedProduct] = useState(); // ESTADO PARA ALMACENAR EL PRODUCTO SELECCIONADO
   const [data2, setData2] = useState()
@@ -29,8 +29,6 @@ const ProductCatalog = () => {
     }
   }, [selectedProduct])
 
-
-
   const handleProductChange = (event) => {
     setSelectedProduct(event.target.value); // CAMBIA EL ESTADO CUANDO HAY UN CAMBIO
     console.log(selectedProduct)
@@ -49,9 +47,7 @@ const ProductCatalog = () => {
     object.cantidad = Number(data.cantidad)
     object.nombre = data2.nombre
     setDataSend(object);
-
   })
-
 
   useEffect(() => {
     success && navigate('/Inventario')
@@ -93,7 +89,6 @@ const ProductCatalog = () => {
                   )
                 })
               }
-
             </select>
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
@@ -204,4 +199,4 @@ const ProductCatalog = () => {
   );
 };
 
-export default ProductCatalog;
+export default AddInventario;

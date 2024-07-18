@@ -241,7 +241,7 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
 
 
       {
-        !resultsId && <span className="relative -top-1/4"><Loader /></span>
+        !resultsId && <div className="relative -top-1/4 -z-10"><Loader /></div>
       }
 
 

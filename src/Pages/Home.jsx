@@ -1,7 +1,6 @@
-import LineCharts from "../Components/LineCharts";
 import { format } from "date-fns";
-import Login from "../Components/Login";
-import { useState } from "react";
+import "../assets/css/home.css";
+import Loader from "../Components/Loader";
 
 const meses = {
   0: "Enero",
@@ -19,11 +18,6 @@ const meses = {
 };
 
 const Home = () => {
-  const [abrir, setAbrir] = useState(false);
-  const toggleAbrir = () => {
-    setAbrir(!abrir);
-  };
-
   const fechaActual = new Date();
   const mes = fechaActual.getMonth(); // Enero es 0
   const año = fechaActual.getFullYear();
@@ -34,57 +28,28 @@ const Home = () => {
 
   return (
     <div className="col-span-5 px-14 py-8">
-      <header className="flex flex-wrap justify-between items-start">
-        <div className="flex flex-col flex-wrap">
-          <h1 className="font-medium text-2xl text-red-500">
-            Bienvenido, Equipo de Sistemas!
-          </h1>
-          <span className="text-gray-600">{fechaCompleta}</span>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          <div>
-            <button
-              onClick={toggleAbrir}
-              className="p-2 border text-white shadow bg-[#292929] rounded-2xl font-semibold"
-            >
-              Cuenta de Usuario
-            </button>
-            <Login
-              param={abrir ? "opacity-1 z-30" : "opacity-0 scale-0 -z-30"}
-              action={toggleAbrir}
-            />
-          </div>
-        </div>
+      <header className="flex justify-end w-full">
+        <span className="text-gray-600">{fechaCompleta}</span>
       </header>
-      <div className="grid grid-cols-3 max-[940px]:grid-cols-2 max-[590px]:grid-cols-1 gap-4 py-10">
-        <LineCharts
-          e={"1124"}
-          c={"1686"}
-          p={"2249"}
-          m={"2811"}
-          s={"2267"}
-          h={"754"}
-          titulo={"Agregados en el Mes"}
-        />
-        <LineCharts
-          e={"181"}
-          c={"321"}
-          p={"762"}
-          m={"52"}
-          s={"566"}
-          h={"188"}
-          titulo={"Agregados en la Semana"}
-        />
-        <LineCharts
-          e={"37"}
-          c={"56"}
-          p={"64"}
-          m={"33"}
-          s={"75"}
-          h={"25"}
-          titulo={"Agregados en el Día"}
-        />
-      </div>
+      <section className="flex flex-col gap-10">
+        <h1 className="text-5xl text-center max-sm:text-4xl">
+          Bienvenido al Sistema de <strong>Monitoreo y Control</strong>
+        </h1>
+        <h1 className="text-4xl text-center max-sm:text-3xl">
+          Realizado por la Gerencia de Software
+        </h1>
+        <h1 className="text-6xl text-center flex justify-center gap-5 max-sm:text-5xl">
+          Para
+          <div className="flex font-semibold selection:bg-transparent cursor-default">
+            <div className="text-[yellow] shadowEa">EA</div>
+            <div className="text-[blue] shadowEa">N</div>
+            <div className="text-[red] shadowEa">SA</div>
+          </div>
+        </h1>
+        <div className="fixed right-0 left-0 m-auto max-[680px]:top-1/3 -z-10">
+          <Loader />
+        </div>
+      </section>
     </div>
   );
 };

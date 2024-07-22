@@ -1,42 +1,4 @@
-.element1:valid ~ #element2,
-.element1:focus ~ #element2{
-    transform: translateY(-34px);
-    font-size: 12px;
+.shadowEa {
+    text-shadow:
+      3px 3px 0 #F2742A;
 }
-
-.element3:valid ~ #element4,
-.element3:focus ~ #element4{
-    height: 44px;
-
-}
-
-#links{
-    margin: 10px 0;
-    font-size: 0.75em;
-    color: #8f8f8f;
-    text-decoration: none;
-}
-
-#links:hover, #links:nth-child(2){
-    color: #fff;
-}
-
-
-@keyframes blancoNegro {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
-  
-  /* Aplicar la animación al elemento */
-  .contenedor-gradiente {
-    animation: blancoNegro 2s infinite reverse;
-    background-image: linear-gradient(yellow, blue, red);
-    background-size: 200% 200%; /* Repite el gradiente */
-  }

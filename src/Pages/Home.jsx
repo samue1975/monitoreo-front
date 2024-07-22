@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import "../assets/css/home.css";
 import Loader from "../Components/Loader";
+import ProductoLista from "../Components/ProductoLista";
 
 const meses = {
   0: "Enero",
@@ -46,9 +47,12 @@ const Home = () => {
             <div className="text-[red] shadowEa">SA</div>
           </div>
         </h1>
-        <div className="fixed right-0 left-0 m-auto max-[680px]:top-1/3 -z-10">
+        {/* <div className="fixed right-0 left-0 m-auto max-[680px]:top-1/3 -z-10">
           <Loader />
-        </div>
+        </div> */}
+
+        {/* PRODUCTO EN TARJETAS */}
+        <ProductoLista />
       </section>
     </div>
   );

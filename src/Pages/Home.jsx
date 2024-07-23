@@ -52,7 +52,7 @@ const Home = () => {
         </div> */}
 
         {/* PRODUCTO EN TARJETAS */}
-        <ProductoLista />
+        <ProductoLista bgcolor={"bg-slate-50"} />
       </section>
     </div>
   );

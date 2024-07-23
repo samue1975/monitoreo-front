@@ -2,31 +2,47 @@
 import { IoIosAdd } from "react-icons/io";
 import Busqueda from "../Components/Busqueda";
 import Productos from "../Components/Productos";
+import ProductoLista from "../Components/ProductoLista";
 import { Link } from "react-router-dom";
 import Success from "../Components/alerts/Success";
 import { useEffect, useState } from "react";
 import useMethodFilter from "../api/useMethodFilter";
-import Loader from '../Components/Loader'
+import Loader from "../Components/Loader";
 import NoDisponible from "../Components/NoDisponible";
+import Switching from "../Components/Switching";
 /* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
-
-const Catalogo = ({ success, setSuccess, update, setUpdate
+const Catalogo = ({
+  success,
+  setSuccess,
+  update,
+  setUpdate,
+  cambio1,
+  cambio2,
 }) => {
-  const [cambio, setCambio] = useState(false)
-  const [array, setArray] = useState(false)
+  const [cambio, setCambio] = useState(false);
+  const [array, setArray] = useState(false);
 
-  const { searcher, resultsId, identificacion, departamentofunc, sectorInvesfunc, lineaInvesfunc, proveedoresfunc } = useMethodFilter('http://192.168.0.195:80/api/Catalogo/Listas/', cambio)
+  const {
+    searcher,
+    resultsId,
+    identificacion,
+    departamentofunc,
+    sectorInvesfunc,
+    lineaInvesfunc,
+    proveedoresfunc,
+  } = useMethodFilter("http://192.168.0.195:80/api/Catalogo/Listas/", cambio);
   function deleteData(id) {
     fetch(`http://192.168.0.195:80/api/Codigos/Eliminar/${id}`, {
-      method: 'DELETE',
-    }).then(respuesta => respuesta.json())
-      .then(datos => {
-        console.log(datos)
-        setCambio(!cambio)
-      })
+      method: "DELETE",
+    })
+      .then((respuesta) => respuesta.json())
+      .then((datos) => {
+        console.log(datos);
+        setCambio(!cambio);
+      });
   }
-  console.log(resultsId)
+  console.log(resultsId);
   useEffect(() => {
     if (success) {
       setTimeout(() => {
@@ -35,26 +51,23 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [success])
-
+  }, [success]);
 
   useEffect(() => {
     if (update) {
       setTimeout(() => {
-        setUpdate(false)
-      }, ['5000'])
+        setUpdate(false);
+      }, ["5000"]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [update])
+  }, [update]);
 
   useEffect(() => {
     if (Array.isArray(resultsId)) {
-      resultsId.length === 0 && setArray(true)
-      resultsId.length && setArray(false)
+      resultsId.length === 0 && setArray(true);
+      resultsId.length && setArray(false);
     }
-  }, [resultsId])
-
-
+  }, [resultsId]);
 
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
@@ -62,7 +75,10 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
       <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda searcher={searcher} />
         <div className="flex flex-wrap justify-center gap-4">
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => identificacion(e.target.value)}>
+          <select
+            className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40"
+            onChange={(e) => identificacion(e.target.value)}
+          >
             <option value="">Identificación</option>
             <option value="E">Equipo</option>
             <option value="C">Componente</option>
@@ -71,7 +87,10 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="S">Consumible</option>
             <option value="H">Herramienta</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => departamentofunc(e.target.value)}>
+          <select
+            className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40"
+            onChange={(e) => departamentofunc(e.target.value)}
+          >
             <option value="">Departamento</option>
             <option value="IT">Inteligencia</option>
             <option value="DA">Dominio Aeroespacial</option>
@@ -90,7 +109,10 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="DP">Diseño y Optimización</option>
             <option value="RE">Robótica Espacial</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => sectorInvesfunc(e.target.value)}>
+          <select
+            className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40"
+            onChange={(e) => sectorInvesfunc(e.target.value)}
+          >
             <option value="">Sector de Investigación</option>
             <option value="01">Telecomunicaciones</option>
             <option value="02">Electrónica</option>
@@ -115,7 +137,10 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="21">Tecnología Led</option>
             <option value="22">Informática Tecnológica</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => lineaInvesfunc(e.target.value)}>
+          <select
+            className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40"
+            onChange={(e) => lineaInvesfunc(e.target.value)}
+          >
             <option value="">Línea de Investigación</option>
             <option value="01">Telemetría</option>
             <option value="02">Fibra Óptica</option>
@@ -177,7 +202,10 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
             <option value="49">Mantenimiento</option>
             <option value="50">Sistemas de alumbrado</option>
           </select>
-          <select className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40" onChange={e => proveedoresfunc(e.target.value)}>
+          <select
+            className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40"
+            onChange={(e) => proveedoresfunc(e.target.value)}
+          >
             <option value="">Proveedores</option>
             <option value="001">001</option>
             <option value="002">002</option>
@@ -213,10 +241,9 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
           </button>
         </div>
       </div>
-      <div className="pt-8 flex flex-wrap gap-6">
-
-        {
-
+      <Switching cambio={cambio1} />
+      <div className={`pt-8 flex flex-wrap ${cambio2 ? "gap-0" : "gap-6"}`}>
+        {cambio2 == false &&
           resultsId?.map((item) => {
             return (
               <Productos
@@ -226,27 +253,41 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
                 descripcion={item.descrip}
                 idCodProd={item.idCodProd}
                 deleteData={deleteData}
-
               />
-            )
-          })
-        }
-        {
-          array && <div className="w-full"><NoDisponible /></div>
-        }
+            );
+          })}
+        {cambio2 == true &&
+          resultsId?.map((item, index) => {
+            return (
+              <ProductoLista
+                foto={`./${item.codEDetallado.replace(/ /g, "")}.png`}
+                key={item.idCodProd}
+                titulo={item.nombre}
+                descripcion={item.descrip}
+                idCodProd={item.idCodProd}
+                deleteData={deleteData}
+                bgcolor={index % 2 === 0 ? "bg-slate-200" : "bg-white"}
+              />
+            );
+          })}
+        {array && (
+          <div className="w-full">
+            <NoDisponible />
+          </div>
+        )}
       </div>
 
-      <Success success={success} message={'Se ha creado el material correctamente'} />
-      <Success success={update} message={'Se ha modificado exitosamente'} />
+      <Success
+        success={success}
+        message={"Se ha creado el material correctamente"}
+      />
+      <Success success={update} message={"Se ha modificado exitosamente"} />
 
-
-      {
-        !resultsId && <div className="relative -top-1/4 -z-10"><Loader /></div>
-      }
-
-
-
-
+      {!resultsId && (
+        <div className="relative -top-1/4 -z-10">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

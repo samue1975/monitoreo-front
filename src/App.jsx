@@ -8,8 +8,8 @@ import { useState } from "react";
 import AddInventario from "./Components/tablesPost/AddInventario";
 import Details from "./Components/Details";
 import FormTable2 from "./Components/FormTable2";
-import AddProveedores from "./Components/tablesPost/AddProveedores"
-import Proveedores from "./Pages/Proveedores"
+import AddProveedores from "./Components/tablesPost/AddProveedores";
+import Proveedores from "./Pages/Proveedores";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -17,6 +17,11 @@ function App() {
   const [success, setSuccess] = useState(false);
   const [update, setUpdate] = useState(false);
   const [put, setPut] = useState(false);
+
+  const [elSwitch, setElSwitch] = useState(false);
+  const cambiarSwitch = () => {
+    setElSwitch(!elSwitch);
+  };
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -49,6 +54,8 @@ function App() {
                 setSuccess={setSuccess}
                 update={update}
                 setUpdate={setUpdate}
+                cambio1={cambiarSwitch}
+                cambio2={elSwitch}
               />
             }
           />

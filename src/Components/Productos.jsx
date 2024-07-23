@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Productos = ({ foto, titulo, descripcion, idCodProd, deleteData }) => {
+const Productos = ({elSwitch, foto, titulo, descripcion, idCodProd, deleteData }) => {
   return (
     <div className="w-64 max-[600px]:w-full h-28 bg-[#f6f6f6] flex">
       {/* CUADRO DE IMAGEN */}

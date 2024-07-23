@@ -4,6 +4,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { useParams } from "react-router";
 import { LuPencilLine } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 /* import ContinuousModel from "echarts/types/src/component/visualMap/ContinuousModel.js";
  */
 
@@ -13,11 +14,9 @@ const Details = () => {
     `http://192.168.0.195:80/api/Catalogo/Detalles/${id}`
   );
 
-  console.log(data);
-
   return (
     <>
-      {data && (
+      {data ? (
         <div
           className={`border rounded-2xl flex flex-col w-2/4 max-sm:w-full top-0 bottom-0 left-0 right-0 m-auto shadow bg-white justify-around fixed max-sm:overflow-auto `}
         >
@@ -96,6 +95,10 @@ const Details = () => {
               </p>
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="w-full flex justify-center items-center col-span-3">
+          <Loader />
         </div>
       )}
     </>

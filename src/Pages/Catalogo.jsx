@@ -26,7 +26,6 @@ const Catalogo = ({ success, setSuccess, update, setUpdate
         setCambio(!cambio)
       })
   }
-  console.log(resultsId)
   useEffect(() => {
     if (success) {
       setTimeout(() => {

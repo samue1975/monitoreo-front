@@ -41,6 +41,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
+
+          {/* CATALOGO */}
           <Route
             path="/Catalogo"
             element={
@@ -66,22 +68,17 @@ function App() {
               />
             }
           />
+          <Route path="/AddMaterial" element={<FormTable setSuccess={setSuccess} />} />
           <Route path="/Catalogo/:id" element={<Details />} />
+
+          {/*INVENTARIO */}
           <Route path="/Inventario" element={<Inventario />} />
-          <Route
-            path="/AddMaterial"
-            element={
-              <FormTable
-                error={errorMenu}
-                border={color ? "border border-[#ff0000ad]" : ""}
-                text={color ? "block" : "hidden"}
-                setSuccess={setSuccess}
-              />
-            }
-          />
           <Route path="/AddInventario" element={<AddInventario />} />
-          <Route path="/AddProveedores" element={<AddProveedores />} />
-          <Route path="/Proveedores" element={<Proveedores />} />
+
+          {/*PROVEEDORES*/}
+          <Route path="/AddProveedores" element={<AddProveedores setSuccess={setSuccess} />} />
+          <Route path="/Proveedores" element={<Proveedores success={success}
+            setSuccess={setSuccess} />} />
         </Routes>
       </div>
     </>

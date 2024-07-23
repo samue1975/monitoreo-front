@@ -145,7 +145,7 @@ const AddInventario = () => {
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
             <p className="font-semibold">Cantidad:</p>
             <input
-              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full max-sm:min-w-full pr-1 text-[#292929] w-72"
+              className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="number"
               {...register("cantidad", { required: true })}
             />

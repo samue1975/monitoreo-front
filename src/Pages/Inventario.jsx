@@ -63,6 +63,21 @@ const Inventario = () => {
 
     //Use Method Get
     const { resultsId, isLoading } = useMethodFilter(almacenGet, cambio)
+
+    function filterData(data) {
+        if (fechaInicio && fechaFin) {
+            const filtered = data.filter(item => {
+                const itemDate = new Date(item.date);
+                return itemDate >= fechaInicio && itemDate <= fechaFin;
+            });
+            return filtered
+        }
+        return data
+    }
+
+
+
+    //Columns from table
     const columns = [
         {
             accessorKey: 'nombre',
@@ -71,7 +86,7 @@ const Inventario = () => {
         },
         {
             accessorKey: 'codigo',
-            header: () => <span>COD. PRODUCTO</span>
+            header: () => <span>COD. PRODUCTO</span>,
         },
         {
             accessorKey: 'proveedor',
@@ -111,7 +126,6 @@ const Inventario = () => {
             lastIndex
         }
     }
-
     /* Table constants */
     const table = useReactTable({
         data: resultsId,
@@ -130,7 +144,9 @@ const Inventario = () => {
         getFilteredRowModel: getFilteredRowModel(),
         globalFilterFn: fuzzyFilter,
         getSortedRowModel: getSortedRowModel(),
-        onSortingChange: setSorting
+        onSortingChange: setSorting,
+        filterFns: filterData,
+        enableFilters: true,
     })
 
     //Delete

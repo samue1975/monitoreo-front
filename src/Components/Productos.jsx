@@ -1,6 +1,4 @@
-import { TbListDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { MdDelete } from "react-icons/md";
 
 // eslint-disable-next-line react/prop-types
 const Productos = ({ foto, titulo, descripcion, idCodProd, deleteData }) => {
@@ -12,7 +10,7 @@ const Productos = ({ foto, titulo, descripcion, idCodProd, deleteData }) => {
         src={foto}
       />
       {/* PARTE DERECHA */}
-      <div className="flex flex-col justify-between pt-1 hover:bg-[#292929] hover:text-white w-full">
+      <div className="flex flex-col justify-between border border-black border-l-0 pt-1 hover:bg-[#292929] hover:text-white w-full">
         {/* TITULO Y DESCRIPCION */}
         <div className="flex flex-col pl-1">
           <h1 className="text-sm font-medium overflow-hidden text-overflow:ellipsis line-clamp-1 uppercase">

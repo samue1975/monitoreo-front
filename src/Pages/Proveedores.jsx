@@ -19,10 +19,11 @@ import {
   ChevronRightIcon,
 } from '@heroicons/react/24/solid'
 import useMethodFilter from "../api/useMethodFilter";
-import { proveedorGet, almacenDelete } from "../Logic/ConsUrls";
+import { proveedorGet, proveedorDelete } from "../Logic/ConsUrls";
 import { Link } from 'react-router-dom';
 import { IoIosAdd } from "react-icons/io";
 import Loader from '../Components/Loader'
+import Success from '../Components/alerts/Success';
 
 
 
@@ -53,13 +54,15 @@ const DebouncedInput = ({ value: keyWord, onChange, ...props }) => {
   )
 }
 
-const Proveedores = () => {
+console.log()
+
+// eslint-disable-next-line react/prop-types
+const Proveedores = ({ setSuccess, success }) => {
   //States
   const [globalFilter, setGlobalFilter] = useState('')
   const [sorting, setSorting] = useState([])
   const [cambio, setCambio] = useState()
-  const [fechaInicio, setFechaInicio] = useState();
-  const [fechaFin, setFechaFin] = useState();
+  const [deleteProv, setDeleteProv] = useState()
 
   //Use Method Get
   const { resultsId, isLoading } = useMethodFilter(proveedorGet, cambio)
@@ -127,14 +130,30 @@ const Proveedores = () => {
 
   //Delete
   function deleteData(id) {
-    fetch(`${almacenDelete}${id}`, {
+    fetch(`${proveedorDelete}${id}`, {
       method: 'DELETE',
-    }).then(respuesta => respuesta.json())
-      .then(datos => {
-        console.log(datos)
+    }).then(data => data.json())
+      .then(response => {
+        console.log(response)
+        setDeleteProv(true)
         setCambio(!cambio)
       })
   }
+
+  //Alerts
+  useEffect(() => {
+    if (success) {
+      setTimeout(() => {
+        setSuccess(false); // Ocultar la alerta después de 5 segundos
+      }, 5000);
+    } else if (deleteProv) {
+      setTimeout(() => {
+        setDeleteProv(false); // Ocultar la alerta después de 5 segundos
+      }, 2000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [success, deleteProv])
+
 
   return (
     <div className='col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden'>
@@ -150,33 +169,6 @@ const Proveedores = () => {
             className='py-2 text-gray-600 outline-none'
             placeholder='Buscar...'
           />
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <label className="text-gray-700 font-medium">Desde:</label>
-            <input
-              className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
-              type="date"
-              value={fechaInicio}
-              onChange={(e) => {
-                setFechaInicio(e.target.value);
-                setFechaFin(e.target.value); // Inicializar fechaFin con fechaInicio
-              }}
-            />
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <label className="text-gray-700 font-medium">Hasta:</label>
-            <input
-              className="border-[1px] border-[#292929] rounded-xl p-2 outline-none border-none bg-[#292929] text-white"
-              type="date"
-              value={fechaFin}
-              min={fechaInicio} // Limitar fecha mínima con fechaInicio
-              onChange={(e) => {
-                setFechaFin(e.target.value);
-              }}
-            />
-          </div>
         </div>
         <Link
           className="flex flex-wrap items-end bg-[#292929] text-white hover:bg-white hover:text-black border-[1px] border-[#292929] p-2 rounded-xl cursor-pointer"
@@ -241,7 +233,7 @@ const Proveedores = () => {
                               "Estas seguro que quieres eliminar esta tarea"
                             );
                             if (accepted) {
-                              await deleteData(row.original.idAlmacen);
+                              await deleteData(row.original.idProveedor);
                             }
                           }}
                         >Eliminar</button>
@@ -332,6 +324,9 @@ const Proveedores = () => {
           </div>
         </div>
       </div>
+      <Success success={success} message={'Se ha creado el proveedor correctamente'} />
+      <Success success={deleteProv} message={'Se ha eliminado el proveedor correctamente'} />
+
     </div>
   )
 }

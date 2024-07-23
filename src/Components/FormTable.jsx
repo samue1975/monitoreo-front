@@ -15,7 +15,7 @@ const FormTable = ({ setSuccess }) => {
   const [data, setData] = useState();
   const [send, setSend] = useState(true)
   //useForm
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
   //methods CRUD
   //method Post
@@ -23,7 +23,6 @@ const FormTable = ({ setSuccess }) => {
     data,
     "http://192.168.0.195:80/api/codigos/RegistrodeCodigos"
   );
-  //method Put
   const onSubmit = handleSubmit((data) => {
     setSend(false)
     setData(data)
@@ -37,19 +36,8 @@ const FormTable = ({ setSuccess }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success]);
 
+  setValue("CodOaci", "VZLA")
 
-  /* useEffect(() => {
-    errorsPost || Object.entries(errors).length !== 0 && error()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [errors]) */
-
-  //Funcion concatenar el codigo del sistema
-  /* function codConcat(palabra, num) {
-    let codSystem = [...cod];
-    codSystem[num] = palabra;
-    setCod(codSystem);
-    console.log(cod);
-  } */
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
       {success ? <Navigate to={"/Catalogo"} /> : ""}
@@ -70,7 +58,6 @@ const FormTable = ({ setSuccess }) => {
                 <input
                   className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
                   type="text"
-                  value="VZLA"
                   {...register("CodOaci", { required: true })}
                 />
               </div>
@@ -294,8 +281,34 @@ const FormTable = ({ setSuccess }) => {
                 />
               </div>
               {errors.CodBarra ? <ErrorMsg text={`Completa correctamente el campo Proveedores`} /> : null}
-              {/* CODIGO GENERADO AUTOMATICAMENTE */}
-              {/* 
+
+              {/* SELECCIONAR IMAGEN */}
+              {/*           Modulo para cargar imagen
+           */}{" "}
+              {/* <SelectImg /> */}
+            </div>
+            {/* ACEPTAR Y CANCELAR */}
+            <div className="flex flex-wrap justify-around py-6">
+              <Link className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer" to={"/Catalogo"}>
+                Cancelar
+              </Link>
+              <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer"
+              >
+                Aceptar
+              </button>
+            </div>
+          </form>
+        ) : <Loader />
+      }
+    </div>
+  );
+};
+
+export default FormTable;
+
+
+{/* CODIGO GENERADO AUTOMATICAMENTE */ }
+{/* 
 
           const [cod, setCod] = useState(new Array(5).fill(null));
   const [codSistema, setCodSistema] = useState("");
@@ -320,26 +333,16 @@ const FormTable = ({ setSuccess }) => {
               {...register("CodSistema")}
             />
           </div> */}
-              {/* SELECCIONAR IMAGEN */}
-              {/*           Modulo para cargar imagen
-           */}{" "}
-              {/* <SelectImg /> */}
-            </div>
-            {/* ACEPTAR Y CANCELAR */}
-            <div className="flex flex-wrap justify-around py-6">
-              <Link className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer" to={"/Catalogo"}>
-                Cancelar
-              </Link>
-              <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer"
-              >
-                Aceptar
-              </button>
-            </div>
-          </form>
-        ) : <Loader />
-      }
-    </div>
-  );
-};
 
-export default FormTable;
+/* useEffect(() => {
+errorsPost || Object.entries(errors).length !== 0 && error()
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [errors]) */
+
+//Funcion concatenar el codigo del sistema
+/* function codConcat(palabra, num) {
+  let codSystem = [...cod];
+  codSystem[num] = palabra;
+  setCod(codSystem);
+  console.log(cod);
+} */

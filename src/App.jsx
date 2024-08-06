@@ -10,6 +10,7 @@ import Details from "./Components/Details";
 import FormTable2 from "./Components/FormTable2";
 import AddProveedores from "./Components/tablesPost/AddProveedores";
 import Proveedores from "./Pages/Proveedores";
+import Sistemas from "./Pages/Sistemas";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -75,7 +76,10 @@ function App() {
               />
             }
           />
-          <Route path="/AddMaterial" element={<FormTable setSuccess={setSuccess} />} />
+          <Route
+            path="/AddMaterial"
+            element={<FormTable setSuccess={setSuccess} />}
+          />
           <Route path="/Catalogo/:id" element={<Details />} />
 
           {/*INVENTARIO */}
@@ -83,9 +87,17 @@ function App() {
           <Route path="/AddInventario" element={<AddInventario />} />
 
           {/*PROVEEDORES*/}
-          <Route path="/AddProveedores" element={<AddProveedores setSuccess={setSuccess} />} />
-          <Route path="/Proveedores" element={<Proveedores success={success}
-            setSuccess={setSuccess} />} />
+          <Route
+            path="/AddProveedores"
+            element={<AddProveedores setSuccess={setSuccess} />}
+          />
+          <Route
+            path="/Proveedores"
+            element={<Proveedores success={success} setSuccess={setSuccess} />}
+          />
+
+          {/* SISTEMAS */}
+          <Route path="/Sistemas" element={<Sistemas />} />
         </Routes>
       </div>
     </>

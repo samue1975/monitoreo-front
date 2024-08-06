@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BiCategory, BiHome, BiSolidTag } from "react-icons/bi";
 import { CgToolbox } from "react-icons/cg";
 import { BsFilePerson } from "react-icons/bs";
+import { GrSystem } from "react-icons/gr";
 
 // eslint-disable-next-line react/prop-types
 const Nav = ({ toggle, color, move, bgcolor }) => {
@@ -41,6 +42,13 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
             <NavButtons
               icon={<BsFilePerson />}
               title={"Proveedores"}
+              option={toggle}
+            />
+          </Link>
+          <Link to={"/Sistemas"}>
+            <NavButtons
+              icon={<GrSystem />}
+              title={"Sistemas"}
               option={toggle}
             />
           </Link>

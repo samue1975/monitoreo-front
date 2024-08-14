@@ -1,4 +1,10 @@
 .shadowEa {
-    text-shadow:
-      3px 3px 0 #F2742A;
+  text-shadow: 3px 3px 0 #f2742a;
+}
+
+.gridresponsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
+  gap: 16px;
+  width: 100%;
 }

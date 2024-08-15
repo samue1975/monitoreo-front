@@ -1,4 +1,4 @@
-const ProductosSistema = () => {
+const ProductosSistema = ({ nombre, cantidad, taller, responsable }) => {
   return (
     <div className="w-80 h-36 bg-[#f6f6f6] flex flex-col justify-between gap-2">
       <div className="flex">
@@ -15,25 +15,25 @@ const ProductosSistema = () => {
             <div className="flex gap-2 items-center">
               <h1 className="font-semibold text-sm">Sistema:</h1>
               <p className="text-overflow:ellipsis line-clamp-1 text-xs font-light">
-                AS7010
+                {nombre}
               </p>
             </div>
             <div className="flex gap-2 items-center">
               <h1 className="font-semibold text-sm">Cantidad:</h1>
               <p className="text-overflow:ellipsis line-clamp-1 text-xs font-light">
-                210
+                {cantidad}
               </p>
             </div>
             <div className="flex gap-2 items-center">
               <h1 className="font-semibold text-sm">Taller:</h1>
               <p className="text-overflow:ellipsis line-clamp-1 text-xs font-light">
-                Integracion Avionica
+                {taller}
               </p>
             </div>
             <div className="flex gap-2 items-center">
               <h1 className="font-semibold text-sm">Responsable:</h1>
               <p className="text-overflow:ellipsis line-clamp-1 text-xs font-light">
-                Jose Andres Henriquez
+                {responsable}
               </p>
             </div>
           </div>

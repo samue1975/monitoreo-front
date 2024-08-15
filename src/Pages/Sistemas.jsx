@@ -20,15 +20,66 @@ const Sistemas = () => {
       </div>
       {/* PRODUCTOS */}
       <div className="pt-8 gridresponsive">
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
-        <ProductosSistema />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
+        <ProductosSistema
+          nombre={"ASU-200"}
+          cantidad={"220"}
+          taller={"Ensamblaje Avionica"}
+          responsable={"Marcos Perez"}
+        />
+        <ProductosSistema
+          nombre={"ANS-720"}
+          cantidad={"210"}
+          taller={"Integracion y Prueba"}
+          responsable={"David Morales"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-790"}
+          cantidad={"130"}
+          taller={"Material Compuesto"}
+          responsable={"Junior Maldonado"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
+        <ProductosSistema
+          nombre={"ANSU-700"}
+          cantidad={"230"}
+          taller={"Ensamblaje"}
+          responsable={"Jose Andres"}
+        />
       </div>
     </div>
   );

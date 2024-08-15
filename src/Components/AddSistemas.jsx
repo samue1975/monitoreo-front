@@ -22,7 +22,7 @@ const AddSistemas = () => {
             <p className="font-semibold">Cantidad:</p>
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
-              type="number"
+              type="number" onKeyPress={"return event.charCode => 48"} min={1}
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">

@@ -2,7 +2,7 @@ import { IoIosAdd } from "react-icons/io";
 import Busqueda from "../Components/Busqueda";
 import { Link } from "react-router-dom";
 import ProductosSistema from "../Components/ProductosSistema";
-import "../assets/css/home.css"
+import "../assets/css/home.css";
 
 const Sistemas = () => {
   return (

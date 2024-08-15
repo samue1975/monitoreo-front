@@ -11,6 +11,7 @@ import FormTable2 from "./Components/FormTable2";
 import AddProveedores from "./Components/tablesPost/AddProveedores";
 import Proveedores from "./Pages/Proveedores";
 import Sistemas from "./Pages/Sistemas";
+import AddSistemas from "./Components/AddSistemas";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -98,6 +99,7 @@ function App() {
 
           {/* SISTEMAS */}
           <Route path="/Sistemas" element={<Sistemas />} />
+          <Route path="/AddSistema" element={<AddSistemas />} />
         </Routes>
       </div>
     </>

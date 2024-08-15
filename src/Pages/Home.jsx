@@ -42,7 +42,7 @@ const Home = () => {
         <h1 className="text-6xl text-center flex justify-center gap-5 max-sm:text-5xl">
           Para
           <div className="flex font-semibold selection:bg-transparent cursor-default">
-            <div className="text-[yellow] shadowEa">EA</div>
+            <div className="text-[yellow] shadowEa">E</div>
             <div className="text-[blue] shadowEa">N</div>
             <div className="text-[red] shadowEa">SA</div>
           </div>

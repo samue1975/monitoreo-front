@@ -12,6 +12,7 @@ import AddProveedores from "./Components/tablesPost/AddProveedores";
 import Proveedores from "./Pages/Proveedores";
 import Sistemas from "./Pages/Sistemas";
 import AddSistemas from "./Components/AddSistemas";
+import Responsable from "./Pages/Responsable";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -100,6 +101,7 @@ function App() {
           {/* SISTEMAS */}
           <Route path="/Sistemas" element={<Sistemas />} />
           <Route path="/AddSistema" element={<AddSistemas />} />
+          <Route path="/Responsable" element={<Responsable />} />
         </Routes>
       </div>
     </>

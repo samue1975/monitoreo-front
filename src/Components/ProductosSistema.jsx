@@ -10,7 +10,7 @@ const ProductosSistema = ({ nombre, cantidad, taller, responsable }) => {
           />
         </div>
         {/* PARTE DERECHA */}
-        <div className="px-1 pt-2 flex flex-col justify-between">
+        <div className="px-1 pt-2 flex flex-col justify-between min-w-44">
           <div className="flex flex-col gap-1">
             <div className="flex gap-2 items-center">
               <h1 className="font-semibold text-sm">Sistema:</h1>

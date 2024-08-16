@@ -1,6 +1,6 @@
 import NavButtons from "../Components/NavButtons";
 import { Link } from "react-router-dom";
-import { BiCategory, BiHome, BiSolidTag } from "react-icons/bi";
+import { BiBody, BiCategory, BiHome, BiSolidTag } from "react-icons/bi";
 import { CgToolbox } from "react-icons/cg";
 import { BsFilePerson } from "react-icons/bs";
 import { GrSystem } from "react-icons/gr";
@@ -49,6 +49,13 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
             <NavButtons
               icon={<GrSystem />}
               title={"Sistemas"}
+              option={toggle}
+            />
+          </Link>
+          <Link to={"/Responsable"}>
+            <NavButtons
+              icon={<BiBody />}
+              title={"Responsable"}
               option={toggle}
             />
           </Link>

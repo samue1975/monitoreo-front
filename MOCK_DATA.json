@@ -1,0 +1,902 @@
+[
+  {
+    "nombre": "Arlyne",
+    "apellido": "Butten",
+    "codigo": "CA-NL",
+    "taller": "Services",
+    "telefono": "550-820-7784",
+    "cargo": "Research Assistant II",
+    "gradoinstruccion": "Marketing Assistant"
+  },
+  {
+    "nombre": "Lynsey",
+    "apellido": "Frizell",
+    "codigo": "NP-NA",
+    "taller": "Engineering",
+    "telefono": "349-600-6559",
+    "cargo": "GIS Technical Architect",
+    "gradoinstruccion": "Assistant Media Planner"
+  },
+  {
+    "nombre": "Phip",
+    "apellido": "Stollenberg",
+    "codigo": "LK-4",
+    "taller": "Human Resources",
+    "telefono": "776-889-1629",
+    "cargo": "Media Manager IV",
+    "gradoinstruccion": "Mechanical Systems Engineer"
+  },
+  {
+    "nombre": "Madison",
+    "apellido": "Callington",
+    "codigo": "ZA-NW",
+    "taller": "Product Management",
+    "telefono": "532-984-8651",
+    "cargo": "Dental Hygienist",
+    "gradoinstruccion": "Account Coordinator"
+  },
+  {
+    "nombre": "Welby",
+    "apellido": "Petrescu",
+    "codigo": "CA-BC",
+    "taller": "Human Resources",
+    "telefono": "807-863-7566",
+    "cargo": "Database Administrator I",
+    "gradoinstruccion": "VP Product Management"
+  },
+  {
+    "nombre": "Honoria",
+    "apellido": "Crowson",
+    "codigo": "US-RI",
+    "taller": "Support",
+    "telefono": "581-191-5665",
+    "cargo": "Speech Pathologist",
+    "gradoinstruccion": "Accounting Assistant I"
+  },
+  {
+    "nombre": "Gene",
+    "apellido": "Kinforth",
+    "codigo": "TW-CYQ",
+    "taller": "Training",
+    "telefono": "983-564-2783",
+    "cargo": "Software Test Engineer III",
+    "gradoinstruccion": "Occupational Therapist"
+  },
+  {
+    "nombre": "Vachel",
+    "apellido": "Brettor",
+    "codigo": "GB-ENG",
+    "taller": "Legal",
+    "telefono": "763-397-0364",
+    "cargo": "Systems Administrator I",
+    "gradoinstruccion": "Civil Engineer"
+  },
+  {
+    "nombre": "Robinson",
+    "apellido": "Coucher",
+    "codigo": "US-SD",
+    "taller": "Services",
+    "telefono": "811-658-9018",
+    "cargo": "Assistant Media Planner",
+    "gradoinstruccion": "Marketing Manager"
+  },
+  {
+    "nombre": "Braden",
+    "apellido": "Gerwood",
+    "codigo": "US-VA",
+    "taller": "Support",
+    "telefono": "590-703-5600",
+    "cargo": "Tax Accountant",
+    "gradoinstruccion": "Paralegal"
+  },
+  {
+    "nombre": "Devora",
+    "apellido": "Oganesian",
+    "codigo": "TR-20",
+    "taller": "Accounting",
+    "telefono": "790-287-1418",
+    "cargo": "Analog Circuit Design manager",
+    "gradoinstruccion": "Media Manager IV"
+  },
+  {
+    "nombre": "Mic",
+    "apellido": "Buzin",
+    "codigo": "MA-AGD",
+    "taller": "Accounting",
+    "telefono": "674-904-5424",
+    "cargo": "Nurse",
+    "gradoinstruccion": "Health Coach II"
+  },
+  {
+    "nombre": "Joice",
+    "apellido": "Sanpere",
+    "codigo": "US-NY",
+    "taller": "Product Management",
+    "telefono": "891-211-9334",
+    "cargo": "Programmer Analyst I",
+    "gradoinstruccion": "Food Chemist"
+  },
+  {
+    "nombre": "Julie",
+    "apellido": "Duffit",
+    "codigo": "US-ME",
+    "taller": "Business Development",
+    "telefono": "314-174-8196",
+    "cargo": "Database Administrator IV",
+    "gradoinstruccion": "Clinical Specialist"
+  },
+  {
+    "nombre": "Laurena",
+    "apellido": "Heugle",
+    "codigo": "PE-MDD",
+    "taller": "Product Management",
+    "telefono": "339-336-2086",
+    "cargo": "Registered Nurse",
+    "gradoinstruccion": "Senior Developer"
+  },
+  {
+    "nombre": "Kiley",
+    "apellido": "Ker",
+    "codigo": "ID-NT",
+    "taller": "Engineering",
+    "telefono": "249-192-2711",
+    "cargo": "Payment Adjustment Coordinator",
+    "gradoinstruccion": "Senior Quality Engineer"
+  },
+  {
+    "nombre": "Grethel",
+    "apellido": "Haughian",
+    "codigo": "CN-61",
+    "taller": "Human Resources",
+    "telefono": "811-462-3969",
+    "cargo": "Chief Design Engineer",
+    "gradoinstruccion": "Senior Sales Associate"
+  },
+  {
+    "nombre": "Carey",
+    "apellido": "Matthesius",
+    "codigo": "FR-M",
+    "taller": "Human Resources",
+    "telefono": "405-804-4454",
+    "cargo": "Environmental Tech",
+    "gradoinstruccion": "Librarian"
+  },
+  {
+    "nombre": "Kathryn",
+    "apellido": "McCarron",
+    "codigo": "VE-J",
+    "taller": "Legal",
+    "telefono": "392-628-7230",
+    "cargo": "Structural Engineer",
+    "gradoinstruccion": "Human Resources Assistant II"
+  },
+  {
+    "nombre": "Tobe",
+    "apellido": "Lantiff",
+    "codigo": "US-MN",
+    "taller": "Legal",
+    "telefono": "265-756-8077",
+    "cargo": "Technical Writer",
+    "gradoinstruccion": "Executive Secretary"
+  },
+  {
+    "nombre": "Dev",
+    "apellido": "Rooson",
+    "codigo": "BR-RS",
+    "taller": "Engineering",
+    "telefono": "363-604-5741",
+    "cargo": "Mechanical Systems Engineer",
+    "gradoinstruccion": "Administrative Officer"
+  },
+  {
+    "nombre": "Lavinie",
+    "apellido": "Bowbrick",
+    "codigo": "BR-TO",
+    "taller": "Accounting",
+    "telefono": "933-570-1808",
+    "cargo": "Senior Editor",
+    "gradoinstruccion": "Professor"
+  },
+  {
+    "nombre": "Nerti",
+    "apellido": "Mainwaring",
+    "codigo": "BO-S",
+    "taller": "Research and Development",
+    "telefono": "371-338-7233",
+    "cargo": "GIS Technical Architect",
+    "gradoinstruccion": "Statistician II"
+  },
+  {
+    "nombre": "Annadiana",
+    "apellido": "Arbuckle",
+    "codigo": "BW-KG",
+    "taller": "Marketing",
+    "telefono": "612-409-8478",
+    "cargo": "Biostatistician IV",
+    "gradoinstruccion": "Marketing Manager"
+  },
+  {
+    "nombre": "Lissy",
+    "apellido": "Ponten",
+    "codigo": "CA-BC",
+    "taller": "Marketing",
+    "telefono": "225-143-3268",
+    "cargo": "Office Assistant II",
+    "gradoinstruccion": "Research Assistant II"
+  },
+  {
+    "nombre": "Rubetta",
+    "apellido": "Velti",
+    "codigo": "CL-LL",
+    "taller": "Support",
+    "telefono": "837-784-5297",
+    "cargo": "Paralegal",
+    "gradoinstruccion": "Staff Scientist"
+  },
+  {
+    "nombre": "Nickie",
+    "apellido": "Sidle",
+    "codigo": "DZ-09",
+    "taller": "Human Resources",
+    "telefono": "555-321-6620",
+    "cargo": "Analog Circuit Design manager",
+    "gradoinstruccion": "Assistant Professor"
+  },
+  {
+    "nombre": "Major",
+    "apellido": "Murcott",
+    "codigo": "US-CA",
+    "taller": "Research and Development",
+    "telefono": "860-438-8741",
+    "cargo": "VP Sales",
+    "gradoinstruccion": "Speech Pathologist"
+  },
+  {
+    "nombre": "Consolata",
+    "apellido": "Kezar",
+    "codigo": "BR-MT",
+    "taller": "Research and Development",
+    "telefono": "456-448-1947",
+    "cargo": "Physical Therapy Assistant",
+    "gradoinstruccion": "Mechanical Systems Engineer"
+  },
+  {
+    "nombre": "Morgana",
+    "apellido": "Shakesbye",
+    "codigo": "ZM-01",
+    "taller": "Human Resources",
+    "telefono": "348-390-5734",
+    "cargo": "Senior Financial Analyst",
+    "gradoinstruccion": "Registered Nurse"
+  },
+  {
+    "nombre": "Erena",
+    "apellido": "Giordano",
+    "codigo": "PG-CPM",
+    "taller": "Engineering",
+    "telefono": "966-663-6527",
+    "cargo": "Teacher",
+    "gradoinstruccion": "Analyst Programmer"
+  },
+  {
+    "nombre": "Atlanta",
+    "apellido": "Coysh",
+    "codigo": "MM-01",
+    "taller": "Product Management",
+    "telefono": "621-951-4342",
+    "cargo": "Occupational Therapist",
+    "gradoinstruccion": "Safety Technician I"
+  },
+  {
+    "nombre": "Cristy",
+    "apellido": "Petrasso",
+    "codigo": "GQ-LI",
+    "taller": "Accounting",
+    "telefono": "365-877-1724",
+    "cargo": "Assistant Professor",
+    "gradoinstruccion": "Legal Assistant"
+  },
+  {
+    "nombre": "Donna",
+    "apellido": "Ranshaw",
+    "codigo": "PF-U-A",
+    "taller": "Accounting",
+    "telefono": "430-464-8902",
+    "cargo": "Safety Technician I",
+    "gradoinstruccion": "Nuclear Power Engineer"
+  },
+  {
+    "nombre": "Coreen",
+    "apellido": "Headings",
+    "codigo": "CM-SU",
+    "taller": "Sales",
+    "telefono": "283-371-2563",
+    "cargo": "Software Consultant",
+    "gradoinstruccion": "Operator"
+  },
+  {
+    "nombre": "Cirilo",
+    "apellido": "Nosworthy",
+    "codigo": "GR-A1",
+    "taller": "Marketing",
+    "telefono": "255-485-6784",
+    "cargo": "Tax Accountant",
+    "gradoinstruccion": "Librarian"
+  },
+  {
+    "nombre": "Lynelle",
+    "apellido": "Vondrak",
+    "codigo": "PF-U-A",
+    "taller": "Training",
+    "telefono": "779-242-4849",
+    "cargo": "Electrical Engineer",
+    "gradoinstruccion": "Financial Analyst"
+  },
+  {
+    "nombre": "Toiboid",
+    "apellido": "Rodrigues",
+    "codigo": "US-TX",
+    "taller": "Training",
+    "telefono": "374-956-5804",
+    "cargo": "Editor",
+    "gradoinstruccion": "Mechanical Systems Engineer"
+  },
+  {
+    "nombre": "Mack",
+    "apellido": "Tapper",
+    "codigo": "RU-ROS",
+    "taller": "Training",
+    "telefono": "965-671-5469",
+    "cargo": "Engineer II",
+    "gradoinstruccion": "Information Systems Manager"
+  },
+  {
+    "nombre": "Der",
+    "apellido": "Britland",
+    "codigo": "US-MI",
+    "taller": "Business Development",
+    "telefono": "699-578-4639",
+    "cargo": "Graphic Designer",
+    "gradoinstruccion": "Quality Engineer"
+  },
+  {
+    "nombre": "Dominic",
+    "apellido": "McKue",
+    "codigo": "SE-AB",
+    "taller": "Engineering",
+    "telefono": "394-337-8656",
+    "cargo": "VP Accounting",
+    "gradoinstruccion": "Help Desk Operator"
+  },
+  {
+    "nombre": "Mavis",
+    "apellido": "Stango",
+    "codigo": "US-PA",
+    "taller": "Research and Development",
+    "telefono": "162-192-3253",
+    "cargo": "Compensation Analyst",
+    "gradoinstruccion": "Health Coach III"
+  },
+  {
+    "nombre": "Yancey",
+    "apellido": "Ellesmere",
+    "codigo": "VE-R",
+    "taller": "Sales",
+    "telefono": "584-880-0747",
+    "cargo": "Automation Specialist II",
+    "gradoinstruccion": "Help Desk Operator"
+  },
+  {
+    "nombre": "Bengt",
+    "apellido": "Yurkevich",
+    "codigo": "NG-KD",
+    "taller": "Training",
+    "telefono": "362-528-3346",
+    "cargo": "Junior Executive",
+    "gradoinstruccion": "Pharmacist"
+  },
+  {
+    "nombre": "Massimo",
+    "apellido": "Aberchirder",
+    "codigo": "US-WV",
+    "taller": "Legal",
+    "telefono": "519-744-8716",
+    "cargo": "Graphic Designer",
+    "gradoinstruccion": "Accounting Assistant IV"
+  },
+  {
+    "nombre": "Ree",
+    "apellido": "Jerrim",
+    "codigo": "ID-RI",
+    "taller": "Human Resources",
+    "telefono": "259-190-8288",
+    "cargo": "Tax Accountant",
+    "gradoinstruccion": "Marketing Manager"
+  },
+  {
+    "nombre": "Willette",
+    "apellido": "Rarity",
+    "codigo": "LT-SA",
+    "taller": "Product Management",
+    "telefono": "640-629-0831",
+    "cargo": "Occupational Therapist",
+    "gradoinstruccion": "Design Engineer"
+  },
+  {
+    "nombre": "Grantley",
+    "apellido": "Byram",
+    "codigo": "CN-52",
+    "taller": "Support",
+    "telefono": "725-848-4612",
+    "cargo": "Nurse",
+    "gradoinstruccion": "Compensation Analyst"
+  },
+  {
+    "nombre": "Ricky",
+    "apellido": "Clair",
+    "codigo": "CN-62",
+    "taller": "Legal",
+    "telefono": "479-747-8707",
+    "cargo": "Librarian",
+    "gradoinstruccion": "Recruiting Manager"
+  },
+  {
+    "nombre": "Edythe",
+    "apellido": "Berthomieu",
+    "codigo": "CN-45",
+    "taller": "Services",
+    "telefono": "970-671-2632",
+    "cargo": "Associate Professor",
+    "gradoinstruccion": "Staff Accountant IV"
+  },
+  {
+    "nombre": "Jobie",
+    "apellido": "Tyrwhitt",
+    "codigo": "US-IA",
+    "taller": "Training",
+    "telefono": "609-457-0534",
+    "cargo": "Dental Hygienist",
+    "gradoinstruccion": "Staff Accountant III"
+  },
+  {
+    "nombre": "Willis",
+    "apellido": "Ivanenko",
+    "codigo": "NZ-OTA",
+    "taller": "Training",
+    "telefono": "329-391-6940",
+    "cargo": "Product Engineer",
+    "gradoinstruccion": "Senior Sales Associate"
+  },
+  {
+    "nombre": "Darelle",
+    "apellido": "Trevear",
+    "codigo": "ES-M",
+    "taller": "Accounting",
+    "telefono": "981-145-7340",
+    "cargo": "Graphic Designer",
+    "gradoinstruccion": "Business Systems Development Analyst"
+  },
+  {
+    "nombre": "Eadie",
+    "apellido": "Elliff",
+    "codigo": "PG-CPM",
+    "taller": "Accounting",
+    "telefono": "994-616-5293",
+    "cargo": "Computer Systems Analyst III",
+    "gradoinstruccion": "Clinical Specialist"
+  },
+  {
+    "nombre": "Adolphe",
+    "apellido": "Tooze",
+    "codigo": "PK-PB",
+    "taller": "Support",
+    "telefono": "632-115-4555",
+    "cargo": "Paralegal",
+    "gradoinstruccion": "VP Accounting"
+  },
+  {
+    "nombre": "Dre",
+    "apellido": "Thing",
+    "codigo": "NL-OV",
+    "taller": "Marketing",
+    "telefono": "758-191-4410",
+    "cargo": "Mechanical Systems Engineer",
+    "gradoinstruccion": "Programmer Analyst I"
+  },
+  {
+    "nombre": "Piper",
+    "apellido": "Pettifer",
+    "codigo": "ID-SS",
+    "taller": "Engineering",
+    "telefono": "807-298-1427",
+    "cargo": "Pharmacist",
+    "gradoinstruccion": "Pharmacist"
+  },
+  {
+    "nombre": "Findlay",
+    "apellido": "Kiwitz",
+    "codigo": "PT-17",
+    "taller": "Support",
+    "telefono": "242-302-3886",
+    "cargo": "GIS Technical Architect",
+    "gradoinstruccion": "Staff Accountant IV"
+  },
+  {
+    "nombre": "Caren",
+    "apellido": "Whaymand",
+    "codigo": "US-OR",
+    "taller": "Research and Development",
+    "telefono": "841-741-7939",
+    "cargo": "Data Coordinator",
+    "gradoinstruccion": "Physical Therapy Assistant"
+  },
+  {
+    "nombre": "Waring",
+    "apellido": "Hubbuck",
+    "codigo": "VC-06",
+    "taller": "Sales",
+    "telefono": "475-234-2986",
+    "cargo": "Environmental Tech",
+    "gradoinstruccion": "Desktop Support Technician"
+  },
+  {
+    "nombre": "Susanne",
+    "apellido": "Kirsopp",
+    "codigo": "ES-GA",
+    "taller": "Human Resources",
+    "telefono": "905-580-2988",
+    "cargo": "Environmental Specialist",
+    "gradoinstruccion": "Chemical Engineer"
+  },
+  {
+    "nombre": "Adore",
+    "apellido": "Draude",
+    "codigo": "BR-PA",
+    "taller": "Sales",
+    "telefono": "803-907-3963",
+    "cargo": "Analog Circuit Design manager",
+    "gradoinstruccion": "Professor"
+  },
+  {
+    "nombre": "Vale",
+    "apellido": "Assender",
+    "codigo": "AU-NT",
+    "taller": "Legal",
+    "telefono": "150-294-5590",
+    "cargo": "Graphic Designer",
+    "gradoinstruccion": "Marketing Assistant"
+  },
+  {
+    "nombre": "Nady",
+    "apellido": "Corstan",
+    "codigo": "KI-G",
+    "taller": "Marketing",
+    "telefono": "894-385-3256",
+    "cargo": "Statistician I",
+    "gradoinstruccion": "Senior Editor"
+  },
+  {
+    "nombre": "Robbyn",
+    "apellido": "Bonick",
+    "codigo": "MZ-I",
+    "taller": "Services",
+    "telefono": "211-989-8449",
+    "cargo": "Senior Cost Accountant",
+    "gradoinstruccion": "Account Representative II"
+  },
+  {
+    "nombre": "Katerina",
+    "apellido": "Leatt",
+    "codigo": "ZA-EC",
+    "taller": "Business Development",
+    "telefono": "180-858-3576",
+    "cargo": "Registered Nurse",
+    "gradoinstruccion": "Community Outreach Specialist"
+  },
+  {
+    "nombre": "Oliver",
+    "apellido": "Tittletross",
+    "codigo": "JP-32",
+    "taller": "Sales",
+    "telefono": "751-332-7003",
+    "cargo": "Food Chemist",
+    "gradoinstruccion": "Geological Engineer"
+  },
+  {
+    "nombre": "Duky",
+    "apellido": "Evason",
+    "codigo": "SO-NU",
+    "taller": "Training",
+    "telefono": "203-843-4340",
+    "cargo": "Electrical Engineer",
+    "gradoinstruccion": "Accountant II"
+  },
+  {
+    "nombre": "Payton",
+    "apellido": "Scallan",
+    "codigo": "CO-MAG",
+    "taller": "Accounting",
+    "telefono": "289-561-7576",
+    "cargo": "Nurse Practicioner",
+    "gradoinstruccion": "Design Engineer"
+  },
+  {
+    "nombre": "Mildrid",
+    "apellido": "Bineham",
+    "codigo": "US-CA",
+    "taller": "Human Resources",
+    "telefono": "439-816-6529",
+    "cargo": "General Manager",
+    "gradoinstruccion": "Desktop Support Technician"
+  },
+  {
+    "nombre": "Constance",
+    "apellido": "Skeermer",
+    "codigo": "CA-NL",
+    "taller": "Services",
+    "telefono": "589-855-0997",
+    "cargo": "Nuclear Power Engineer",
+    "gradoinstruccion": "Senior Quality Engineer"
+  },
+  {
+    "nombre": "Jasen",
+    "apellido": "MacBey",
+    "codigo": "GH-NP",
+    "taller": "Product Management",
+    "telefono": "939-759-7807",
+    "cargo": "Junior Executive",
+    "gradoinstruccion": "Graphic Designer"
+  },
+  {
+    "nombre": "Myles",
+    "apellido": "Georgel",
+    "codigo": "US-ME",
+    "taller": "Sales",
+    "telefono": "668-167-1898",
+    "cargo": "Chemical Engineer",
+    "gradoinstruccion": "Software Test Engineer IV"
+  },
+  {
+    "nombre": "Sly",
+    "apellido": "Leece",
+    "codigo": "UY-TA",
+    "taller": "Services",
+    "telefono": "133-883-3787",
+    "cargo": "Teacher",
+    "gradoinstruccion": "Safety Technician IV"
+  },
+  {
+    "nombre": "Lamar",
+    "apellido": "Rangle",
+    "codigo": "AU-NSW",
+    "taller": "Business Development",
+    "telefono": "776-434-1851",
+    "cargo": "Tax Accountant",
+    "gradoinstruccion": "Community Outreach Specialist"
+  },
+  {
+    "nombre": "Drew",
+    "apellido": "Cowndley",
+    "codigo": "ZA-NL",
+    "taller": "Business Development",
+    "telefono": "903-538-6098",
+    "cargo": "Electrical Engineer",
+    "gradoinstruccion": "Project Manager"
+  },
+  {
+    "nombre": "Kira",
+    "apellido": "Fauning",
+    "codigo": "GR-34",
+    "taller": "Research and Development",
+    "telefono": "835-341-0507",
+    "cargo": "Teacher",
+    "gradoinstruccion": "Speech Pathologist"
+  },
+  {
+    "nombre": "Bella",
+    "apellido": "Outram",
+    "codigo": "ZA-MP",
+    "taller": "Legal",
+    "telefono": "866-347-5994",
+    "cargo": "Environmental Specialist",
+    "gradoinstruccion": "Business Systems Development Analyst"
+  },
+  {
+    "nombre": "Otho",
+    "apellido": "Thow",
+    "codigo": "US-WI",
+    "taller": "Legal",
+    "telefono": "690-184-3498",
+    "cargo": "Engineer II",
+    "gradoinstruccion": "Environmental Specialist"
+  },
+  {
+    "nombre": "Poppy",
+    "apellido": "Morrish",
+    "codigo": "OM-ZA",
+    "taller": "Research and Development",
+    "telefono": "642-890-1865",
+    "cargo": "Quality Engineer",
+    "gradoinstruccion": "Quality Engineer"
+  },
+  {
+    "nombre": "Jerry",
+    "apellido": "Argo",
+    "codigo": "HR-08",
+    "taller": "Engineering",
+    "telefono": "857-806-2728",
+    "cargo": "Account Executive",
+    "gradoinstruccion": "Senior Quality Engineer"
+  },
+  {
+    "nombre": "Ingrim",
+    "apellido": "Mawford",
+    "codigo": "NI-AS",
+    "taller": "Sales",
+    "telefono": "766-183-4646",
+    "cargo": "Biostatistician IV",
+    "gradoinstruccion": "Chief Design Engineer"
+  },
+  {
+    "nombre": "Harv",
+    "apellido": "Rayhill",
+    "codigo": "KN-U-A",
+    "taller": "Human Resources",
+    "telefono": "588-786-4574",
+    "cargo": "Recruiter",
+    "gradoinstruccion": "Account Representative II"
+  },
+  {
+    "nombre": "Mayne",
+    "apellido": "Lamberteschi",
+    "codigo": "US-NY",
+    "taller": "Legal",
+    "telefono": "148-623-6293",
+    "cargo": "Senior Financial Analyst",
+    "gradoinstruccion": "Office Assistant IV"
+  },
+  {
+    "nombre": "Ricki",
+    "apellido": "Ratnage",
+    "codigo": "CN-52",
+    "taller": "Sales",
+    "telefono": "868-683-5139",
+    "cargo": "Help Desk Operator",
+    "gradoinstruccion": "Biostatistician IV"
+  },
+  {
+    "nombre": "Sallyanne",
+    "apellido": "McGirr",
+    "codigo": "CR-G",
+    "taller": "Accounting",
+    "telefono": "368-497-0878",
+    "cargo": "Chief Design Engineer",
+    "gradoinstruccion": "Recruiting Manager"
+  },
+  {
+    "nombre": "Andras",
+    "apellido": "McGibbon",
+    "codigo": "US-ID",
+    "taller": "Services",
+    "telefono": "826-650-7451",
+    "cargo": "Speech Pathologist",
+    "gradoinstruccion": "Biostatistician III"
+  },
+  {
+    "nombre": "Gaelan",
+    "apellido": "Drewett",
+    "codigo": "SO-GE",
+    "taller": "Legal",
+    "telefono": "278-639-7009",
+    "cargo": "Director of Sales",
+    "gradoinstruccion": "Civil Engineer"
+  },
+  {
+    "nombre": "Annora",
+    "apellido": "Syson",
+    "codigo": "US-AK",
+    "taller": "Business Development",
+    "telefono": "160-177-1661",
+    "cargo": "Budget/Accounting Analyst I",
+    "gradoinstruccion": "Recruiting Manager"
+  },
+  {
+    "nombre": "Jocelyne",
+    "apellido": "Faichney",
+    "codigo": "BR-MG",
+    "taller": "Legal",
+    "telefono": "511-627-7482",
+    "cargo": "Health Coach I",
+    "gradoinstruccion": "Systems Administrator III"
+  },
+  {
+    "nombre": "Odele",
+    "apellido": "Done",
+    "codigo": "ID-RI",
+    "taller": "Human Resources",
+    "telefono": "113-810-1883",
+    "cargo": "Business Systems Development Analyst",
+    "gradoinstruccion": "Teacher"
+  },
+  {
+    "nombre": "Joyous",
+    "apellido": "Buxcey",
+    "codigo": "AU-QLD",
+    "taller": "Services",
+    "telefono": "816-237-2453",
+    "cargo": "Web Designer IV",
+    "gradoinstruccion": "Teacher"
+  },
+  {
+    "nombre": "Yelena",
+    "apellido": "Sang",
+    "codigo": "PK-PB",
+    "taller": "Research and Development",
+    "telefono": "401-298-8949",
+    "cargo": "Business Systems Development Analyst",
+    "gradoinstruccion": "Analyst Programmer"
+  },
+  {
+    "nombre": "Jodee",
+    "apellido": "Dye",
+    "codigo": "CM-SU",
+    "taller": "Services",
+    "telefono": "934-891-6032",
+    "cargo": "Programmer IV",
+    "gradoinstruccion": "Tax Accountant"
+  },
+  {
+    "nombre": "Justinian",
+    "apellido": "McCullen",
+    "codigo": "SB-WE",
+    "taller": "Product Management",
+    "telefono": "587-892-8261",
+    "cargo": "VP Quality Control",
+    "gradoinstruccion": "VP Sales"
+  },
+  {
+    "nombre": "Kermit",
+    "apellido": "Eymer",
+    "codigo": "CA-SK",
+    "taller": "Sales",
+    "telefono": "790-612-3174",
+    "cargo": "Web Developer IV",
+    "gradoinstruccion": "Recruiter"
+  },
+  {
+    "nombre": "Kettie",
+    "apellido": "Solleme",
+    "codigo": "CN-36",
+    "taller": "Research and Development",
+    "telefono": "111-938-5110",
+    "cargo": "Professor",
+    "gradoinstruccion": "VP Marketing"
+  },
+  {
+    "nombre": "Werner",
+    "apellido": "Pargent",
+    "codigo": "AZ-QAB",
+    "taller": "Sales",
+    "telefono": "694-639-3228",
+    "cargo": "Environmental Tech",
+    "gradoinstruccion": "Media Manager I"
+  },
+  {
+    "nombre": "Gunter",
+    "apellido": "Boland",
+    "codigo": "BY-MI",
+    "taller": "Sales",
+    "telefono": "650-715-6207",
+    "cargo": "Administrative Assistant I",
+    "gradoinstruccion": "Staff Accountant IV"
+  },
+  {
+    "nombre": "Prissie",
+    "apellido": "O' Mullan",
+    "codigo": "GH-NP",
+    "taller": "Research and Development",
+    "telefono": "245-879-8403",
+    "cargo": "Developer I",
+    "gradoinstruccion": "Account Coordinator"
+  }
+]

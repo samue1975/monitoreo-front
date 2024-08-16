@@ -13,6 +13,7 @@ import Proveedores from "./Pages/Proveedores";
 import Sistemas from "./Pages/Sistemas";
 import AddSistemas from "./Components/AddSistemas";
 import Responsable from "./Pages/Responsable";
+import AddResponsable from "./Components/AddResponsable";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -102,6 +103,7 @@ function App() {
           <Route path="/Sistemas" element={<Sistemas />} />
           <Route path="/AddSistema" element={<AddSistemas />} />
           <Route path="/Responsable" element={<Responsable />} />
+          <Route path="/AddResponsable" element={<AddResponsable />} />
         </Routes>
       </div>
     </>

@@ -22,7 +22,7 @@ const TablaResponsable = () => {
   });
 
   return (
-    <div className="max-sm:max-w-[90%] max-w-[95%] max-sm:min-w-[90%] max-sm:overflow-x-scroll scrollbar-thin gap-2 w-full">
+    <div className="max-sm:max-w-[90%] max-w-[100%] max-sm:min-w-[90%] max-sm:overflow-x-scroll scrollbar-thin gap-2 w-full">
       <table className="w-full bg-white">
         <thead className="bg-[#292929] text-white min-w-full">
           {table.getHeaderGroups().map((getHeaderGroup) => (

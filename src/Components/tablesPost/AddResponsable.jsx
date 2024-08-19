@@ -3,14 +3,27 @@ import { BiArrowBack } from "react-icons/bi";
 import { useState } from "react";
 
 const AddResponsable = () => {
-  const [value, setValue] = useState("");
+  const [valor, establecerValor] = useState("");
 
-  const handleChange = (event) => {
-    const newValue = event.target.value; // Para el manejo de valor negativo
-    if (newValue === "" || parseInt(newValue) >= 1) {
-      setValue(newValue);
-    } else {
-      setValue("1"); // Establece el valor mínimo permitido
+  const manejarCambio = (event) => {
+    const nuevoValor = event.target.value;
+
+    // Filtra todos los caracteres que no son números
+    const valorNumerico = nuevoValor.replace(/[^0-9]/g, "");
+
+    // Actualiza el valor si es un número válido o está vacío
+    establecerValor(valorNumerico);
+  };
+
+  const manejarTeclaPresionada = (event) => {
+    // Evita que se ingresen caracteres no numéricos como "+" o "-"
+    if (
+      event.key === "-" ||
+      event.key === "+" ||
+      event.key === "e" ||
+      event.key === "."
+    ) {
+      event.preventDefault();
     }
   };
 
@@ -56,8 +69,9 @@ const AddResponsable = () => {
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               type="number"
-              value={value}
-              onChange={handleChange}
+              value={valor}
+              onChange={manejarCambio} // Maneja los valores negativos
+              onKeyDown={manejarTeclaPresionada} // Maneja la entrada de teclas
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">

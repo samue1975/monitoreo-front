@@ -11,9 +11,9 @@ import FormTable2 from "./Components/FormTable2";
 import AddProveedores from "./Components/tablesPost/AddProveedores";
 import Proveedores from "./Pages/Proveedores";
 import Sistemas from "./Pages/Sistemas";
-import AddSistemas from "./Components/AddSistemas";
+import AddSistemas from "./Components/tablesPost/AddSistemas";
 import Responsable from "./Pages/Responsable";
-import AddResponsable from "./Components/AddResponsable";
+import AddResponsable from "./Components/tablesPost/AddResponsable";
 
 function App() {
   const [open, setOpen] = useState(false);

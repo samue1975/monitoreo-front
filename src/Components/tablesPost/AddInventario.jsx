@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useMethodGet from "../../api/useMethodGet";
 import { useForm } from "react-hook-form";
-import { listNames, listNamesPost } from "../../Logic/ConsUrls";
+import { listNames, listNamesId, listNamesPost } from "../../Logic/ConsUrls";
 import useMethodPost from "../../api/useMethodPost";
 
 const AddInventario = () => {
@@ -23,7 +23,7 @@ const AddInventario = () => {
 
   useEffect(() => {
     if (selectedProduct) {
-      fetch(`http://192.168.0.195:80/api/Almacen/Agregar/${selectedProduct}`)
+      fetch(`${listNamesId}${selectedProduct}`)
         .then(res => res.json())
         .then(json => setData2(json[0]))
     }

@@ -10,6 +10,7 @@ import useMethodFilter from "../api/useMethodFilter";
 import Loader from "../Components/Loader";
 import NoDisponible from "../Components/NoDisponible";
 import Switching from "../Components/Switching";
+import { catalogoDelete, catalogoGet } from "../Logic/ConsUrls";
 /* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
 const Catalogo = ({
@@ -31,9 +32,9 @@ const Catalogo = ({
     sectorInvesfunc,
     lineaInvesfunc,
     proveedoresfunc,
-  } = useMethodFilter("http://192.168.0.195:80/api/Catalogo/Listas/", cambio);
+  } = useMethodFilter(`${catalogoGet}`, cambio);
   function deleteData(id) {
-    fetch(`http://192.168.0.195:80/api/Codigos/Eliminar/${id}`, {
+    fetch(`${catalogoDelete}${id}`, {
       method: "DELETE",
     })
       .then((respuesta) => respuesta.json())
@@ -71,8 +72,12 @@ const Catalogo = ({
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
-      <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
-        <Busqueda searcher={searcher} />
+      <div className="flex flex-wrap gap-4 justify-between pt-8">
+        <div className="flex gap-4">
+          <Busqueda searcher={searcher} />
+          <Switching cambio={cambio1} />
+        </div>
+
         <div className="flex flex-wrap justify-center gap-4">
           <select
             className="bg-[#f6f6f6] shadow px-2 py-1 border rounded-xl w-40"
@@ -240,7 +245,6 @@ const Catalogo = ({
           </button>
         </div>
       </div>
-      <Switching cambio={cambio1} />
       <div className={`pt-8 flex flex-wrap ${cambio2 ? "gap-0" : "gap-6"}`}>
         {cambio2 == false &&
           resultsId?.map((item) => {

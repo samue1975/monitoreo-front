@@ -5,6 +5,7 @@ import useMethodPost from "../../api/useMethodPost";
 import { useForm } from "react-hook-form";
 import ErrorMsg from "../ErrorMsg";
 import Loader from "../Loader";
+import { proveedorAgregar } from "../../Logic/ConsUrls";
 
 // eslint-disable-next-line react/prop-types
 const AddProveedores = ({ setSuccess }) => {
@@ -16,7 +17,7 @@ const AddProveedores = ({ setSuccess }) => {
   //method Post
   const { /* errorsPost,  */ success } = useMethodPost(
     data,
-    'http://192.168.0.195:80/api/Proveedor/Agregar/'
+    `${proveedorAgregar}`
   );
   const onSubmit = handleSubmit((data) => {
     setSend(false)

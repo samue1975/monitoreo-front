@@ -3,6 +3,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { useState } from "react";
 
 const AddSistemas = () => {
+  //Validar errores de numeros negativos
   const [valor, establecerValor] = useState(""); // El valor inicial es vacío
 
   const manejarCambio = (event) => {
@@ -19,6 +20,7 @@ const AddSistemas = () => {
     }
   };
 
+  //Validar errores de simbolos
   const manejarTeclaPresionada = (event) => {
     // Evita que se ingresen caracteres no numéricos como "+" o "-"
     if (

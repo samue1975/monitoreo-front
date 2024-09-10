@@ -43,6 +43,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
 
   if (data) {
     setValue("Nombre", data[0].nombre);
+    setValue("Cantidad", data[0].cantidad);
     setValue("CodOaci", data[0].codOaci);
     setValue("CodE", data[0].codE);
     setValue("CodFg", data[0].codFg);
@@ -98,6 +99,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
                 className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
                 type="text"
                 value="VZLA"
+                readOnly
                 {...register("CodOaci", { required: true })}
               />
             </div>
@@ -107,6 +109,15 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
                 className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
                 type="text"
                 {...register("Nombre", { required: true })}
+              />
+            </div>
+            <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end">
+              <p className="font-semibold">Cantidad</p>
+              <input
+                className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
+                type="text"
+                readOnly
+                {...register("Cantidad", { required: true })}
               />
             </div>
             <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">

@@ -115,7 +115,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
               <p className="font-semibold">Cantidad</p>
               <input
                 className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
-                type="text"
+                type="number"
                 readOnly
                 {...register("Cantidad", { required: true })}
               />
@@ -348,6 +348,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
               <input
                 className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52"
                 type="text"
+                readOnly
                 {...register("CodSistema")}
               />
             </div>

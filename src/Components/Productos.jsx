@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Productos = ({elSwitch, foto, titulo, descripcion, idCodProd, deleteData }) => {
+const Productos = ({
+  elSwitch,
+  foto,
+  titulo,
+  codigo,
+  idCodProd,
+  deleteData,
+}) => {
   return (
     <div className="w-64 max-[600px]:w-full h-28 bg-[#f6f6f6] flex">
       {/* CUADRO DE IMAGEN */}
@@ -10,14 +17,14 @@ const Productos = ({elSwitch, foto, titulo, descripcion, idCodProd, deleteData }
         src={foto}
       />
       {/* PARTE DERECHA */}
-      <div className="flex flex-col justify-between border border-black border-l-0 pt-1 hover:bg-[#292929] hover:text-white w-full">
+      <div className="flex flex-col justify-between border border-black border-l-0 pt-1 hover:bg-[#292929] hover:text-white min-w-36 max-[600px]:w-full">
         {/* TITULO Y DESCRIPCION */}
-        <div className="flex flex-col pl-1">
+        <div className="flex flex-col px-1">
           <h1 className="text-sm font-medium overflow-hidden text-overflow:ellipsis line-clamp-1 uppercase">
-            {titulo}
+            {codigo}
           </h1>
-          <p className="text-xs font-light pl-2 overflow-hidden text-overflow:ellipsis line-clamp-3">
-            {descripcion}
+          <p className="text-xs font-light pl-2 overflow-hidden text-overflow:ellipsis line-clamp-3 uppercase">
+            {titulo}
           </p>
         </div>
         {/* OPCIONES */}

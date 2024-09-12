@@ -24,7 +24,10 @@ const FormTable = ({ setSuccess }) => {
 
   //methods CRUD
   //method Post
-  const { /* errorsPost,  */ success } = useMethodPost(data, `${catalogoAgregar}`);
+  const { /* errorsPost,  */ success } = useMethodPost(
+    data,
+    `${catalogoAgregar}`
+  );
   const onSubmit = handleSubmit((data) => {
     setSend(false);
     setData(data);
@@ -118,11 +121,17 @@ const FormTable = ({ setSuccess }) => {
                 <option value="TC">TC - Telecomunicaciones</option>
                 <option value="TL">TL - Torres Eléctricas</option>
                 <option value="OM">OM - Operaciones y Mantenimiento</option>
-                <option value="NC">NC - Navegación y Control de Tráfico Aéreo</option>
+                <option value="NC">
+                  NC - Navegación y Control de Tráfico Aéreo
+                </option>
                 <option value="PF">PF - Procesos de Fabricación</option>
-                <option value="RP">RP - Regulación y Política Aeronáutica</option>
+                <option value="RP">
+                  RP - Regulación y Política Aeronáutica
+                </option>
                 <option value="DS">DS - Defensa y Seguridad</option>
-                <option value="TP">TP - Tecnología de Propulsión Alternativa</option>
+                <option value="TP">
+                  TP - Tecnología de Propulsión Alternativa
+                </option>
                 <option value="DP">DP - Diseño y Optimización</option>
                 <option value="RE">RE - Robótica Espacial</option>
               </select>
@@ -185,12 +194,15 @@ const FormTable = ({ setSuccess }) => {
                 <option value="03">03 - Comunicaciones Estratégicas</option>
                 <option value="04">04 - Antenas Eléctro Ópticas</option>
                 <option value="05">05 - Sistemas Digitales</option>
-                <option value="06">06 - Comunicaciones de Guerra Electrónica: Desarrollo de Redes Neuronales
+                <option value="06">
+                  06 - Comunicaciones de Guerra Electrónica: Desarrollo de Redes
+                  Neuronales
                 </option>
                 <option value="07">07 - Sensores remotos</option>
                 <option value="08">08 - GPS</option>
                 <option value="09">09 - Telemetría aeroespacial</option>
-                <option value="10">10 - Navegación Aeroespacial, telecomunicaciones y control
+                <option value="10">
+                  10 - Navegación Aeroespacial, telecomunicaciones y control
                 </option>
                 <option value="11">11 - Satélites</option>
                 <option value="12">12 - Cohetería</option>
@@ -203,24 +215,32 @@ const FormTable = ({ setSuccess }) => {
                 <option value="19">19 - Gestión de mantenimiento</option>
                 <option value="20">20 - Aerodinámica</option>
                 <option value="21">21 - Simulación</option>
-                <option value="22">22 - Comunicaciones y banco de pruebas</option>
+                <option value="22">
+                  22 - Comunicaciones y banco de pruebas
+                </option>
                 <option value="23">23 - Cargas</option>
-                <option value="24">24 - Inteligencia electronica y distribución
+                <option value="24">
+                  24 - Inteligencia electronica y distribución
                 </option>
                 <option value="25">25 - Plataforma guiada</option>
                 <option value="26">26 - Propelente</option>
                 <option value="27">27 - Carga militar</option>
                 <option value="28">28 - Telemetría bélica</option>
                 <option value="29">29 - Electro óptica</option>
-                <option value="30">30 - Planificación y control de producción
+                <option value="30">
+                  30 - Planificación y control de producción
                 </option>
-                <option value="31">31 - Mejoramiento continuo de procesos</option>
+                <option value="31">
+                  31 - Mejoramiento continuo de procesos
+                </option>
                 <option value="32">32 - Gestión de conocimiento</option>
                 <option value="33">33 - Modelos de competencia</option>
-                <option value="34">34 - Análisis de comportamiento organizacional
+                <option value="34">
+                  34 - Análisis de comportamiento organizacional
                 </option>
                 <option value="35">35 - Cultura organizacional</option>
-                <option value="36">36 - Optimización y creación de estructuras organizativas
+                <option value="36">
+                  36 - Optimización y creación de estructuras organizativas
                 </option>
                 <option value="37">37 - Reingeniería de procesos</option>
                 <option value="38">38 - Gerencia de procesos</option>

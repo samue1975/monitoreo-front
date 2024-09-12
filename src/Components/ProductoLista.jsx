@@ -5,7 +5,7 @@ const ProductoLista = ({
   bgcolor,
   foto,
   titulo,
-  descripcion,
+  codigo,
   idCodProd,
   deleteData,
 }) => {
@@ -21,13 +21,13 @@ const ProductoLista = ({
       {/* TITULO */}
       <div className="w-[22%] h-full flex items-center overflow-hidden">
         <h1 className="font-medium whitespace-nowrap overflow-hidden text-ellipsis px-1">
-          {titulo}
+          {codigo}
         </h1>
       </div>
       {/* DESCRIPCION */}
       <div className="w-[55%] h-full flex items-center overflow-hidden">
-        <p className="whitespace-nowrap overflow-hidden text-ellipsis px-1 font-light">
-          {descripcion}
+        <p className="whitespace-nowrap overflow-hidden text-ellipsis px-1 font-light uppercase">
+          {titulo}
         </p>
       </div>
       {/* OPCIONES */}

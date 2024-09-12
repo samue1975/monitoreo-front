@@ -39,9 +39,8 @@ const Catalogo = ({
     })
       .then((respuesta) => respuesta.json())
       .then((datos) => {
-        console.log(datos);
         setCambio(!cambio);
-      });
+      }); 
   }
   useEffect(() => {
     if (success) {
@@ -245,28 +244,28 @@ const Catalogo = ({
           </button>
         </div>
       </div>
-      <div className={`pt-8 flex flex-wrap ${cambio2 ? "gap-0" : "gap-6"}`}>
-        {cambio2 == false &&
+      <div className={`pt-8 flex flex-wrap ${cambio2 ? "gap-6" : "gap-0"}`}>
+        {cambio2 == true &&
           resultsId?.map((item) => {
             return (
               <Productos
                 foto={`./${item.codEDetallado.replace(/ /g, "")}.png`}
                 key={item.idCodProd}
+                codigo={item.codSistema}
                 titulo={item.nombre}
-                descripcion={item.descrip}
                 idCodProd={item.idCodProd}
                 deleteData={deleteData}
               />
             );
           })}
-        {cambio2 == true &&
+        {cambio2 == false &&
           resultsId?.map((item, index) => {
             return (
               <ProductoLista
                 foto={`./${item.codEDetallado.replace(/ /g, "")}.png`}
                 key={item.idCodProd}
+                codigo={item.codSistema}
                 titulo={item.nombre}
-                descripcion={item.descrip}
                 idCodProd={item.idCodProd}
                 deleteData={deleteData}
                 bgcolor={index % 2 === 0 ? "bg-slate-200" : "bg-white"}

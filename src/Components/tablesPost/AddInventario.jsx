@@ -3,57 +3,62 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useMethodGet from "../../api/useMethodGet";
 import { useForm } from "react-hook-form";
-import { listNames, listNamesId, listNamesPost } from "../../Logic/ConsUrls";
+import {
+  listNames,
+  listNamesId,
+  listNamesPost,
+  proveedorGet,
+} from "../../Logic/ConsUrls";
 import useMethodPost from "../../api/useMethodPost";
 
 const AddInventario = () => {
   //useState
   const [selectedProduct, setSelectedProduct] = useState(); // ESTADO PARA ALMACENAR EL PRODUCTO SELECCIONADO
-  const [data2, setData2] = useState()
-  const [dataSend, setDataSend] = useState()
+  const [data2, setData2] = useState();
+  const [dataSend, setDataSend] = useState();
   //useMethodGet
-  const { data } = useMethodGet(listNames)
+  const { data } = useMethodGet(proveedorGet, listNames);
 
   //useMethodPost
-  const { success, errorsPost } = useMethodPost(dataSend, listNamesPost)
+  const { success, errorsPost } = useMethodPost(dataSend, listNamesPost);
   //useForm
-  const { register, handleSubmit /* formState: { errors } */, setValue } = useForm();
+  const { register, handleSubmit /* formState: { errors } */, setValue } =
+    useForm();
   //Navigate
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (selectedProduct) {
       fetch(`${listNamesId}${selectedProduct}`)
-        .then(res => res.json())
-        .then(json => setData2(json[0]))
+        .then((res) => res.json())
+        .then((json) => setData2(json[0]));
     }
-  }, [selectedProduct])
+  }, [selectedProduct]);
 
   const handleProductChange = (event) => {
     setSelectedProduct(event.target.value); // CAMBIA EL ESTADO CUANDO HAY UN CAMBIO
-    console.log(selectedProduct)
+    console.log(selectedProduct);
   };
 
   if (data2) {
-    setValue('codigo', data2.codigo)
-    setValue('CodSu', data2.codSu)
-    setValue('fechaIngreso', data2.fechaIngreso)
-    setValue('descripcion', data2.descripcion)
-    setValue('idCodProd', data2.idCodProd)
+    setValue("codigo", data2.codigo);
+    setValue("CodSu", data2.codSu);
+    setValue("fechaIngreso", data2.fechaIngreso);
+    setValue("descripcion", data2.descripcion);
+    setValue("idCodProd", data2.idCodProd);
   }
 
   const onSubmit = handleSubmit((data) => {
-    let object = { ...data }
-    object.cantidad = Number(data.cantidad)
-    object.nombre = data2.nombre
+    let object = { ...data };
+    object.cantidad = Number(data.cantidad);
+    object.nombre = data2.nombre;
     setDataSend(object);
-  })
+  });
 
   useEffect(() => {
-    success && navigate('/Inventario')
-    errorsPost && console.log(errorsPost)
-  }, [success, errorsPost])
-
+    success && navigate("/Inventario");
+    errorsPost && console.log(errorsPost);
+  }, [success, errorsPost]);
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
@@ -62,7 +67,6 @@ const AddInventario = () => {
         className="py-4 px-20 max-sm:px-8 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm max-sm:min-w-full border-[1px]"
         action=""
         onSubmit={onSubmit}
-
       >
         {/* FLECHA PARA IR HACIA ATRAS */}
         <Link className="text-xl text-[#292929] size-4" to={"/Inventario"}>
@@ -80,15 +84,13 @@ const AddInventario = () => {
               {...register("nombre", { required: true })}
             >
               <option value=""></option>
-              {
-                data?.map((item) => {
-                  return (
-                    <option key={item.idCodProd} value={item.idCodProd}>
-                      {`${item.nombre} (Departamento: ${item.area})`}
-                    </option>
-                  )
-                })
-              }
+              {data?.map((item) => {
+                return (
+                  <option key={item.idCodProd} value={item.idCodProd}>
+                    {`${item.nombre} (Departamento: ${item.area})`}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
@@ -107,32 +109,13 @@ const AddInventario = () => {
               {...register("CodSu", { required: true })}
             >
               <option value=""></option>
-              <option value="001">001</option>
-              <option value="002">002</option>
-              <option value="003">003</option>
-              <option value="004">004</option>
-              <option value="005">005</option>
-              <option value="006">006</option>
-              <option value="007">007</option>
-              <option value="008">008</option>
-              <option value="009">009</option>
-              <option value="010">010</option>
-              <option value="011">011</option>
-              <option value="012">012</option>
-              <option value="013">013</option>
-              <option value="014">014</option>
-              <option value="015">015</option>
-              <option value="016">016</option>
-              <option value="017">017</option>
-              <option value="018">018</option>
-              <option value="019">019</option>
-              <option value="020">020</option>
-              <option value="021">021</option>
-              <option value="022">022</option>
-              <option value="023">023</option>
-              <option value="024">024</option>
-              <option value="025">025</option>
-              <option value="026">026</option>
+              {data?.map((item) => {
+                return (
+                  <option key={item.idProveedor} value={item.idProveedor}>
+                    {`${item.codProveedor} (Nombre: ${item.nombre})`}
+                  </option>
+                );
+              })}
             </select>
           </div>
           {/* <div className="flex flex-wrap gap-4 justify-end pt-1">
@@ -155,7 +138,7 @@ const AddInventario = () => {
             <input
               className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="text"
-              placeholder='Escriba la Descripción'
+              placeholder="Escriba la Descripción"
               {...register("descripcion", { required: true })}
             />
           </div>
@@ -180,7 +163,7 @@ const AddInventario = () => {
             <input
               className="bg-[#F6F6F6] border-none outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-72"
               type="text"
-              placeholder='Escriba la Ubicación'
+              placeholder="Escriba la Ubicación"
               {...register("ubicacion", { required: true })}
             />
           </div>

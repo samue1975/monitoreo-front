@@ -2,10 +2,21 @@ import { Link } from "react-router-dom";
 import Busqueda from "../Components/Busqueda";
 import { IoIosAdd } from "react-icons/io";
 import TablaResponsable from "../Components/TablaResponsable";
+import { useState } from "react";
+import useMethodFilter from "../api/useMethodFilter";
+import { ResponsableList } from "../Logic/ConsUrls";
+import "../assets/css/shadow.css";
+import Identificador from "../Components/Identificador";
 
 const Responsable = () => {
+  const [cambio, setCambio] = useState(false);
+
+  const { resultsId } = useMethodFilter(`${ResponsableList}`, cambio);
+  console.log(resultsId);
+
   return (
     <div className="col-span-5 pt-4 px-8 pb-8 overflow-x-auto md:overflow-x-hidden">
+      <Identificador titulo={"RESPONSABLE"} />
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda />

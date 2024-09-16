@@ -3,10 +3,12 @@ import Busqueda from "../Components/Busqueda";
 import { Link } from "react-router-dom";
 import ProductosSistema from "../Components/ProductosSistema";
 import "../assets/css/home.css";
+import Identificador from "../Components/Identificador";
 
 const Sistemas = () => {
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
+      <Identificador titulo={"SISTEMAS"} />
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda />

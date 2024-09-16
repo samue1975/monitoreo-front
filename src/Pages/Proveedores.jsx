@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 import { IoIosAdd } from "react-icons/io";
 import Loader from "../Components/Loader";
 import Success from "../Components/alerts/Success";
+import Identificador from "../Components/Identificador";
 
 const fuzzyFilter = (row, columnId, value, addMeta) => {
   const itemRank = rankItem(row.getValue(columnId), value);
@@ -161,6 +162,7 @@ const Proveedores = ({ setSuccess, success }) => {
 
   return (
     <div className="col-span-5 pt-4 overflow-x-auto md:overflow-x-hidden">
+      <Identificador titulo={"PROVEEDORES"} />
       <div className="px-8 pt-8 flex max-sm:gap-4 flex-wrap justify-between">
         <div className="flex items-center gap-2 border-[1px] border-[#292929] justify-start rounded-xl px-4 max-sm:px-2 max-sm:w-full">
           <button>

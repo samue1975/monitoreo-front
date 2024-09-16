@@ -11,6 +11,7 @@ import Loader from "../Components/Loader";
 import NoDisponible from "../Components/NoDisponible";
 import Switching from "../Components/Switching";
 import { catalogoDelete, catalogoGet } from "../Logic/ConsUrls";
+import Identificador from "../Components/Identificador";
 /* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
 const Catalogo = ({
@@ -42,6 +43,7 @@ const Catalogo = ({
         setCambio(!cambio);
       }); 
   }
+  console.log(resultsId)
   useEffect(() => {
     if (success) {
       setTimeout(() => {
@@ -70,6 +72,7 @@ const Catalogo = ({
 
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
+      <Identificador titulo={"CATALOGO"} />
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap gap-4 justify-between pt-8">
         <div className="flex gap-4">

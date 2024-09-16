@@ -10,6 +10,7 @@ import useMethodPut from "../api/useMethodPut";
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
 import { catalogoDetalles, catalogoModificar } from "../Logic/ConsUrls";
+import Identificador from "./Identificador";
 
 // eslint-disable-next-line react/prop-types
 const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
@@ -72,7 +73,8 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
   }, [success]);
 
   return (
-    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
+    <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
+      <Identificador titulo={"EDITAR CATALOGO"} />
       {/* {success ? <Navigate to={"/Catalogo"} /> : ""} */}
 
       {send ? (

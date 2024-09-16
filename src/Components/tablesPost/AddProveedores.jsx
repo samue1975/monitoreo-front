@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import ErrorMsg from "../ErrorMsg";
 import Loader from "../Loader";
 import { proveedorPost } from "../../Logic/ConsUrls";
+import Identificador from "../Identificador";
 
 // eslint-disable-next-line react/prop-types
 const AddProveedores = ({ setSuccess }) => {
@@ -35,7 +36,8 @@ const AddProveedores = ({ setSuccess }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success]);
   return (
-    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
+    <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
+      <Identificador titulo={"AGREGAR PROVEEDOR"} />
       {/* TODO EL FORMULARIO */}
       {success ? <Navigate to={"/Proveedores"} /> : ""}
       {send ? (

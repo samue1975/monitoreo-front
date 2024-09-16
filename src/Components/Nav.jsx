@@ -64,7 +64,7 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
       {/* FONDO NEGRO CON OPACIDAD */}
       <div
         onClick={toggle}
-        className={`fixed top-0 left-0 h-full  w-full bg-[#292929] opacity-[0.5] z-0 ${bgcolor}`}
+        className={`fixed top-0 left-0 h-full  w-full bg-[#292929] opacity-[0.5] z-[2] ${bgcolor}`}
       ></div>
     </div>
   );

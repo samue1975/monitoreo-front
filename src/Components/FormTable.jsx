@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import useMethodPost from "../api/useMethodPost";
 import Loader from "./Loader";
 import { catalogoAgregar } from "../Logic/ConsUrls";
+import Identificador from "./Identificador";
 
 // eslint-disable-next-line react/prop-types
 const FormTable = ({ setSuccess }) => {
@@ -44,7 +45,8 @@ const FormTable = ({ setSuccess }) => {
   setValue("CodOaci", "VZLA");
 
   return (
-    <div className="flex flex-wrap col-span-5 justify-center items-center h-screen max-sm:px-4">
+    <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
+      <Identificador titulo={"AGREGAR CATALOGO"} />
       {success ? <Navigate to={"/Catalogo"} /> : ""}
       {send ? (
         <form

@@ -5,7 +5,7 @@ import useMethodPost from "../../api/useMethodPost";
 import { useForm } from "react-hook-form";
 import ErrorMsg from "../ErrorMsg";
 import Loader from "../Loader";
-import { proveedorAgregar } from "../../Logic/ConsUrls";
+import { proveedorPost } from "../../Logic/ConsUrls";
 
 // eslint-disable-next-line react/prop-types
 const AddProveedores = ({ setSuccess }) => {
@@ -21,7 +21,7 @@ const AddProveedores = ({ setSuccess }) => {
   //method Post
   const { /* errorsPost,  */ success } = useMethodPost(
     data,
-    `${proveedorAgregar}`
+    `${proveedorPost}`
   );
   const onSubmit = handleSubmit((data) => {
     setSend(false);

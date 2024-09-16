@@ -14,10 +14,12 @@ import useMethodPost from "../../api/useMethodPost";
 const AddInventario = () => {
   //useState
   const [selectedProduct, setSelectedProduct] = useState(); // ESTADO PARA ALMACENAR EL PRODUCTO SELECCIONADO
+  const [selectedProveedor, setSelectedProveedor] = useState();
   const [data2, setData2] = useState();
   const [dataSend, setDataSend] = useState();
   //useMethodGet
-  const { data } = useMethodGet(proveedorGet, listNames);
+  const { data } = useMethodGet(listNames);
+  const { dataProveedor } = useMethodGet(proveedorGet);
 
   //useMethodPost
   const { success, errorsPost } = useMethodPost(dataSend, listNamesPost);
@@ -37,7 +39,10 @@ const AddInventario = () => {
 
   const handleProductChange = (event) => {
     setSelectedProduct(event.target.value); // CAMBIA EL ESTADO CUANDO HAY UN CAMBIO
-    console.log(selectedProduct);
+  };
+
+  const handleProveedorChange = (event) => {
+    setSelectedProveedor(event.target.value);
   };
 
   if (data2) {
@@ -112,7 +117,7 @@ const AddInventario = () => {
               {data?.map((item) => {
                 return (
                   <option key={item.idProveedor} value={item.idProveedor}>
-                    {`${item.codProveedor} (Nombre: ${item.nombre})`}
+                    {`${item.codProveedor}`}
                   </option>
                 );
               })}

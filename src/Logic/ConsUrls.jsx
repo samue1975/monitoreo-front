@@ -15,5 +15,4 @@ export const proveedorGet = `http://192.168.${IP}:80/api/Proveedor/Listas/`;
 export const proveedorPost = `http://192.168.${IP}:80/api/Proveedor/Agregar/`;
 export const proveedorPut = `http://192.168.${IP}:80/api/Proveedor/Editar/`;
 export const proveedorDelete = `http://192.168.${IP}:80/api/Proveedor/Eliminar/`;
-export const proveedorAgregar = `http://192.168.${IP}:80/api/Proveedor/Agregar/`;
 export const ResponsableList = `http://192.168.${IP}:80/api/Responsable/Listas/`;

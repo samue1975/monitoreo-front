@@ -66,7 +66,7 @@ const Inventario = () => {
 
   //Use Method Get
   const { resultsId, isLoading } = useMethodFilter(almacenGet, cambio);
-
+  // hola
   function filterData(data) {
     if (fechaInicio && fechaFin) {
       const filtered = data.filter((item) => {

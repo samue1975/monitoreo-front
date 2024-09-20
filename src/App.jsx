@@ -35,7 +35,7 @@ function App() {
   };
   return (
     <>
-      <div className="grid grid-cols-5 font-poppins max-w-">
+      <div className="grid grid-cols-5 font-poppins">
         <Nav
           toggle={toggleMenu}
           move={

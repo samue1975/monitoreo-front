@@ -32,9 +32,9 @@ const ProductoLista = ({
       </div>
       {/* OPCIONES */}
       <div className="w-[18%] h-full flex items-center gap-1">
-        <button className="h-full w-1/2 bg-[#292929] text-white p-2">
-          <Link to={`/Catalogo/${idCodProd}`}>Detalles</Link>
-        </button>
+        <Link to={`/Catalogo/${idCodProd}`} className="text-center h-full w-1/2 bg-[#292929] text-white p-2">
+          Detalles
+        </Link>
         {idCodProd && (
           <button
             className="h-full w-1/2 bg-[#292929] text-white"

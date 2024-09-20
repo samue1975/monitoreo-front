@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 const useMethodGet = (url) => {
-    const [data, setData] = useState()
+  const [data, setData] = useState();
 
-    useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(json => setData(json))
-    }, [])
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  }, []);
 
-    return { data }
-}
+  const [data1, setData1] = useState();
 
-export default useMethodGet
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json1) => setData1(json1));
+  }, []);
+
+  return { data, data1 };
+};
+
+export default useMethodGet;

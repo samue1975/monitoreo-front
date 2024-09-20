@@ -9,7 +9,11 @@ import useMethodGet from "../api/useMethodGet";
 import useMethodPut from "../api/useMethodPut";
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
-import { catalogoDetalles, catalogoModificar } from "../Logic/ConsUrls";
+import {
+  catalogoDetalles,
+  catalogoModificar,
+  proveedorGet,
+} from "../Logic/ConsUrls";
 import Identificador from "./Identificador";
 
 // eslint-disable-next-line react/prop-types
@@ -71,6 +75,8 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success]);
+
+  const { data1 } = useMethodGet(proveedorGet);
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
@@ -288,32 +294,13 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
                 {...register("CodSu", { required: true })}
               >
                 <option value=""></option>
-                <option value="001">001</option>
-                <option value="002">002</option>
-                <option value="003">003</option>
-                <option value="004">004</option>
-                <option value="005">005</option>
-                <option value="006">006</option>
-                <option value="007">007</option>
-                <option value="008">008</option>
-                <option value="009">009</option>
-                <option value="010">010</option>
-                <option value="011">011</option>
-                <option value="012">012</option>
-                <option value="013">013</option>
-                <option value="014">014</option>
-                <option value="015">015</option>
-                <option value="016">016</option>
-                <option value="017">017</option>
-                <option value="018">018</option>
-                <option value="019">019</option>
-                <option value="020">020</option>
-                <option value="021">021</option>
-                <option value="022">022</option>
-                <option value="023">023</option>
-                <option value="024">024</option>
-                <option value="025">025</option>
-                <option value="026">026</option>
+                {data1?.map((item) => {
+                  return (
+                    <option key={item.idProveedor} value={item.codProveedor}>
+                      {item.codProveedor}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <ErrorMsg display={`${text}`} />
@@ -361,9 +348,12 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
           </div>
           {/* ACEPTAR Y CANCELAR */}
           <div className="flex flex-wrap justify-around py-6">
-            <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">
+            <Link
+              className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer"
+              to={"/Catalogo"}
+            >
               Cancelar
-            </button>
+            </Link>
             <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">
               Aceptar
             </button>

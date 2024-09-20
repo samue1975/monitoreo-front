@@ -29,7 +29,9 @@ const Switching = ({ cambio }) => {
         </button>
       </div>
       <span
-        className={`bg-white shadow text-gray-800 flex items-center justify-center w-1/2 rounded h-8 transition-all top-[4px] absolute ${
+        onClickCapture={cambio}
+        onClick={Moviendo}
+        className={`bg-white shadow cursor-pointer text-gray-800 flex items-center justify-center w-1/2 rounded h-8 transition-all top-[4px] absolute ${
           mover ? "left-1" : "left-11"
         }`}
       ></span>

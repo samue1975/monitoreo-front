@@ -6,8 +6,9 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import useMethodPost from "../api/useMethodPost";
 import Loader from "./Loader";
-import { catalogoAgregar } from "../Logic/ConsUrls";
+import { catalogoAgregar, proveedorGet } from "../Logic/ConsUrls";
 import Identificador from "./Identificador";
+import useMethodGet from "../api/useMethodGet";
 
 // eslint-disable-next-line react/prop-types
 const FormTable = ({ setSuccess }) => {
@@ -43,6 +44,8 @@ const FormTable = ({ setSuccess }) => {
   }, [success]);
 
   setValue("CodOaci", "VZLA");
+
+  const { data1 } = useMethodGet(proveedorGet);
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
@@ -274,10 +277,10 @@ const FormTable = ({ setSuccess }) => {
                 {...register("CodSu", { required: true })}
               >
                 <option value=""></option>
-                {data?.map((item) => {
+                {data1?.map((item) => {
                   return (
-                    <option key={item.IdProveedor} value={item.IdProveedor}>
-                      {`${item.Nombre}`}
+                    <option key={item.idProveedor} value={item.codProveedor}>
+                      {item.codProveedor}
                     </option>
                   );
                 })}

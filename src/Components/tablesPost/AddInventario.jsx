@@ -3,24 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useMethodGet from "../../api/useMethodGet";
 import { useForm } from "react-hook-form";
-import {
-  listNames,
-  listNamesId,
-  listNamesPost,
-  proveedorGet,
-} from "../../Logic/ConsUrls";
+import { listNames, listNamesId, listNamesPost, proveedorGet } from "../../Logic/ConsUrls";
 import useMethodPost from "../../api/useMethodPost";
 import Identificador from "../Identificador";
 
 const AddInventario = () => {
   //useState
   const [selectedProduct, setSelectedProduct] = useState(); // ESTADO PARA ALMACENAR EL PRODUCTO SELECCIONADO
-  const [selectedProveedor, setSelectedProveedor] = useState();
   const [data2, setData2] = useState();
   const [dataSend, setDataSend] = useState();
   //useMethodGet
   const { data } = useMethodGet(listNames);
-  const { dataProveedor } = useMethodGet(proveedorGet);
 
   //useMethodPost
   const { success, errorsPost } = useMethodPost(dataSend, listNamesPost);
@@ -40,10 +33,7 @@ const AddInventario = () => {
 
   const handleProductChange = (event) => {
     setSelectedProduct(event.target.value); // CAMBIA EL ESTADO CUANDO HAY UN CAMBIO
-  };
-
-  const handleProveedorChange = (event) => {
-    setSelectedProveedor(event.target.value);
+    console.log(selectedProduct);
   };
 
   if (data2) {
@@ -65,6 +55,9 @@ const AddInventario = () => {
     success && navigate("/Inventario");
     errorsPost && console.log(errorsPost);
   }, [success, errorsPost]);
+
+  const { data1 } = useMethodGet(proveedorGet);
+  console.log(data1);
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
@@ -116,13 +109,13 @@ const AddInventario = () => {
               {...register("CodSu", { required: true })}
             >
               <option value=""></option>
-              {data?.map((item) => {
-                return (
-                  <option key={item.idProveedor} value={item.idProveedor}>
-                    {`${item.codProveedor}`}
-                  </option>
-                );
-              })}
+              {data1?.map((item) => {
+                  return (
+                    <option key={item.idProveedor} value={item.codProveedor}>
+                      {item.codProveedor}
+                    </option>
+                  );
+                })}
             </select>
           </div>
           {/* <div className="flex flex-wrap gap-4 justify-end pt-1">

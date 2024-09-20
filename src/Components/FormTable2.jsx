@@ -27,7 +27,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
   const { id } = useParams();
 
   //useForm
-  const { register, handleSubmit /* formState: { errors } */, setValue } =
+  const { register, handleSubmit, formState: { errors }, setValue } =
     useForm();
 
   //methods CRUD
@@ -290,7 +290,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
             <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
               <p className="font-semibold">Proveedores:</p>
               <select
-                className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+                className={`bg-[#F6F6F6] ${border} ${errors.CodSu ? border : null} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
                 {...register("CodSu", { required: true })}
               >
                 <option value=""></option>

@@ -1,4 +1,4 @@
-const IP = "0.195";
+const IP = "1.161";
 
 export const catalogoGet = `http://192.168.${IP}:80/api/Catalogo/Listas/`;
 export const catalogoDelete = `http://192.168.${IP}:80/api/Codigos/Eliminar/`;

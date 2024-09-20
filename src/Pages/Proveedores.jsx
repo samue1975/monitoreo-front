@@ -227,7 +227,7 @@ const Proveedores = ({ setSuccess, success }) => {
                           </th>
                         ))}
                         <th className="text-center uppercase py-3 font-semibold text-sm">
-                          Editar
+                          Opciones
                         </th>
                       </tr>
                     ))}

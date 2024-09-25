@@ -1,4 +1,4 @@
-const IP = "1.161";
+const IP = "5.110";
 
 export const catalogoGet = `http://192.168.${IP}:80/api/Catalogo/Listas/`;
 export const catalogoDelete = `http://192.168.${IP}:80/api/Codigos/Eliminar/`;
@@ -16,3 +16,4 @@ export const proveedorPost = `http://192.168.${IP}:80/api/Proveedor/Agregar/`;
 export const proveedorPut = `http://192.168.${IP}:80/api/Proveedor/Editar/`;
 export const proveedorDelete = `http://192.168.${IP}:80/api/Proveedor/Eliminar/`;
 export const ResponsableList = `http://192.168.${IP}:80/api/Responsable/Listas/`;
+// blue label de jonny walker :

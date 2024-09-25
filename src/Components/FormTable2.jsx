@@ -27,7 +27,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
   const { id } = useParams();
 
   //useForm
-  const { register, handleSubmit, formState: { errors }, setValue } =
+  const { register, handleSubmit, /*formState: { errors }*/ setValue } =
     useForm();
 
   //methods CRUD
@@ -47,18 +47,18 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
   errorsPost && console.log(errorsPost);
 
   if (data) {
-    setValue("Nombre", data[0].nombre);
-    setValue("Cantidad", data[0].cantidad);
-    setValue("CodOaci", data[0].codOaci);
-    setValue("CodE", data[0].codE);
-    setValue("CodFg", data[0].codFg);
-    setValue("CodHi", data[0].codHi);
-    setValue("CodJk", data[0].codJk);
-    setValue("CodSu", data[0].codSu);
-    setValue("CodLmnop", data[0].codLmnop);
-    setValue("Descrip", data[0].descrip);
-    setValue("CodBarra", data[0].codBarra);
-    setValue("CodSistema", data[0].codSistema);
+    setValue("Nombre", data.nombre);
+    setValue("Cantidad", data.cantidad);
+    setValue("CodOaci", data.codOaci);
+    setValue("CodE", data.codE);
+    setValue("CodFg", data.codFg);
+    setValue("CodHi", data.codHi);
+    setValue("CodJk", data.codJk);
+    setValue("CodSu", data.codSu);
+    setValue("CodLmnop", data.codLmnop);
+    setValue("Descrip", data.descrip);
+    setValue("CodBarra", data.codBarra);
+    setValue("CodSistema", data.codSistema);
   }
 
   const onSubmit = handleSubmit(async (object) => {
@@ -76,7 +76,21 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [success]);
 
-  const { data1 } = useMethodGet(proveedorGet);
+  const [data1, setData1] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(proveedorGet);
+        const data = await response.json();
+        setData1(data);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
@@ -290,7 +304,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
             <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
               <p className="font-semibold">Proveedores:</p>
               <select
-                className={`bg-[#F6F6F6] ${border} ${errors.CodSu ? border : null} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
+                className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
                 {...register("CodSu", { required: true })}
               >
                 <option value=""></option>

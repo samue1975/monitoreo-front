@@ -20,7 +20,7 @@ const Details = () => {
                   
         {data ? (
           <div className="border rounded-2xl flex flex-col w-2/4 max-sm:w-full shadow bg-white justify-around max-sm:overflow-auto">
-            <Identificador titulo={`DETALLES DE ${data[0].nombre}`} />
+            <Identificador titulo={`DETALLES DE ${data.nombre}`} />
             {/* FLECHA PARA IR HACIA ATRAS */}
             <div className="flex justify-between items-start">
               <Link className="px-10 p-2 flex items-center rounded-tl-2xl rounded-br-2xl text-[#292929] justify-center gap-1 border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:border-transparent h-full" to={"/Catalogo"}>
@@ -37,64 +37,64 @@ const Details = () => {
             <div className="h-40 flex justify-center">
               <img
                 className="h-full saturate-0"
-                src={`../../public/${data[0].codE.replace(/ /g, "")}.png`}
+                src={`../../public/${data.codE.replace(/ /g, "")}.png`}
               />
             </div>
             <div className="flex justify-between items-end p-4 max-sm:px-0">
               <div className="flex flex-col flex-wrap w-full px-10">
                 <h1 className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Nombre:</span>
-                  {data[0].nombre}
+                  {data.nombre}
                 </h1>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Cantidad:</span>
-                  {data[0].cantidad}
+                  {data.cantidad}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Código OACI:</span>
-                  {data[0].codOaci}
+                  {data.codOaci}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Identificación:</span>
-                  {data[0].codE}
+                  {data.codE}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Departamento:</span>
-                  {data[0].codFg}
+                  {data.codFg}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">
                     Sector De Investigación:
                   </span>
-                  {data[0].codHi}
+                  {data.codHi}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Línea de Investigación:</span>
-                  {data[0].codJk}
+                  {data.codJk}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Proveedores:</span>
-                  {data[0].codSu}
+                  {data.codSu}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">ID Cronológica:</span>
-                  {data[0].codLmnop}
+                  {data.codLmnop}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Descripción:</span>
-                  {data[0].descrip}
+                  {data.descrip}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Código de Barra:</span>
-                  {data[0].codBarra}
+                  {data.codBarra}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Código del Sistema:</span>
-                  {data[0].codSistema}
+                  {data.codSistema}
                 </p>
                 <p className="text-base flex flex-wrap gap-4">
                   <span className="font-semibold">Código:</span>
-                  {data[0].codigo}
+                  {data.codigo}
                 </p>
               </div>
             </div>

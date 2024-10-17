@@ -331,7 +331,9 @@ const FormTable = ({ setSuccess }) => {
               />
             </div>
             {errors.CodBarra ? (
-              <ErrorMsg text={`Completa correctamente el campo Código de Barra`} />
+              <ErrorMsg
+                text={`Completa correctamente el campo Código de Barra`}
+              />
             ) : null}
             {/* SELECCIONAR IMAGEN */}
             {/*           Modulo para cargar imagen

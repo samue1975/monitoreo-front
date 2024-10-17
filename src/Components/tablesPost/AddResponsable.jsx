@@ -1,39 +1,44 @@
 import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Identificador from "../Identificador";
 
 const AddResponsable = () => {
-  const [valor, establecerValor] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [cedula, setCedula] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [taller, setTaller] = useState("");
+  const [gradoInstruccion, setGradoInstruccion] = useState("");
+  const [codigo, setCodigo] = useState("");
 
-  const manejarCambio = (event) => {
+  const manejarCambioCedula = (event) => {
     const nuevoValor = event.target.value;
-
-    // Filtra todos los caracteres que no son números
     const valorNumerico = nuevoValor.replace(/[^0-9]/g, "");
-
-    // Actualiza el valor si es un número válido o está vacío
-    establecerValor(valorNumerico);
+    setCedula(valorNumerico);
   };
 
   const manejarTeclaPresionada = (event) => {
-    // Evita que se ingresen caracteres no numéricos como "+" o "-"
-    if (
-      event.key === "-" ||
-      event.key === "+" ||
-      event.key === "e" ||
-      event.key === "."
-    ) {
+    if (event.key === "-" || event.key === "+" || event.key === "e" || event.key === ".") {
       event.preventDefault();
     }
   };
 
+  // Generar código automáticamente cada vez que cambian el nombre, apellido o cédula
+  useEffect(() => {
+    const generarCodigo = () => {
+      const primeraLetraNombre = nombre.charAt(0).toUpperCase() || "";
+      const primeraLetraApellido = apellido.charAt(0).toUpperCase() || "";
+      const ultimosTresDigitosCedula = cedula.slice(-3) || "";
+      return `${primeraLetraNombre}${primeraLetraApellido}${ultimosTresDigitosCedula}`;
+    };
+    setCodigo(generarCodigo());
+  }, [nombre, apellido, cedula]);
+
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
       <Identificador titulo={"AGREGAR RESPONSABLE"} />
-      {/* TODO EL FORMULARIO */}
       <form className="py-4 px-20 max-sm:px-8 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm max-sm:min-w-full border-[1px]">
-        {/* FLECHA PARA IR HACIA ATRAS */}
         <Link className="text-xl text-[#292929] size-4" to={"/Responsable"}>
           <BiArrowBack />
         </Link>
@@ -43,6 +48,8 @@ const AddResponsable = () => {
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               type="text"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
@@ -50,13 +57,27 @@ const AddResponsable = () => {
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               type="text"
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
-            <p className="font-semibold">Codigo:</p>
+            <p className="font-semibold">Cedula:</p>
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
-              type="text"
+              type="number"
+              value={cedula}
+              onChange={manejarCambioCedula}
+              onKeyDown={manejarTeclaPresionada}
+            />
+          </div>
+          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
+            <p className="font-semibold">Telefono:</p>
+            <input
+              className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
+              type="number"
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
@@ -64,30 +85,26 @@ const AddResponsable = () => {
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               type="text"
+              value={taller}
+              onChange={(e) => setTaller(e.target.value)}
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
-            <p className="font-semibold">Numero:</p>
-            <input
-              className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
-              type="number"
-              value={valor}
-              onChange={manejarCambio} // Maneja los valores negativos
-              onKeyDown={manejarTeclaPresionada} // Maneja la entrada de teclas
-            />
-          </div>
-          <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
-            <p className="font-semibold">Cargo:</p>
+            <p className="font-semibold">Grado de Instrucción:</p>
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               type="text"
+              value={gradoInstruccion}
+              onChange={(e) => setGradoInstruccion(e.target.value)}
             />
           </div>
           <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
-            <p className="font-semibold">Grado de Instruccion:</p>
+            <p className="font-semibold">Código:</p>
             <input
               className="bg-[#F6F6F6] outline-none pl-4 max-sm:min-w-full pr-1 w-72 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]"
               type="text"
+              value={codigo}
+              readOnly
             />
           </div>
           <div className="flex flex-wrap justify-around py-6">

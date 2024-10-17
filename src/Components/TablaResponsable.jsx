@@ -21,6 +21,8 @@ const TablaResponsable = () => {
     getCoreRowModel: getCoreRowModel(),
   });
 
+  console.log(data);
+
   return (
     <div className="max-sm:max-w-[90%] max-w-[100%] max-sm:min-w-[90%] max-sm:overflow-x-scroll scrollbar-thin gap-2 w-full">
       <table className="w-full bg-white">

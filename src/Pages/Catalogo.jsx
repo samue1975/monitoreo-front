@@ -247,7 +247,7 @@ const Catalogo = ({
           </button>
         </div>
       </div>
-      <div className={`pt-8 flex flex-wrap ${cambio2 ? "gap-6" : "gap-0"}`}>
+      <div className={`pt-8 flex flex-wrap ${cambio2 ? "gap-6" : "gap-0"} max-sm:overflow-x-scroll`}>
         {cambio2 == true &&
           resultsId?.map((item) => {
             return (

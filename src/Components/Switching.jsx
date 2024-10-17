@@ -9,7 +9,7 @@ const Switching = ({ cambio }) => {
   };
 
   return (
-    <div className="shadow w-24 rounded h-10 flex justify-between p-1 relative items-center  bg-[#292929]">
+    <div className="shadow w-24 rounded h-10 flex justify-between p-1 relative items-center bg-[#292929]">
       <div className="w-full flex justify-center">
         <button
           onClickCapture={cambio}
@@ -32,7 +32,7 @@ const Switching = ({ cambio }) => {
         onClickCapture={cambio}
         onClick={Moviendo}
         className={`bg-white shadow cursor-pointer text-gray-800 flex items-center justify-center w-1/2 rounded h-8 transition-all top-[4px] absolute ${
-          mover ? "left-1" : "left-11"
+          mover ? "left-1" : "left-11 max-sm:left-8"
         }`}
       ></span>
     </div>

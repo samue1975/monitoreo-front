@@ -11,8 +11,9 @@ import {
 import "../assets/css/shadow.css";
 import Loader from "../Components/Loader"
 import { ResponsableList } from "../Logic/ConsUrls";
+import Success from "../Components/alerts/Success";
 
-const Responsable = () => {
+const Responsable = ({success}) => {
   const [data, setData] = useState([]); // Estado para almacenar los datos de la API
   const [loading, setLoading] = useState(true); // Estado de carga
   const [error, setError] = useState(null); // Estado de error
@@ -123,6 +124,10 @@ const Responsable = () => {
           </table>
         </div>
       </div>
+      <Success
+        success={success}
+        message={"Se ha creado el proveedor correctamente"}
+      />
     </div>
   );
 };

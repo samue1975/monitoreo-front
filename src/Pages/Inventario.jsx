@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BiSearch } from "react-icons/bi";
+import { BiEdit, BiSearch, BiSolidTrash } from "react-icons/bi";
 import {
   flexRender,
   getCoreRowModel,
@@ -24,6 +24,8 @@ import { Link } from "react-router-dom";
 import { IoIosAdd } from "react-icons/io";
 import Loader from "../Components/Loader";
 import Identificador from "../Components/Identificador";
+import { MdDelete } from "react-icons/md";
+import { MdEditDocument } from "react-icons/md";
 
 const fuzzyFilter = (row, columnId, value, addMeta) => {
   const itemRank = rankItem(row.getValue(columnId), value);
@@ -66,7 +68,6 @@ const Inventario = () => {
 
   //Use Method Get
   const { resultsId, isLoading } = useMethodFilter(almacenGet, cambio);
-  // hola
   function filterData(data) {
     if (fechaInicio && fechaFin) {
       const filtered = data.filter((item) => {
@@ -255,9 +256,11 @@ const Inventario = () => {
                           </td>
                         ))}
                         <td className="items-center uppercase font-semibold text-sm flex gap-6 justify-center itemn-center py-4">
-                          <div className="flex justify-center items-center">
+                          <div className="flex justify-center items-center text-xl gap-2">
+                            <Link to={`${row.original.idAlmacen}`}>
+                              <BiEdit />
+                            </Link>
                             <button
-                              className="text-red-600 m-auto"
                               onClick={async () => {
                                 const accepted = window.confirm(
                                   "Estas seguro que quieres eliminar esta tarea"
@@ -267,7 +270,7 @@ const Inventario = () => {
                                 }
                               }}
                             >
-                              Eliminar
+                              <BiSolidTrash />
                             </button>
                           </div>
                         </td>

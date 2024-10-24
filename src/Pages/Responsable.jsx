@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BiSearch } from "react-icons/bi";
+import { BiEdit, BiSearch, BiSolidTrash } from "react-icons/bi";
 import {
   flexRender,
   getCoreRowModel,
@@ -182,7 +182,7 @@ const Responsable = ({ setSuccess, success }) => {
         </div>
         <Link
           className="flex flex-wrap items-end bg-[#292929] text-white hover:bg-white hover:text-black border-[1px] border-[#292929] p-2 rounded-xl cursor-pointer"
-          to={"/AddProveedores"}
+          to={"/AddResponsable"}
         >
           Agregar <IoIosAdd className="text-2xl" />
         </Link>
@@ -257,9 +257,11 @@ const Responsable = ({ setSuccess, success }) => {
                           </td>
                         ))}
                         <td className="items-center uppercase font-semibold text-sm flex gap-6 justify-center itemn-center py-4">
-                          <div className="flex justify-center items-center">
+                          <div className="flex justify-center items-center text-xl gap-2">
+                            <Link to={`/Responsable/${row.original.id}`}>
+                              <BiEdit />
+                            </Link>
                             <button
-                              className="text-red-600 m-auto"
                               onClick={async () => {
                                 const accepted = window.confirm(
                                   "Estas seguro que quieres eliminar esta tarea"
@@ -269,7 +271,7 @@ const Responsable = ({ setSuccess, success }) => {
                                 }
                               }}
                             >
-                              Eliminar
+                              <BiSolidTrash />
                             </button>
                           </div>
                         </td>

@@ -14,6 +14,7 @@ import Sistemas from "./Pages/Sistemas";
 import AddSistemas from "./Components/tablesPost/AddSistemas";
 import Responsable from "./Pages/Responsable";
 import AddResponsable from "./Components/tablesPost/AddResponsable";
+import EditResponsable from "./Components/tablesPost/EditResponsable";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -88,6 +89,7 @@ function App() {
           {/*INVENTARIO */}
           <Route path="/Inventario" element={<Inventario />} />
           <Route path="/AddInventario" element={<AddInventario />} />
+          {/* <Route path="/Inventario/:id/Modificar" element={<EditInventario />} />  */}
 
           {/*PROVEEDORES*/}
           <Route
@@ -102,8 +104,9 @@ function App() {
           {/* SISTEMAS */}
           <Route path="/Sistemas" element={<Sistemas />} />
           <Route path="/AddSistema" element={<AddSistemas />} />
-          <Route path="/Responsable" element={<Responsable />} />
-          <Route path="/AddResponsable" element={<AddResponsable />} />
+          <Route path="/Responsable" element={<Responsable success={success} setSuccess={setSuccess} />} />
+          <Route path="/AddResponsable" element={<AddResponsable setSuccess={setSuccess} />} />
+          <Route path="/Responsable/:id" element={<EditResponsable />} />
         </Routes>
       </div>
     </>

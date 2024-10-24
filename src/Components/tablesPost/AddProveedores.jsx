@@ -117,7 +117,7 @@ const AddProveedores = ({ setSuccess }) => {
             <div className="flex flex-wrap justify-around py-6">
               <Link
                 className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer"
-                to={"./Proveedores"}
+                to={"/Proveedores"}
               >
                 Cancelar
               </Link>

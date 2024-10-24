@@ -67,6 +67,7 @@ const AddResponsable = ({ setSuccess }) => {
       {send ? (
         <form
           className="py-4 px-20 max-sm:px-8 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm max-sm:min-w-full border-[1px]"
+          action=""
           onSubmit={onSubmit}
         >
           <Link className="text-xl text-[#292929] size-4" to={"/Responsable"}>
@@ -135,10 +136,14 @@ const AddResponsable = ({ setSuccess }) => {
                 {...register("codigoResponsable", { required: true })}
               />
             </div>
+            {/* ACEPTAR Y CANCELAR */}
             <div className="flex flex-wrap justify-around py-6">
-              <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">
+              <Link
+                className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer"
+                to={"/Responsable"}
+              >
                 Cancelar
-              </button>
+              </Link>
               <button className="bg-[#F6F6F6] hover:bg-[#F0F0F0] text-[#292929] font-semibold py-1 px-3 border shadow-sm rounded-md cursor-pointer">
                 Aceptar
               </button>

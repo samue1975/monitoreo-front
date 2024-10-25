@@ -104,9 +104,24 @@ function App() {
           {/* SISTEMAS */}
           <Route path="/Sistemas" element={<Sistemas />} />
           <Route path="/AddSistema" element={<AddSistemas />} />
-          <Route path="/Responsable" element={<Responsable success={success} setSuccess={setSuccess} />} />
-          <Route path="/AddResponsable" element={<AddResponsable setSuccess={setSuccess} />} />
-          <Route path="/Responsable/:id" element={<EditResponsable />} />
+          <Route
+            path="/Responsable"
+            element={<Responsable success={success} setSuccess={setSuccess} />}
+          />
+          <Route
+            path="/AddResponsable"
+            element={<AddResponsable setSuccess={setSuccess} />}
+          />
+          <Route
+            path="/Responsable/:id"
+            element={
+              <EditResponsable
+                setUpdate={setUpdate}
+                setPut={setPut}
+                put={put}
+              />
+            }
+          />
         </Routes>
       </div>
     </>

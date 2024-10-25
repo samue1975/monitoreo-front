@@ -17,13 +17,15 @@ const Details = () => {
   return (
     <>
       <div className="col-span-5 flex justify-center pt-12 pb-4">
-                  
         {data ? (
           <div className="border rounded-2xl flex flex-col w-2/4 max-sm:w-full shadow bg-white justify-around max-sm:overflow-auto">
             <Identificador titulo={`DETALLES DE ${data.nombre}`} />
             {/* FLECHA PARA IR HACIA ATRAS */}
             <div className="flex justify-between items-start">
-              <Link className="px-10 p-2 flex items-center rounded-tl-2xl rounded-br-2xl text-[#292929] justify-center gap-1 border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:border-transparent h-full" to={"/Catalogo"}>
+              <Link
+                className="px-10 p-2 flex items-center rounded-tl-2xl rounded-br-2xl text-[#292929] justify-center gap-1 border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:border-transparent h-full"
+                to={"/Catalogo"}
+              >
                 <BiArrowBack className="cursor-pointer text-xl" />
               </Link>
               <Link

@@ -102,6 +102,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
           className="py-4 px-20 max-sm:px-4 max-sm:min-w-full flex flex-col gap-6 max-sm:py-8 rounded-xl text-[#292929] shadow-sm border-[1px]"
           onSubmit={onSubmit}
         >
+          {console.log(data)}
           {/* MENSAJE DE ERROR */}
           {/* <div
           onClick={error}

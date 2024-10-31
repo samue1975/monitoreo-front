@@ -88,7 +88,7 @@ const Inventario = () => {
     },
     {
       accessorKey: "codigo",
-      header: () => <span>COD. PRODUCTO</span>,
+      header: () => <span>CÓD. PRODUCTO</span>,
     },
     {
       accessorKey: "proveedor",
@@ -108,7 +108,7 @@ const Inventario = () => {
     },
     {
       accessorKey: "descripcion",
-      header: () => <span>DESCRIPCION</span>,
+      header: () => <span>DESCRIPCIÓN</span>,
     },
     {
       accessorKey: "ubicacion",

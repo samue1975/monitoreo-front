@@ -10,8 +10,9 @@ import useMethodFilter from "../api/useMethodFilter";
 import Loader from "../Components/Loader";
 import NoDisponible from "../Components/NoDisponible";
 import Switching from "../Components/Switching";
-import { catalogoDelete, catalogoGet } from "../Logic/ConsUrls";
+import { catalogoDelete, catalogoGet, proveedorGet } from "../Logic/ConsUrls";
 import Identificador from "../Components/Identificador";
+import useMethodGet from "../api/useMethodGet";
 /* import { urlGet, urlDelete } from '../Logic/ConsUrls' */
 
 const Catalogo = ({
@@ -70,9 +71,11 @@ const Catalogo = ({
     }
   }, [resultsId]);
 
+  const { data1 } = useMethodGet(proveedorGet);
+
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
-      <Identificador titulo={"CATALOGO"} />
+      <Identificador titulo={"CATÁLOGO"} />
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap gap-4 justify-between pt-8">
         <div className="flex gap-4">
@@ -213,32 +216,13 @@ const Catalogo = ({
             onChange={(e) => proveedoresfunc(e.target.value)}
           >
             <option value="">Proveedores</option>
-            <option value="001">001</option>
-            <option value="002">002</option>
-            <option value="003">003</option>
-            <option value="004">004</option>
-            <option value="005">005</option>
-            <option value="006">006</option>
-            <option value="007">007</option>
-            <option value="008">008</option>
-            <option value="009">009</option>
-            <option value="010">010</option>
-            <option value="011">011</option>
-            <option value="012">012</option>
-            <option value="013">013</option>
-            <option value="014">014</option>
-            <option value="015">015</option>
-            <option value="016">016</option>
-            <option value="017">017</option>
-            <option value="018">018</option>
-            <option value="019">019</option>
-            <option value="020">020</option>
-            <option value="021">021</option>
-            <option value="022">022</option>
-            <option value="023">023</option>
-            <option value="024">024</option>
-            <option value="025">025</option>
-            <option value="026">026</option>
+            {data1?.map((item) => {
+                  return (
+                    <option key={item.idProveedor} value={item.codProveedor}>
+                      {item.codProveedor}
+                    </option>
+                  );
+                })}
           </select>
           <button className="bg-[#292929] text-white hover:bg-[#f6f6f6] hover:text-[#292929] shadow px-2 py-1 border rounded-xl">
             <Link className="flex flex-wrap items-end" to={"/AddMaterial"}>

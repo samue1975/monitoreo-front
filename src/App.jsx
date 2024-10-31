@@ -15,6 +15,7 @@ import AddSistemas from "./Components/tablesPost/AddSistemas";
 import Responsable from "./Pages/Responsable";
 import AddResponsable from "./Components/tablesPost/AddResponsable";
 import EditResponsable from "./Components/tablesPost/EditResponsable";
+import EditInventario from "./Components/tablesPost/EditInventario";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -89,6 +90,12 @@ function App() {
           {/*INVENTARIO */}
           <Route path="/Inventario" element={<Inventario />} />
           <Route path="/AddInventario" element={<AddInventario />} />
+          <Route
+            path="/Inventario/:id"
+            element={
+              <EditInventario setUpdate={setUpdate} setPut={setPut} put={put} />
+            }
+          />
           {/* <Route path="/Inventario/:id/Modificar" element={<EditInventario />} />  */}
 
           {/*PROVEEDORES*/}

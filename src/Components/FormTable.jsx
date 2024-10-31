@@ -49,7 +49,7 @@ const FormTable = ({ setSuccess }) => {
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
-      <Identificador titulo={"AGREGAR CATALOGO"} />
+      <Identificador titulo={"AGREGAR CATÁLOGO"} />
       {success ? <Navigate to={"/Catalogo"} /> : ""}
       {send ? (
         <form
@@ -109,7 +109,7 @@ const FormTable = ({ setSuccess }) => {
               />
             ) : null}
             <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
-              <p className="font-semibold">Area o Departamento:</p>
+              <p className="font-semibold">Área o Departamento:</p>
               <select
                 className={`bg-[#F6F6F6] ${
                   errors.CodFg ? border : null
@@ -297,7 +297,7 @@ const FormTable = ({ setSuccess }) => {
                 className={`bg-[#F6F6F6] ${
                   errors.CodSu ? border : null
                 } rounded outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52`}
-                placeholder="Codigo LMNOP"
+                placeholder="Código LMNOP"
                 type="text"
                 {...register("CodLmnop", { required: true })}
               />
@@ -325,7 +325,7 @@ const FormTable = ({ setSuccess }) => {
                 className={`bg-[#F6F6F6] ${
                   errors.CodBarra ? border : null
                 } rounded outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52`}
-                placeholder="Codigo de Barras"
+                placeholder="Código de Barras"
                 type="text"
                 {...register("CodBarra", { required: true })}
               />

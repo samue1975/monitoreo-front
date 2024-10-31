@@ -85,7 +85,7 @@ const Proveedores = ({ setSuccess, success }) => {
     },
     {
       accessorKey: "codProveedor",
-      header: () => <span>COD. PROVEEDOR</span>,
+      header: () => <span>CÓD. PROVEEDOR</span>,
     },
     {
       accessorKey: "referencia",
@@ -93,7 +93,7 @@ const Proveedores = ({ setSuccess, success }) => {
     },
     {
       accessorKey: "telefono",
-      header: () => <span>TELEFONO</span>,
+      header: () => <span>TELÉFONO</span>,
     },
   ];
   const getStateTable = () => {

@@ -94,7 +94,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
-      <Identificador titulo={"EDITAR CATALOGO"} />
+      <Identificador titulo={"EDITAR CATÁLOGO"} />
       {/* {success ? <Navigate to={"/Catalogo"} /> : ""} */}
 
       {send ? (
@@ -161,7 +161,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
             </div>
             <ErrorMsg display={`${text}`} />
             <div className="flex flex-wrap gap-4 max-sm:gap-0 max-sm:justify-start justify-end pt-1">
-              <p className="font-semibold">Area o Departamento:</p>
+              <p className="font-semibold">Área o Departamento:</p>
               <select
                 className={`bg-[#F6F6F6] ${border} outline-none pl-4 max-sm:min-w-full pr-1 w-52 rounded text-[#292929] hover:bg-[#f0f0f0] font-[poppins]`}
                 {...register("CodFg", { required: true })}
@@ -323,7 +323,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
               <p className="font-semibold">ID Cronológica:</p>
               <input
                 className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52`}
-                placeholder="Codigo LMNOP"
+                placeholder="Código LMNOP"
                 type="text"
                 {...register("CodLmnop", { required: true })}
               />
@@ -341,7 +341,7 @@ const FormTable2 = ({ /* error, */ text, border, setUpdate, setPut, put }) => {
               <p className="font-semibold">Código de Barra:</p>
               <input
                 className={`bg-[#F6F6F6] ${border} rounded outline-none pl-4 max-sm:min-w-full pr-1 text-[#292929] w-52`}
-                placeholder="Codigo de Barras"
+                placeholder="Código de Barras"
                 type="text"
                 {...register("CodBarra", { required: true })}
               />

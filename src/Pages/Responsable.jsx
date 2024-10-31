@@ -81,11 +81,11 @@ const Responsable = ({ setSuccess, success }) => {
     },
     {
       accessorKey: "cedula",
-      header: () => <span>CEDULA</span>,
+      header: () => <span>CÉDULA</span>,
     },
     {
       accessorKey: "telefono",
-      header: () => <span>TELEFONO</span>,
+      header: () => <span>TELÉFONO</span>,
     },
     {
       accessorKey: "taller",
@@ -93,11 +93,11 @@ const Responsable = ({ setSuccess, success }) => {
     },
     {
       accessorKey: "gradoInstruccion",
-      header: () => <span>GRADO DE INSTRUCCION</span>,
+      header: () => <span>GRADO DE INSTRUCCIÓN</span>,
     },
     {
       accessorKey: "codigoResponsable",
-      header: () => <span>CODIGO</span>,
+      header: () => <span>CÓDIGO</span>,
     },
   ];
   const getStateTable = () => {

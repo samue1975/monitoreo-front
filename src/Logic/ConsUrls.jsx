@@ -1,4 +1,4 @@
-const IP = "0.153";
+const IP = "0.143";
 
 export const catalogoGet = `http://192.168.${IP}:80/api/Catalogo/Listas/`;
 export const catalogoDelete = `http://192.168.${IP}:80/api/Codigos/Eliminar/`;
@@ -21,3 +21,5 @@ export const ResponsableGetid = `http://192.168.${IP}:80/api/Responsable/Getid/`
 export const ResponsableAgregar = `http://192.168.${IP}:80/api/Responsable/Agregar/`;
 export const ResponsableEditar = `http://192.168.${IP}:80/api/Responsable/Editar`;
 export const ResponsableEliminar = `http://192.168.${IP}:80/api/Responsable/Eliminar/`;
+export const SistemaAgregar = `http://192.168.${IP}:80/api/Sistema/Agregar/`;
+export const SistemaList = `http://192.168.${IP}:80/api/Sistema/Lista/`;

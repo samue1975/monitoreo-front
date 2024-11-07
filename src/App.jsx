@@ -23,6 +23,7 @@ function App() {
   const [success, setSuccess] = useState(false);
   const [update, setUpdate] = useState(false);
   const [put, setPut] = useState(false);
+  const [select, setSelect] = useState(false);
 
   const [elSwitch, setElSwitch] = useState(false);
   const cambiarSwitch = () => {
@@ -35,11 +36,18 @@ function App() {
   const errorMenu = () => {
     setColor(!color);
   };
+
+  const Desplegable = () => {
+    setSelect(!select);
+  };
+
   return (
     <>
       <div className="grid grid-cols-5 font-poppins">
         <Nav
           toggle={toggleMenu}
+          toggle1={Desplegable}
+          moving1={select ? "block" : "hidden"}
           move={
             open ? "left-0" : " max-sm:-left-full max-lg:-left-1/3 -left-1/4"
           }

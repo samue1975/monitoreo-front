@@ -4,9 +4,10 @@ import { BiCategory, BiHome, BiSolidTag } from "react-icons/bi";
 import { CgToolbox } from "react-icons/cg";
 import { BsFilePerson } from "react-icons/bs";
 import { GrDeliver, GrSystem } from "react-icons/gr";
+import NavSelect from "./NavSelect";
 
 // eslint-disable-next-line react/prop-types
-const Nav = ({ toggle, color, move, bgcolor }) => {
+const Nav = ({ toggle, color, move, bgcolor, toggle1, moving1 }) => {
   return (
     <div>
       <BiSolidTag
@@ -46,10 +47,11 @@ const Nav = ({ toggle, color, move, bgcolor }) => {
             />
           </Link>
           <div>
-            <NavButtons
+            <NavSelect
               icon={<GrSystem />}
               title={"Sistemas"}
-              
+              option={toggle1}
+              moving={moving1}
             />
           </div>
           <Link to={"/Responsable"}>

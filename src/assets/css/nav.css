@@ -1,6 +1,7 @@
 .element:hover #pelota {
   width: 2rem /* 16px */;
   height: 2rem /* 16px */;
+  transform: scale(.7)
 }
 
 #pelota {

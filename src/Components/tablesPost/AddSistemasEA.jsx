@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import Identificador from "../Identificador";
 
-const AddSistemas = () => {
+const AddSistemasEA = () => {
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
       <Identificador titulo={"AGREGAR SISTEMA"} />
@@ -34,4 +34,4 @@ const AddSistemas = () => {
   );
 };
 
-export default AddSistemas;
+export default AddSistemasEA;

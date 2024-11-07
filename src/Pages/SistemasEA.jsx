@@ -5,16 +5,16 @@ import ProductosSistema from "../Components/ProductosSistema";
 import "../assets/css/home.css";
 import Identificador from "../Components/Identificador";
 
-const Sistemas = () => {
+const SistemasEA = () => {
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
-      <Identificador titulo={"SISTEMAS"} />
+      <Identificador titulo={"SISTEMAS - ENSAMBLAJE AVIONICA"} />
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda />
         <div className="flex flex-wrap justify-center gap-4">
           <button className="bg-[#292929] text-white hover:bg-[#f6f6f6] hover:text-[#292929] shadow px-2 py-1 border rounded-xl">
-            <Link className="flex flex-wrap items-end" to={"/AddSistema"}>
+            <Link className="flex flex-wrap items-end" to={"/AddSistemaEA"}>
               Agregar <IoIosAdd className="text-2xl" />
             </Link>
           </button>
@@ -23,7 +23,7 @@ const Sistemas = () => {
       {/* PRODUCTOS */}
       <div className="pt-8 gridresponsive">
         <ProductosSistema
-          nombre={"ANSU-700"}
+          nombre={"ANSU-700 CA JAJA JA JA JA JA"}
           cantidad={"230"}
           taller={"Ensamblaje"}
           responsable={"Jose Andres"}
@@ -87,4 +87,4 @@ const Sistemas = () => {
   );
 };
 
-export default Sistemas;
+export default SistemasEA;

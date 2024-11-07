@@ -10,12 +10,13 @@ import Details from "./Components/Details";
 import FormTable2 from "./Components/FormTable2";
 import AddProveedores from "./Components/tablesPost/AddProveedores";
 import Proveedores from "./Pages/Proveedores";
-import Sistemas from "./Pages/Sistemas";
-import AddSistemas from "./Components/tablesPost/AddSistemas";
+import Sistemas from "./Pages/SistemasEA";
+import AddSistemasEA from "./Components/tablesPost/AddSistemasEA";
 import Responsable from "./Pages/Responsable";
 import AddResponsable from "./Components/tablesPost/AddResponsable";
 import EditResponsable from "./Components/tablesPost/EditResponsable";
 import EditInventario from "./Components/tablesPost/EditInventario";
+import SistemasEA from "./Pages/SistemasEA";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -23,7 +24,6 @@ function App() {
   const [success, setSuccess] = useState(false);
   const [update, setUpdate] = useState(false);
   const [put, setPut] = useState(false);
-  const [select, setSelect] = useState(false);
 
   const [elSwitch, setElSwitch] = useState(false);
   const cambiarSwitch = () => {
@@ -37,17 +37,11 @@ function App() {
     setColor(!color);
   };
 
-  const Desplegable = () => {
-    setSelect(!select);
-  };
-
   return (
     <>
       <div className="grid grid-cols-5 font-poppins">
         <Nav
           toggle={toggleMenu}
-          toggle1={Desplegable}
-          moving1={select ? "block" : "hidden"}
           move={
             open ? "left-0" : " max-sm:-left-full max-lg:-left-1/3 -left-1/4"
           }
@@ -117,8 +111,8 @@ function App() {
           />
 
           {/* SISTEMAS */}
-          <Route path="/Sistemas" element={<Sistemas />} />
-          <Route path="/AddSistema" element={<AddSistemas />} />
+          <Route path="/SistemasEA" element={<SistemasEA />} />
+          <Route path="/AddSistemaEA" element={<AddSistemasEA />} />
           <Route
             path="/Responsable"
             element={<Responsable success={success} setSuccess={setSuccess} />}

@@ -1,17 +1,23 @@
 import { BiSubdirectoryRight } from "react-icons/bi";
 import "../assets/css/nav.css";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const NavSelect = ({ icon, title, option, moving }) => {
+const NavSelect = ({ icon, title }) => {
+  const [select, setSelect] = useState(false);
+  const Desplegable = () => {
+    setSelect(!select);
+  };
+
   return (
     <div>
       <div
-        onClick={option}
-        className="flex justify-between items-center px-4 py-2 rounded-r-full bg-white text-[#292929] cursor-pointer element pr-6 hover:pr-4 duration-200 selection:bg-transparent"
+        onClick={Desplegable}
+        className="flex justify-between items-center px-4 py-1 rounded-r-full bg-white text-[#292929] cursor-pointer element pr-6 hover:pr-4 duration-200 selection:bg-transparent"
       >
-        <div className=" flex items-center gap-2 text-xl">
+        <div className=" flex items-center gap-2 text-lg">
           <span className="text-3xl">{icon}</span>
           <p>{title}</p>
         </div>
@@ -19,12 +25,12 @@ const NavSelect = ({ icon, title, option, moving }) => {
           className={`bg-[#292929] rounded-full duration-200 flex justify-center items-center text-white`}
           id="pelota"
         >
-          <IoIosArrowUp className={`${moving}`} />
+          <IoIosArrowUp className={`${select ? "block" : "hidden"}`} />
         </div>
       </div>
-      <div className={`${moving} text-white px-4 py-2 gap-2 flex flex-col`}>
+      <div className={`${select ? "block" : "hidden"} text-white px-4 py-2 gap-2 flex flex-col`}>
         <Link
-          to={"/EnsamblajeAvionica"}
+          to={"/SistemasEA"}
           className="flex selection:bg-transparent items-center rounded-r-full bg-white text-[#292929] cursor-pointer"
         >
           <BiSubdirectoryRight />

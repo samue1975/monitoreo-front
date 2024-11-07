@@ -24,6 +24,7 @@ function App() {
   const [success, setSuccess] = useState(false);
   const [update, setUpdate] = useState(false);
   const [put, setPut] = useState(false);
+  const [select, setSelect] = useState(false);
 
   const [elSwitch, setElSwitch] = useState(false);
   const cambiarSwitch = () => {
@@ -32,9 +33,16 @@ function App() {
 
   const toggleMenu = () => {
     setOpen(!open);
+    {
+      select ? setSelect(!select) : setSelect(select);
+    }
   };
   const errorMenu = () => {
     setColor(!color);
+  };
+
+  const Desplegable = () => {
+    setSelect(!select);
   };
 
   return (
@@ -42,6 +50,8 @@ function App() {
       <div className="grid grid-cols-5 font-poppins">
         <Nav
           toggle={toggleMenu}
+          option1={Desplegable}
+          options1={toggleMenu}
           move={
             open ? "left-0" : " max-sm:-left-full max-lg:-left-1/3 -left-1/4"
           }
@@ -50,6 +60,7 @@ function App() {
           }
           bgcolor={open ? "block" : "hidden"}
           faded={open ? "" : "hidden"}
+          moving1={select ? "block" : "hidden"}
         />
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />

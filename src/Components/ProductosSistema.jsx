@@ -6,7 +6,7 @@ const ProductosSistema = ({ nombre }) => {
         <div className="min-w-36 min-h-36 flex justify-start">
           <img
             className="object-cover object-center min-w-full min-h-full"
-            src="Horizontal.jpg"
+            src="airplane-icon.svg"
           />
         </div>
         {/* PARTE DERECHA */}

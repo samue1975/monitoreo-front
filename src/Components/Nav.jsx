@@ -7,7 +7,7 @@ import { GrDeliver, GrSystem } from "react-icons/gr";
 import NavSelect from "./NavSelect";
 
 // eslint-disable-next-line react/prop-types
-const Nav = ({ toggle, color, move, bgcolor}) => {
+const Nav = ({ toggle, color, move, bgcolor, option1, options1, moving1}) => {
   return (
     <div>
       <BiSolidTag
@@ -50,8 +50,9 @@ const Nav = ({ toggle, color, move, bgcolor}) => {
             <NavSelect
               icon={<GrSystem />}
               title={"Sistemas"}
-              
-             
+              option={option1}
+              moving={moving1}
+              options={options1}
             />
           </div>
           <Link to={"/Responsable"}>

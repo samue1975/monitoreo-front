@@ -10,13 +10,13 @@ import Details from "./Components/Details";
 import FormTable2 from "./Components/FormTable2";
 import AddProveedores from "./Components/tablesPost/AddProveedores";
 import Proveedores from "./Pages/Proveedores";
-import Sistemas from "./Pages/SistemasEA";
-import AddSistemasEA from "./Components/tablesPost/AddSistemasEA";
+import Sistemas from "./Pages/Sistemas";
+import AddSistemas from "./Components/tablesPost/AddSistemas";
 import Responsable from "./Pages/Responsable";
 import AddResponsable from "./Components/tablesPost/AddResponsable";
 import EditResponsable from "./Components/tablesPost/EditResponsable";
 import EditInventario from "./Components/tablesPost/EditInventario";
-import SistemasEA from "./Pages/SistemasEA";
+import DetailsSistemas from "./Components/DetailsSistemas";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -63,6 +63,7 @@ function App() {
           moving1={select ? "block" : "hidden"}
         />
         <Routes>
+          {/* INICIO */}
           <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={<Home />} />
 
@@ -122,8 +123,60 @@ function App() {
           />
 
           {/* SISTEMAS */}
-          <Route path="/SistemasEA" element={<SistemasEA />} />
-          <Route path="/AddSistemaEA" element={<AddSistemasEA />} />
+          <Route
+            path="/SistemasEA"
+            element={
+              <Sistemas
+                titulo={"ENSAMBLAJE AVIONICA"}
+                agregar={"/AddSistemaEA"}
+              />
+            }
+          />
+          <Route
+            path="/SistemasMC"
+            element={
+              <Sistemas
+                titulo={"MATERIAL COMPUESTO"}
+                agregar={"/AddSistemaMC"}
+              />
+            }
+          />
+          <Route
+            path="/SistemasIP"
+            element={
+              <Sistemas
+                titulo={"INTEGRACION Y PRUEBA"}
+                agregar={"/AddSistemaIP"}
+              />
+            }
+          />
+          <Route
+            path="/SistemasEE"
+            element={
+              <Sistemas titulo={"ENSAMBLAJE"} agregar={"/AddSistemaEE"} />
+            }
+          />
+          <Route
+            path="/AddSistemaEA"
+            element={<AddSistemas titulo={"ENSAMBLAJE AVIONICA"} />}
+          />
+          <Route
+            path="/AddSistemaMC"
+            element={<AddSistemas titulo={"MATERIAL COMPUESTO"} />}
+          />
+          <Route
+            path="/AddSistemaIP"
+            element={<AddSistemas titulo={"INTEGRACION Y PRUEBA"} />}
+          />
+          <Route
+            path="/AddSistemaEE"
+            element={<AddSistemas titulo={"ENSAMBLAJE"} />}
+          />
+
+          {/* SISTEMAS DETALLES */}
+          <Route path="/DetallesEA" element={<DetailsSistemas />} />
+
+          {/* RESPONSABLE */}
           <Route
             path="/Responsable"
             element={<Responsable success={success} setSuccess={setSuccess} />}

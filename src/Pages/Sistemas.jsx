@@ -5,16 +5,17 @@ import ProductosSistema from "../Components/ProductosSistema";
 import "../assets/css/home.css";
 import Identificador from "../Components/Identificador";
 
-const SistemasEA = () => {
+// eslint-disable-next-line react/prop-types
+const Sistemas = ({ titulo, agregar }) => {
   return (
     <div className="col-span-5 pt-4 px-8 pb-8">
-      <Identificador titulo={"SISTEMAS - ENSAMBLAJE AVIONICA"} />
+      <Identificador titulo={`SISTEMAS - ${titulo}`} />
       {/* APARTADO DE BUSQUEDA Y DE BOTONES */}
       <div className="flex flex-wrap max-sm:gap-4 justify-between pt-8">
         <Busqueda />
         <div className="flex flex-wrap justify-center gap-4">
           <button className="bg-[#292929] text-white hover:bg-[#f6f6f6] hover:text-[#292929] shadow px-2 py-1 border rounded-xl">
-            <Link className="flex flex-wrap items-end" to={"/AddSistemaEA"}>
+            <Link className="flex flex-wrap items-end" to={`${agregar}`}>
               Agregar <IoIosAdd className="text-2xl" />
             </Link>
           </button>
@@ -87,4 +88,4 @@ const SistemasEA = () => {
   );
 };
 
-export default SistemasEA;
+export default Sistemas;

@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import Identificador from "../Identificador";
 
-const AddSistemasEA = () => {
+const AddSistemas = ({ titulo }) => {
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">
-      <Identificador titulo={"AGREGAR SISTEMA"} />
+      <Identificador titulo={`AGREGAR - ${titulo}`} />
       {/* TODO EL FORMULARIO */}
       <form className="py-4 px-20 max-sm:px-8 flex flex-col gap-6 rounded-xl text-[#292929] shadow-sm max-sm:min-w-full border-[1px]">
         {/* FLECHA PARA IR HACIA ATRAS */}
-        <Link className="text-xl text-[#292929] size-4" to={"/Sistemas"}>
+        <Link className="text-xl text-[#292929] size-4" to={"/SistemasEA"}>
           <BiArrowBack />
         </Link>
         <div className="flex flex-col gap-2">
@@ -34,4 +34,4 @@ const AddSistemasEA = () => {
   );
 };
 
-export default AddSistemasEA;
+export default AddSistemas;

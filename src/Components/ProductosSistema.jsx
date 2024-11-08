@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductosSistema = ({ nombre }) => {
   return (
     <div className="w-80 h-36 bg-[#f6f6f6] flex flex-col justify-between gap-2">
@@ -20,9 +22,12 @@ const ProductosSistema = ({ nombre }) => {
 
           {/* OPCIONES DE EDITAR */}
           <div className="flex gap-1">
-            <button className="w-1/2 bg-[#292929] text-center text-white">
+            <Link
+              to={"/DetallesEA"}
+              className="w-1/2 bg-[#292929] text-center text-white"
+            >
               Detalles
-            </button>
+            </Link>
             <button className="w-1/2 bg-[#292929] text-center text-white">
               Eliminar
             </button>

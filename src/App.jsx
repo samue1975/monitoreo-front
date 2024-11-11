@@ -25,12 +25,14 @@ function App() {
   const [update, setUpdate] = useState(false);
   const [put, setPut] = useState(false);
   const [select, setSelect] = useState(false);
-
   const [elSwitch, setElSwitch] = useState(false);
+
+  // ALTERNA EL ESTADO DEL SWITCH EN EL CATALOGO
   const cambiarSwitch = () => {
     setElSwitch(!elSwitch);
   };
 
+  // CIERRA EL MENU Y CIERRA EL APARTADO SISTEMAS SOLO SI ESTA ABIERTO
   const toggleMenu = () => {
     setOpen(!open);
     {
@@ -41,13 +43,21 @@ function App() {
     setColor(!color);
   };
 
+  // PARA ABRIR EL APARTADO SISTEMAS DESDE EL MENU
   const Desplegable = () => {
+    setSelect(!select);
+  };
+
+  // PARA ABRIR EL MENU Y EL APARTADO SISTEMAS DESDE EL HOME
+  const Systems = () => {
+    setOpen(!open);
     setSelect(!select);
   };
 
   return (
     <>
       <div className="grid grid-cols-5 font-poppins">
+        {/* ES EL MENU */}
         <Nav
           toggle={toggleMenu}
           option1={Desplegable}
@@ -62,10 +72,11 @@ function App() {
           faded={open ? "" : "hidden"}
           moving1={select ? "block" : "hidden"}
         />
+        {/* EMPIEZAN LAS RUTAS */}
         <Routes>
           {/* INICIO */}
           <Route path="/" element={<Navigate to="/Home" />} />
-          <Route path="/Home" element={<Home />} />
+          <Route path="/Home" element={<Home option1={Systems} />} />
 
           {/* CATALOGO */}
           <Route

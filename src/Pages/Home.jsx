@@ -1,7 +1,10 @@
 import { format } from "date-fns";
 import "../assets/css/home.css";
-import Loader from "../Components/Loader";
-import ProductoLista from "../Components/ProductoLista";
+import CTA_main from "../Components/CTA_main";
+import { BiCategory } from "react-icons/bi";
+import { CgToolbox } from "react-icons/cg";
+import { BsFilePerson } from "react-icons/bs";
+import { GrDeliver, GrSystem } from "react-icons/gr";
 
 const meses = {
   0: "Enero",
@@ -18,7 +21,7 @@ const meses = {
   11: "Diciembre",
 };
 
-const Home = () => {
+const Home = ({ option1 }) => {
   const fechaActual = new Date();
   const mes = fechaActual.getMonth(); // Enero es 0
   const año = fechaActual.getFullYear();
@@ -32,24 +35,38 @@ const Home = () => {
       <header className="flex justify-end w-full">
         <span className="text-gray-600">{fechaCompleta}</span>
       </header>
-      <section className="flex flex-col gap-10">
-        <h1 className="text-5xl text-center max-sm:text-4xl">
-          Bienvenido al Sistema de <strong>Monitoreo y Control</strong>
-        </h1>
-        <h1 className="text-4xl text-center max-sm:text-3xl">
-          Realizado por la Gerencia de Software
-        </h1>
-        <h1 className="text-6xl text-center flex justify-center gap-5 max-sm:text-5xl">
-          Para
-          <div className="flex font-semibold selection:bg-transparent cursor-default">
-            <div className="text-[yellow] shadowEa">EA</div>
-            <div className="text-[blue] shadowEa">N</div>
-            <div className="text-[red] shadowEa">SA</div>
-          </div>
-        </h1>
-        <div className="fixed right-0 left-0 m-auto max-[680px]:top-1/3 -z-10">
-          <Loader />
-        </div>
+      <section className="flex flex-wrap gap-5 justify-between max-[667px]:gap-0 max-[457px]:gap-7">
+        <CTA_main
+          color={"bg-yellow-500"}
+          texto={"Catálago"}
+          icon={<BiCategory className="size-14" />}
+          dir={"/Catalogo"}
+        />
+        <CTA_main
+          color={"bg-blue-500"}
+          texto={"Inventario"}
+          icon={<CgToolbox className="size-14" />}
+          dir={"/Inventario"}
+        />
+        <CTA_main
+          color={"bg-red-500"}
+          texto={"Proveedores"}
+          icon={<GrDeliver className="size-14" />}
+          dir={"/Proveedores"}
+        />
+        <CTA_main
+          color={"bg-slate-400"}
+          texto={"Sistemas"}
+          icon={<GrSystem className="size-14" />}
+          dir={"/Home"}
+          option={option1}
+        />
+        <CTA_main
+          color={"bg-green-500"}
+          texto={"Responsable"}
+          icon={<BsFilePerson className="size-14" />}
+          dir={"/Responsable"}
+        />
       </section>
     </div>
   );

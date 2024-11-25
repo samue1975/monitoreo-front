@@ -29,10 +29,14 @@ const EditInventario = ({ /* error, */ setUpdate, setPut, put }) => {
   //methods CRUD
   const { data } = useMethodGet(`${almacenGetid}${id}`);
 
+  const almacen = data?.[0];
+
+  const combinedId = almacen ? `${id}/${almacen.idCodProd}` : null;
+
   //useMethodPut
   const { errorsPost } = useMethodPut(
     setSuccess,
-    id,
+    combinedId,
     data2,
     `${almacenEditar}`
   );
@@ -51,10 +55,7 @@ const EditInventario = ({ /* error, */ setUpdate, setPut, put }) => {
     setValue("FechaIngreso", data[0].fechaingreso);
     setValue("FechaCaducidad", data[0].fechaCaducidad);
     setValue("Ubicacion", data[0].ubicacion);
-  }
-
-  {
-    console.log(data);
+    setValue("ID2", data[0].idCodProd);
   }
 
   const onSubmit = handleSubmit(async (object) => {
@@ -73,7 +74,6 @@ const EditInventario = ({ /* error, */ setUpdate, setPut, put }) => {
   }, [success]);
 
   const { data1 } = useMethodGet(proveedorGet);
-  console.log(data1);
 
   return (
     <div className="flex flex-wrap col-span-5 justify-center items-center max-sm:px-4 pt-12 pb-4">

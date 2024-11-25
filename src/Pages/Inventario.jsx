@@ -24,8 +24,6 @@ import { Link } from "react-router-dom";
 import { IoIosAdd } from "react-icons/io";
 import Loader from "../Components/Loader";
 import Identificador from "../Components/Identificador";
-import { MdDelete } from "react-icons/md";
-import { MdEditDocument } from "react-icons/md";
 
 const fuzzyFilter = (row, columnId, value, addMeta) => {
   const itemRank = rankItem(row.getValue(columnId), value);
@@ -152,8 +150,8 @@ const Inventario = () => {
   });
 
   //Delete
-  function deleteData(id) {
-    fetch(`${almacenDelete}${id}`, {
+  function deleteData(id, id2) {
+    fetch(`${almacenDelete}${id}/${id2}`, {
       method: "DELETE",
     })
       .then((respuesta) => respuesta.json())
@@ -266,7 +264,10 @@ const Inventario = () => {
                                   "Estas seguro que quieres eliminar esta tarea"
                                 );
                                 if (accepted) {
-                                  await deleteData(row.original.idAlmacen);
+                                  await deleteData(
+                                    row.original.idAlmacen,
+                                    row.original.idCodProd
+                                  );
                                 }
                               }}
                             >

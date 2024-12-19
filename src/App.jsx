@@ -17,6 +17,7 @@ import AddResponsable from "./Components/tablesPost/AddResponsable";
 import EditResponsable from "./Components/tablesPost/EditResponsable";
 import EditInventario from "./Components/tablesPost/EditInventario";
 import DetailsSistemas from "./Components/DetailsSistemas";
+import Login from "./Components/Login";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -206,6 +207,7 @@ function App() {
               />
             }
           />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </div>
     </>

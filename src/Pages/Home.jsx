@@ -35,7 +35,7 @@ const Home = ({ option1 }) => {
       <header className="flex justify-end w-full">
         <span className="text-gray-600">{fechaCompleta}</span>
       </header>
-      <section className="flex flex-wrap gap-5 justify-between max-[667px]:gap-0 max-[457px]:gap-7">
+      <section className="flex flex-wrap gap-5 justify-between max-[667px]: max-[667px]:gap-0 max-[457px]:gap-7">
         <CTA_main
           color={"bg-yellow-500"}
           texto={"Catálago"}
